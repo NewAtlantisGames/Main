@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title><![CDATA[NewAtlantisGames]]></title>
+  <subtitle><![CDATA[从小爱游戏 长大做游戏 虽然孤独 从未放弃]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://www.newatlantisgames.net//"/>
+  <updated>2015-08-10T01:46:21.986Z</updated>
+  <id>http://www.newatlantisgames.net//</id>
+  
+  <author>
+    <name><![CDATA[Lei Lavas]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[NewPost.md]]></title>
+    <link href="http://www.newatlantisgames.net/2015/08/10/NewPost-md/"/>
+    <id>http://www.newatlantisgames.net/2015/08/10/NewPost-md/</id>
+    <published>2015-08-10T01:46:21.000Z</published>
+    <updated>2015-08-10T01:46:21.986Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.newatlantisgames.net/2015/08/10/NewPost/"/>
+    <id>http://www.newatlantisgames.net/2015/08/10/NewPost/</id>
+    <published>2015-08-10T01:46:02.271Z</published>
+    <updated>2015-08-10T01:45:12.014Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p> 下面是一段代码 </p>
+</blockquote>
+<pre><code><span class="keyword">if</span> <span class="params">(!ifMeAdded)</span>
+{ifMeAdded = <span class="literal">true</span>;
+
+    <span class="keyword">if</span> <span class="params">(landStartObject != null)</span>
+    {int generatorLandIndex = GameWorld.landPlaces.IndexOf <span class="params">(landStartObject)</span>;
+        Transform landObject = transform.GetChild <span class="params">(<span class="number">0</span>)</span>;
+
+        <span class="keyword">if</span> <span class="params">(landObject != null)</span>
+        {GameWorld.landPlaces.Insert <span class="params">(generatorLandIndex, landObject)</span>;
+
+            <span class="keyword">if</span> <span class="params">(ifStabUp)</span>
+            {landObject.GetComponent &lt;SpriteRenderer&gt; <span class="params">()</span>.<span class="built_in">color</span> = new Color <span class="params">(<span class="number">255</span>F/<span class="number">255</span>F, <span class="number">0</span>, <span class="number">0</span>)</span>;
+            }
+            <span class="keyword">else</span>
+            {landObject.GetComponent &lt;SpriteRenderer&gt; <span class="params">()</span>.<span class="built_in">color</span> = new Color <span class="params">(<span class="number">0</span>, <span class="number">255</span>F/<span class="number">255</span>F, <span class="number">0</span>)</span>;
+            }
+
+            Debug.Log <span class="params">(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;"</span>)</span>;
+            Debug.Log <span class="params">(generatorLandIndex)</span>;
+            <span class="keyword">for</span> <span class="params">(int i = <span class="number">0</span>; i &lt; GameWorld.landPlaces.Count; i++)</span>
+            {Debug.Log <span class="params">(<span class="string">"Index ="</span> + i.ToString <span class="params">()</span> + <span class="string">""</span> + GameWorld.landPlaces[i].parent.ToString <span class="params">()</span>)</span>;
+            }
+            Debug.Log <span class="params">(<span class="string">"&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"</span>)</span>;
+        }
+    }
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p> 下面是一段代码 </p>
+</blockquote>
+<pre><code><span class="keyword">if</span> <span class="params">(!ifMeAdded)</span>
+{ifMeAdded =]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[My post]]></title>
+    <link href="http://www.newatlantisgames.net/2015/08/09/My-post/"/>
+    <id>http://www.newatlantisgames.net/2015/08/09/My-post/</id>
+    <published>2015-08-09T06:40:34.000Z</published>
+    <updated>2015-08-09T06:40:34.173Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <link href="http://www.newatlantisgames.net/2015/08/09/hello-world/"/>
+    <id>http://www.newatlantisgames.net/2015/08/09/hello-world/</id>
+    <published>2015-08-09T04:50:53.289Z</published>
+    <updated>2015-08-09T04:50:53.289Z</updated>
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
