@@ -1,0 +1,743 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【译】Unity 制作 2D 飞行射击游戏 [4/10] | NewAtlantisGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lei Lavas">
+    
+
+    
+    <meta name="description" content="射击（1/2）
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/shooting-1/
+我们的飞船正面对着一个令人恐惧的章鱼，但是却什么也做不了……
+让我们给他一把武器和一些弹药吧！本章将包含稍微多一些的脚本，但别失去信心，这都是值得的。
+创建子弹  首先，在让主角射击之前，我们先创建一个主角将要用到的代表子弹的游戏对象吧。
+下面是子弹的精灵：（鼠">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Unity 制作 2D 飞行射击游戏 [4/10]">
+<meta property="og:url" content="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/index.html">
+<meta property="og:site_name" content="NewAtlantisGames">
+<meta property="og:description" content="射击（1/2）
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/shooting-1/
+我们的飞船正面对着一个令人恐惧的章鱼，但是却什么也做不了……
+让我们给他一把武器和一些弹药吧！本章将包含稍微多一些的脚本，但别失去信心，这都是值得的。
+创建子弹  首先，在让主角射击之前，我们先创建一个主角将要用到的代表子弹的游戏对象吧。
+下面是子弹的精灵：（鼠">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shot.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shot_config1.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/bang.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/bang2.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/dnd_prefab.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shooting.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shooting_rotation.png">
+<meta property="og:updated_time" content="2015-09-25T07:24:40.804Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Unity 制作 2D 飞行射击游戏 [4/10]">
+<meta name="twitter:description" content="射击（1/2）
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/shooting-1/
+我们的飞船正面对着一个令人恐惧的章鱼，但是却什么也做不了……
+让我们给他一把武器和一些弹药吧！本章将包含稍微多一些的脚本，但别失去信心，这都是值得的。
+创建子弹  首先，在让主角射击之前，我们先创建一个主角将要用到的代表子弹的游戏对象吧。
+下面是子弹的精灵：（鼠">
+
+    
+    <link rel="alternative" href="/atom.xml" title="NewAtlantisGames" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/grouplogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/grouplogo.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?12e16f3e220c8c67d78c205dc4eca514";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="NewAtlantisGames" title="NewAtlantisGames"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="NewAtlantisGames">NewAtlantisGames</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.newatlantisgames.net">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/" title="【译】Unity 制作 2D 飞行射击游戏 [4/10]" itemprop="url">【译】Unity 制作 2D 飞行射击游戏 [4/10]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lei Lavas" target="_blank" itemprop="author">Lei Lavas</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-25T01:16:41.000Z" itemprop="datePublished"> 发表于 2015-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建子弹"><span class="toc-number">1.</span> <span class="toc-text">创建子弹 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建子弹的预设"><span class="toc-number">1.1.</span> <span class="toc-text">创建子弹的预设 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加碰撞及伤害"><span class="toc-number">1.2.</span> <span class="toc-text">添加碰撞及伤害 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#射击"><span class="toc-number">2.</span> <span class="toc-text">射击 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#让主角使用武器"><span class="toc-number">2.1.</span> <span class="toc-text">让主角使用武器 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">3.</span> <span class="toc-text">下一步 </span></a></li></ol>
+		
+		</div>
+		
+		<p><span style="color:#2ca6cb; font-size:32px">射击（1/2）</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/shooting-1/</a></span></strong></p>
+<p>我们的飞船正面对着一个令人恐惧的章鱼，但是却什么也做不了……</p>
+<p>让我们给他一把武器和一些弹药吧！本章将包含稍微多一些的脚本，但别失去信心，这都是值得的。</p>
+<h1 id="创建子弹">创建子弹 </h1><p> 首先，在让主角射击之前，我们先创建一个主角将要用到的代表子弹的游戏对象吧。</p>
+<p>下面是子弹的精灵：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shot.png"><br><em>（鼠标右键点击保存图片）</em></p>
+<p>这个子弹将是我们常要用到的对象：当主角开始射击后，屏幕内将会出现很多的子弹实体。</p>
+<p>我们应该怎样使用它呢？当然了，将它保存为预设！</p>
+<h2 id="创建子弹的预设">创建子弹的预设 </h2><p> 你现在应该按照如下的程序进行：</p>
+<ol>
+<li>导入贴图。</li>
+<li>在场景中创建一个新的 <span style="background-color:#d9d9d9"> 精灵(Sprite)</span>。</li>
+<li>在精灵上加载图片。</li>
+<li>添加一个 “Rigidbody 2D” 组件，并将 “Gravity Scale” 设为 <span style="background-color:#d9d9d9">0</span>，将 “Fixed Angles” 勾选。</li>
+<li>添加一个 “Box Collider 2D” 组件，将大小设为 <span style="background-color:#d9d9d9">(1, 1)</span>。</li>
+</ol>
+<p>将子弹的缩放尺寸 (Scale) 设为 <span style="background-color:#d9d9d9">(0.75, 0.75, 1)</span>，这样看起来大小就合适了。</p>
+<p>无论怎样，这次，我们需要在“检视(Inspector)”面板中设置一个新的参数：</p>
+<ol>
+<li>在 “Box Collider 2D” 中，勾选 “IsTrigger” 选项。</li>
+</ol>
+<p>触发器碰撞盒在发生碰撞后会触发一个事件，但是却不会触发物理事件（比如互相阻挡）。</p>
+<p>意思就是子弹接触到其他物体后，会直接穿过去 ———— 不会发生任何像现实世界一样的相互作用，但是被碰撞的物体也会触发 “OnTriggerEnter2D” 事件。</p>
+<p>啦啦啦，你有子弹啦！现在我们来给子弹编写一个行为脚本。</p>
+<p>创建一个新脚本并命名为 “ShotScript”：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Projectile behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ShotScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment">// 1 - Designer variables</span>
+  <span class="comment">// 1 - 设计变量</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Damage inflicted</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">int</span> damage = <span class="number">1</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Projectile damage player or enemies?</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isEnemyShot = <span class="keyword">false</span>;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 2 - Limited time to live to avoid any leak</span>
+    <span class="comment">// 2 - 为子弹设置存在时间上限，以防内存泄漏</span>
+    Destroy(gameObject, <span class="number">20</span>); <span class="comment">// 20sec</span>
+  }
+}
+</code></pre><ol>
+<li>定义了速度、方向、伤害的设计变量。</li>
+<li>我们将在 20 秒后将子弹销毁以防内存泄漏。</li>
+</ol>
+<p>将 “ShotScript” 脚本附加到精灵上。同时再附加一个 “MoveScript” 脚本，这样你的子弹就会移动了。</p>
+<p>然后将子弹对象拖拽到“项目(Project)”面板中，这样就创建了子弹的预设(Prefab)。我们将在以后的几步中用到它。</p>
+<p>你现在的配置应该如下图所示：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shot_config1.png"></p>
+<p>当你点击 “Play” 按钮后，你将会看到子弹在移动。</p>
+<h2 id="添加碰撞及伤害">添加碰撞及伤害 </h2><p> 不管怎样，现在子弹还不能摧毁任何东西。</p>
+<p>别担心，因为我们还没有为它编写伤害行为。我们只需要再新建一个名为 “HealthScript” 的脚本：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Handle hitpoints and damages</span>
+<span class="comment"><span class="xmlDocTag">///</span> 处理生命值和伤害值</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HealthScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Total hitpoints</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 总生命值</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">int</span> hp = <span class="number">1</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Enemy or player?</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 判断是敌人还是主角</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isEnemy = <span class="keyword">true</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Inflicts damage and check if the object should be destroyed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 造成伤害并判断物体是否应该被摧毁</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="damageCount"&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Damage</span>(<span class="params"><span class="keyword">int</span> damageCount</span>)
+  </span>{
+    hp -= damageCount;
+
+    <span class="keyword">if</span> (hp &lt;= <span class="number">0</span>)
+    {<span class="comment">// Dead!</span>
+      Destroy(gameObject);
+    }
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">OnTriggerEnter2D</span>(<span class="params">Collider2D otherCollider</span>)
+  </span>{<span class="comment">// Is this a shot?</span>
+    <span class="comment">// 判断这是否是一个子弹？</span>
+    ShotScript shot = otherCollider.gameObject.GetComponent&lt;ShotScript&gt;();
+    <span class="keyword">if</span> (shot != <span class="keyword">null</span>)
+    {<span class="comment">// Avoid friendly fire</span>
+      <span class="keyword">if</span> (shot.isEnemyShot != isEnemy)
+      {Damage(shot.damage);
+
+        <span class="comment">// Destroy the shot</span>
+        Destroy(shot.gameObject); 
+        <span class="comment">// Remember to always target the game object, otherwise you will just remove the script</span>
+        <span class="comment">// 记住你要销毁的是 game object（所以这里使用 shot.gameObject），否则你只是将脚本销毁，而不是游戏对象。</span>
+      }
+    }
+  }
+}
+</code></pre><p>将脚本 “HealthScript” 附加到章鱼 <strong><span style="background-color:#d9d9d9"> 预设</span></strong> 上。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">注意：</span>直接在 <span style="background-color:#d9d9d9"> 预设 (Prefab)</span> 上进行修改更好。因为这样做，每一个在场景中的敌人实例都会自动随着 <span style="background-color:#d9d9d9"> 预设 (Prefab)</span> 的改变而改变。这样做是非常重要的，因为我们的场景中将会有非常多的敌人，你不可能去一个一个地修改。<br>如果你已经在实例上做出修改而不是在 <span style="background-color:#d9d9d9"> 预设 </span> 上，也别担心：你可以点击“检视 (Inspector)”面板上方的 “Apply” 按钮来将修改应用到<span style="background-color:#d9d9d9"> 预设 (Prefab)</span> 上。</div></strong></p>
+<p>确保子弹和章鱼在同一水平线上，好让我们测试它们之间的碰撞效果。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>Box2D 物理引擎不使用 Z 轴。即使你的游戏对象不在同一个平面内，碰撞盒也总会在同一个平面内。</div></strong></p>
+<p>现在运行游戏观察效果：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/bang.gif"></p>
+<p>如果敌人的生命值大于子弹的伤害值，敌人就不会被消灭。试着修改敌人脚本 “HealthScript” 中的 hp 的值：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/bang2.gif"></p>
+<h1 id="射击">射击 </h1><p> 删除在场景中的子弹，我们已经将它完成并且也没它什么事了。</p>
+<p>我们需要新建一个脚本来发射子弹。新建一个名为：”WeaponScript” 的脚本。</p>
+<p>这个脚本将会被多次使用（主角、敌人等等），它的作用就是在附加它的游戏物体的前方生成一个子弹实例。</p>
+<p>下面是完整的脚本代码，比之前的脚本代码都要多。脚本下方有详细的解释：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Launch projectile</span>
+<span class="comment"><span class="xmlDocTag">///</span> 发射子弹</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WeaponScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment">//--------------------------------</span>
+  <span class="comment">// 1 - Designer variables</span>
+  <span class="comment">// 1 - 设计变量</span>
+  <span class="comment">//--------------------------------</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Projectile prefab for shooting</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 用来发射的子弹预设</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Transform shotPrefab;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Cooldown in seconds between two shots</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 在两次发射之间的时间间隔，用秒作为单位</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">float</span> shootingRate = <span class="number">0.25</span>f;
+
+  <span class="comment">//--------------------------------</span>
+  <span class="comment">// 2 - Cooldown</span>
+  <span class="comment">// 2 - 冷却</span>
+  <span class="comment">//--------------------------------</span>
+
+  <span class="keyword">private</span> <span class="keyword">float</span> shootCooldown;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{shootCooldown = <span class="number">0</span>f;
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="keyword">if</span> (shootCooldown &gt; <span class="number">0</span>)
+    {shootCooldown -= Time.deltaTime;}
+  }
+
+  <span class="comment">//--------------------------------</span>
+  <span class="comment">// 3 - Shooting from another script</span>
+  <span class="comment">// 3 - 让另外的脚本也可以射击</span>
+  <span class="comment">//--------------------------------</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Create a new projectile if possible</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 如果可能的话，新建一个子弹</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Attack</span>(<span class="params"><span class="keyword">bool</span> isEnemy</span>)
+  </span>{<span class="keyword">if</span> (CanAttack)
+    {
+      shootCooldown = shootingRate;
+
+      <span class="comment">// Create a new shot</span>
+      <span class="comment">// 创建一个新子弹</span>
+      <span class="keyword">var</span> shotTransform = Instantiate(shotPrefab) <span class="keyword">as</span> Transform;
+
+      <span class="comment">// Assign position</span>
+      <span class="comment">// 分配坐标</span>
+      shotTransform.position = transform.position;
+
+      <span class="comment">// The is enemy property</span>
+      <span class="comment">// 敌人相关属性</span>
+      ShotScript shot = shotTransform.gameObject.GetComponent&lt;ShotScript&gt;();
+      <span class="keyword">if</span> (shot != <span class="keyword">null</span>)
+      {shot.isEnemyShot = isEnemy;}
+
+      <span class="comment">// Make the weapon shot always towards it</span>
+      <span class="comment">// 使武器总是朝向指定的方向发射</span>
+      MoveScript move = shotTransform.gameObject.GetComponent&lt;MoveScript&gt;();
+      <span class="keyword">if</span> (move != <span class="keyword">null</span>)
+      {move.direction = <span class="keyword">this</span>.transform.right; 
+        <span class="comment">// towards in 2D space is the right of the sprite</span>
+        <span class="comment">// 在 2D 空间中朝向精灵的右边</span>
+      }
+    }
+  }
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Is the weapon ready to create a new projectile?</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 武器能否创建一个新的子弹？</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> CanAttack
+  {<span class="keyword">get</span>
+    {<span class="keyword">return</span> shootCooldown &lt;= <span class="number">0</span>f;
+    }
+  }
+}
+</code></pre><p>将此脚本附加给主角。</p>
+<p>脚本大致分为三个部分：</p>
+<p><span style="color:#d9d9d9">1. 在“检视(Inspector)”面板中可修改的变量</span></p>
+<p>我们此处有两个成员变量：<span style="background-color:#d9d9d9">shotPrefab（子弹预设）</span> 和 <span style="background-color:#d9d9d9">shootingRate（射击频率）</span>。</p>
+<p>第一个变量需要设置一下武器要用的子弹：</p>
+<p>在“层级(Hierarchy)”面板中选中主角。在 “WeaponScript” 组件中，你可以看到 “Shot Prefab” 属性的值是 “None”。</p>
+<p>将 “Shot” 预设拖拽至此处：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/dnd_prefab.png"></p>
+<p>Unity 会自动填补并完成脚本内容。很容易，不是吗？</p>
+<p>shootingRate 变量在脚本中设有一个默认值。我们此刻还不需要修改它。但是你可以运行游戏实验一下它在游戏中的效果。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">请小心：</span>在 Unity “检视 (Inspector)”面板中修改的变量值并不会改变脚本代码中此变量的默认值。如果你将此脚本附加在了另一个物体上，默认值还是脚本代码中设定的默认值。<br> 这很符合逻辑，但是你需要小心。如果你想决定调整后的值，你必须打开代码编辑器自己去手动修改。</div></strong></p>
+<p><span style="color:#d9d9d9">2. 射击冷却时间 </span><br> 武器是有射击频率的。如果没有的话，在每一帧中你都能生成成吨的子弹。</p>
+<p>所以我们设定了一个简单的冷却机制。如果有个值大于 0 时，我们就禁止射击。我们在每一帧中减去已经过的时间。</p>
+<p><span style="color:#d9d9d9">3. 公用的攻击方法 </span><br> 这是创建此脚本的主要目的：可以通用。这就是为什么我们定义了一个可生成子弹的公共方法。</p>
+<p>当子弹被实例化时，我们就获取子弹的脚本，然后根据需要修改其中的一些变量。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span><span style="background-color:#FFFFFF">GetComponent &lt;TypeOfComponent&gt; ()</span> 方法允许你获得一个指定对象的组件（也就是一个脚本，因为毕竟脚本本身就是一种组件）。其中的类型（就是 <span style="background-color:#FFFFFF">&lt;TypeOfComponent&gt;）</span> 被用来指定你想要获取的组件的类型。<br>还有一个 <span style="background-color:#FFFFFF">GetComponents&lt;TypeOfComponent&gt; ()</span>方法是用来获取成组的组件（返回一个组件数组）。</div></strong></p>
+<h2 id="让主角使用武器">让主角使用武器 </h2><p> 如果你些时运行游戏，什么变化也没有。我们是新建了一个武器，但是什么用都没有。</p>
+<p>的确，如果 “WeaponScript” 被附加到一个实体上，那么 <span style="background-color:#d9d9d9">Attack(bool)</span> 方法将永远不会被调用。</p>
+<p>让我们回到脚本 “PlayerScript”吧。</p>
+<p>在 <span style="background-color:#d9d9d9">Update()</span> 方法中，粘贴如下代码段：</p>
+<pre><code>void Update<span class="params">()</span>
+  {<span class="comment">// ...</span>
+
+    <span class="comment">// 5 - Shooting</span>
+    <span class="comment">// 5 - 射击</span>
+    bool shoot = Input.GetButtonDown<span class="params">(<span class="string">"Fire1"</span>)</span>;
+    shoot |= Input.GetButtonDown<span class="params">(<span class="string">"Fire2"</span>)</span>;
+    <span class="comment">// Careful: For Mac users, ctrl + arrow is a bad idea</span>
+    <span class="comment">// 小心：对苹果用户来说，ctrl + arrow 组合不是个好主意</span>
+
+    <span class="keyword">if</span> <span class="params">(shoot)</span>
+    {WeaponScript weapon = GetComponent&lt;WeaponScript&gt;<span class="params">()</span>;
+      <span class="keyword">if</span> <span class="params">(weapon != null)</span>
+      {<span class="comment">// false because the player is not an enemy</span>
+        <span class="comment">// 设定为 false 因为主角不是敌人</span>
+        weapon.Attack<span class="params">(<span class="literal">false</span>)</span>;
+      }
+    }
+
+    <span class="comment">// ...</span>
+  }
+</code></pre><p>这段代码无论你放在移动相关代码的前面或后面，都是无所谓的。</p>
+<p>我们做了什么？</p>
+<ol>
+<li>我们读取了键盘上的开火键被按下（默认为 <span style="background-color:#d9d9d9">ctrl</span>  键或 <span style="background-color:#d9d9d9">click</span>  键）。</li>
+<li>我们获取了武器的脚本。</li>
+<li>我们执行 <span style="background-color:#d9d9d9">Attack(false)</span> 方法。</li>
+</ol>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">按键按下：</span>你或许已经注意到了我们使用了 <span style="background-color:#e9e9e9">GetButtonDown()</span> 方法来获取键盘的输入。最后的那个 “Down” 表示当按键被按下时获取输入，并且只触发一次。而 <span style="background-color:#e9e9e9">GetButton()</span> 会在每一帧返回 true 直到按键被松开。在本教程中，我们很清楚我们需要的是 <span style="background-color:#e9e9e9">GetButtonDown()</span> 方法。<br>试试用一下 <span style="background-color:#e9e9e9">GetButton()</span> ，并观察有什么不同。</div></strong></p>
+<p>点击 “Play” 按钮运行游戏。你应该会得到这个：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shooting.gif"></p>
+<p>子弹飞得太慢了？尝试调整 “Shot” 预设相关的值直到你满意为止。</p>
+<p>额外奖励：只是为了有趣而已。给主角设定一个角度，比如 (0, 0 ,45) 。子弹发射后会向着 45 度方向飞去，但是子弹自身的角度还是保持不变。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shooting_rotation.png"></p>
+<h1 id="下一步">下一步 </h1><p> 我们可以射击了！虽然非常的简单，但是却很屌。你在本章学会了如何创建一个可以发射子弹并摧毁其他物体的武器。</p>
+<p>让敌人成群结队的来吧。;)</p>
+<p>但是到这里并没有结束！我们要让敌人也能射击。休息一下，接下来要做的事情和本章的内容基本相同。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Unity2D新手教程/">Unity2D新手教程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/" data-title="【译】Unity 制作 2D 飞行射击游戏 [4/10] | NewAtlantisGames" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/" title="【译】Unity 制作 2D 飞行射击游戏 [3/10]">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【译】Unity 制作 2D 飞行射击游戏 [3/10]</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 5/"  title="【译】Unity 制作 2D 飞行射击游戏 [5/10]">
+ <strong>下一篇：</strong><br/> 
+ <span>【译】Unity 制作 2D 飞行射击游戏 [5/10]
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/" data-title="【译】Unity 制作 2D 飞行射击游戏 [4/10]" data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建子弹"><span class="toc-number">1.</span> <span class="toc-text">创建子弹 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建子弹的预设"><span class="toc-number">1.1.</span> <span class="toc-text">创建子弹的预设 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加碰撞及伤害"><span class="toc-number">1.2.</span> <span class="toc-text">添加碰撞及伤害 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#射击"><span class="toc-number">2.</span> <span class="toc-text">射击 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#让主角使用武器"><span class="toc-number">2.1.</span> <span class="toc-text">让主角使用武器 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">3.</span> <span class="toc-text">下一步 </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">文章分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Unity2D新手教程/" title="Unity2D新手教程">Unity2D新手教程<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">团队作品</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" title="IntoDark">IntoDark</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 现在不为自己一直的梦想拼博 <br/>
+			以后回想起来，一定会后悔不己</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:4newatlantis@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Lei Lavas">Lei Lavas</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"NewAtlantisGames"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F12e16f3e220c8c67d78c205dc4eca514' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

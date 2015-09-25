@@ -1,0 +1,475 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【译】Unity 制作 2D 飞行射击游戏 [前言] | NewAtlantisGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lei Lavas">
+    
+
+    
+    <meta name="description" content="译者前记：大家好，我是 LavaLei，是一名 Unity 爱好者，之前曾就职于一游戏公司，现已辞职自己制作游戏。其实我学习 Unity 的时间并不长，从第一次接触到现在也就 1 年的时间，并且辞职前是做游戏策划工作，Unity 与我的本职并无关联，但我一直在业余时间自学，所以，我也是个彻头彻尾的初学者。在 2015 年的 7 月份，我发布了自己制作的第一款游戏：IntoDark，这就算是对我一段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Unity 制作 2D 飞行射击游戏 [前言]">
+<meta property="og:url" content="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/index.html">
+<meta property="og:site_name" content="NewAtlantisGames">
+<meta property="og:description" content="译者前记：大家好，我是 LavaLei，是一名 Unity 爱好者，之前曾就职于一游戏公司，现已辞职自己制作游戏。其实我学习 Unity 的时间并不长，从第一次接触到现在也就 1 年的时间，并且辞职前是做游戏策划工作，Unity 与我的本职并无关联，但我一直在业余时间自学，所以，我也是个彻头彻尾的初学者。在 2015 年的 7 月份，我发布了自己制作的第一款游戏：IntoDark，这就算是对我一段">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/-img/result.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/-img/unity.png">
+<meta property="og:image" content="http://pixelnest.io/work/steredenn/-img/banner.png">
+<meta property="og:updated_time" content="2015-09-25T07:58:48.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Unity 制作 2D 飞行射击游戏 [前言]">
+<meta name="twitter:description" content="译者前记：大家好，我是 LavaLei，是一名 Unity 爱好者，之前曾就职于一游戏公司，现已辞职自己制作游戏。其实我学习 Unity 的时间并不长，从第一次接触到现在也就 1 年的时间，并且辞职前是做游戏策划工作，Unity 与我的本职并无关联，但我一直在业余时间自学，所以，我也是个彻头彻尾的初学者。在 2015 年的 7 月份，我发布了自己制作的第一款游戏：IntoDark，这就算是对我一段">
+
+    
+    <link rel="alternative" href="/atom.xml" title="NewAtlantisGames" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/grouplogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/grouplogo.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?12e16f3e220c8c67d78c205dc4eca514";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="NewAtlantisGames" title="NewAtlantisGames"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="NewAtlantisGames">NewAtlantisGames</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.newatlantisgames.net">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/" title="【译】Unity 制作 2D 飞行射击游戏 [前言]" itemprop="url">【译】Unity 制作 2D 飞行射击游戏 [前言]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lei Lavas" target="_blank" itemprop="author">Lei Lavas</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-25T01:16:45.000Z" itemprop="datePublished"> 发表于 2015-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于 Unity"><span class="toc-number">1.</span> <span class="toc-text">关于 Unity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视频版"><span class="toc-number">2.</span> <span class="toc-text">视频版 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#许可说明"><span class="toc-number">3.</span> <span class="toc-text">许可说明 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#联系我们"><span class="toc-number">4.</span> <span class="toc-text">联系我们 </span></a></li></ol>
+		
+		</div>
+		
+		<div style="background-color:#d9d9d9; padding:17px;"><strong>译者前记：<br><br>大家好，我是 LavaLei，是一名 Unity 爱好者，之前曾就职于一游戏公司，现已辞职自己制作游戏。其实我学习 Unity 的时间并不长，从第一次接触到现在也就 1 年的时间，并且辞职前是做游戏策划工作，Unity 与我的本职并无关联，但我一直在业余时间自学，所以，我也是个彻头彻尾的初学者。</strong><br><br><strong>在 2015 年的 7 月份，我发布了自己制作的第一款游戏：<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" rel="external">IntoDark</a>，这就算是对我一段时间以来学习 Unity 的一个小结。游戏很简单，但制作的过程中遇到了很多的坑，比如移动广告的植入，就将近花费了我近半个月的时间（因为我对 Java 一窍不通）！后来在搜索引擎的帮助下，各种问题迎刃而解，在此由衷感谢那些无私分享的前辈们！向你们深深的致敬！</strong><br><br><strong>在学习的过程中，一个国外游戏工作室（<a href="http://pixelnest.io/" target="_blank" rel="external">Pixelnest</a>）的教程让我顺利地踏上了 Unity 之路，让我从一个一知半解的生手，变成一个初学者，所以接下来，我将把他们优秀的 Unity 教程翻译给那些想要学习，但又是英文苦手的同胞们。</strong><br><br><strong>题外话：佛法中提到，越是分享，得到的就越多，我对此深信不已，所以不论是将来把自己项目的教程分享出来，还是翻译那些优秀的国外教程，我都会一直做下去，让越多的人受益越好！</strong><br><br><strong>本人英文也就四级水平，所以文章中难免有些翻译得不准确的地方，欢迎大家批评指正！</strong></div>
+
+<p><span style="color:#2ca6cb; font-size:32px">使用 Unity 制作 2D 游戏</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/</a></span></strong></p>
+<p>使用 <strong>Unity</strong> 自带的 2D 工具，并且通过此教程，你将学会如何制作一个飞行射击游戏。</p>
+<p>制作完成后的效果如下所示（<em>点击 <a href="http://pixelnest.io/tutorials/2d-game-unity/-demo/demo.html" target="_blank" rel="external"> 这里 </a> 进行游戏</em>）：<br><a href="http://pixelnest.io/tutorials/2d-game-unity/-demo/demo.html" target="_blank" rel="external"><img src="http://pixelnest.io/tutorials/2d-game-unity/-img/result.png"></a></p>
+<p>通过一段时间的努力，你也可以做出像 <a href="http://steredenn.pixelnest.io/" target="_blank" rel="external">Steredenn</a> 一样的游戏，实事上此游戏中所用的代码全都来自于此篇教程！</p>
+<p>我们此次所做的游戏为横向卷轴飞行射击游戏。无论怎样，如果本篇教程达到预期效果，你将明白如何在现有的代码基础上进行扩展，从而做出许多其他类型的游戏。</p>
+<p>教程中所用例子的资源、游戏及创意均来自游戏 <a href="http://www.thegreatpaperadventure.com/" target="_blank" rel="external">《纸片大冒险》(The Great Paper Adventure)</a>。达米安(Damien) 在许多年前使用 <a href="http://en.wikipedia.org/wiki/Microsoft_XNA" target="_blank" rel="external">XNA</a> 制作了此游戏。当我们开始写这篇 Unity 教程时，我们认为使用这些原材料是再好不过的了。</p>
+<h1 id="关于 Unity">关于 Unity</h1><p><a href="http://unity3d.com/" target="_blank" rel="external">Unity3D</a>非常受欢迎并且是制作多平台游戏的最佳选择。本教程假定你有少许的编程语言基础，并且附带了解一些工具和引擎知识，但也不是必须的。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/-img/unity.png"><br>本教程使用的 Unity 版本为 4.3<strong>免费版</strong>。</p>
+<p><strong>如果你使用的是 Unity5，请注意这篇教程没有做相应的更新。但是 <a href="https://github.com/pixelnest/tutorial-2d-game-unity/" target="_blank" rel="external"> 源代码库 </a> 已为 Unity5 及新的 UI 系统更新。</strong></p>
+<h1 id="视频版">视频版 </h1><p> 如果你更愿意看视频，而不是读教程，那么请点击这里 <a href="http://gamedevnation.com/creating-a-2d-game-with-unity/" target="_blank" rel="external">Jay Jennings’s work from Game Dev Nation</a>。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>章节“使用 Unity2D 制作动画”目前还没有视频版。<br></div></strong></p>
+<h1 id="许可说明">许可说明 </h1><p> 教程中所用资源及美工符合 <a href="http://creativecommons.org/licenses/by-nc/2.0/fr/" target="_blank" rel="external">CC-BY-NC</a> 许可。这些资源被 <a href="http://twitter.com/mrlapinou" target="_blank" rel="external">Thibault Person</a> 制作并使用在游戏 <a href="http://www.thegreatpaperadventure.com/" target="_blank" rel="external">《纸片大冒险》(The Great Paper Adventure)</a> 中。</p>
+<p>源代码所有权属于 Pixelnest 工作室并且已在 <a href="http://choosealicense.com/licenses/mit/" target="_blank" rel="external">MIT 许可</a> 下发布。</p>
+<p>了解更多关于我们在 <a href="https://github.com/pixelnest/tutorial-2d-game-unity/blob/master/LICENSE.md" target="_blank" rel="external">GitHub</a> 上的许可的信息。</p>
+<p>源代码已在 <a href="https://github.com/pixelnest/tutorial-2d-game-unity/" target="_blank" rel="external">GitHub 代码库</a> 上公开。</p>
+<h1 id="联系我们">联系我们 </h1><p> 如果你在浏览过程中发现排版错误、内容错误或拼写错误，请在 <a href="http://twitter.com/pixelnest" target="_blank" rel="external">Twitter</a> 上告诉我们。除此之外你还可以通过 <a href="site@pixelnest.io"> 电子邮件 </a> 联系我们。</p>
+<p>如果你针对特定的章节想了解更多信息，或者对任意章节不明白，我们很乐意为你答疑解惑。</p>
+<p>最后，如果你喜欢我们所做的一切，请在 <a href="http://twitter.com/pixelnest" target="_blank" rel="external">Twitter</a> 上关注我们吧 :)</p>
+<p>这篇教程主要由 <a href="http://twitter.com/valryon" target="_blank" rel="external"> 达米安 (Damien)</a> 负责编排，由 <a href="http://twitter.com/solarsailer" target="_blank" rel="external"> 马蒂厄 (Matthieu)</a> 负责编辑。希望大家能从中受益。</p>
+<p>那么，你准备好了吗？让我们沉浸在 Unity 的世界中吧！</p>
+<p><img src="http://pixelnest.io/work/steredenn/-img/banner.png"><br><a href="http://steredenn.pixelnest.io/" target="_blank" rel="external">点击了解我们新游戏的更多信息！</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Unity2D新手教程/">Unity2D新手教程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/" data-title="【译】Unity 制作 2D 飞行射击游戏 [前言] | NewAtlantisGames" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/"  title="【译】Unity 制作 2D 飞行射击游戏 [1/10]">
+ <strong>下一篇：</strong><br/> 
+ <span>【译】Unity 制作 2D 飞行射击游戏 [1/10]
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/" data-title="【译】Unity 制作 2D 飞行射击游戏 [前言]" data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于 Unity"><span class="toc-number">1.</span> <span class="toc-text">关于 Unity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#视频版"><span class="toc-number">2.</span> <span class="toc-text">视频版 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#许可说明"><span class="toc-number">3.</span> <span class="toc-text">许可说明 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#联系我们"><span class="toc-number">4.</span> <span class="toc-text">联系我们 </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">文章分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Unity2D新手教程/" title="Unity2D新手教程">Unity2D新手教程<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">团队作品</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" title="IntoDark">IntoDark</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 现在不为自己一直的梦想拼博 <br/>
+			以后回想起来，一定会后悔不己</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:4newatlantis@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Lei Lavas">Lei Lavas</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"NewAtlantisGames"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F12e16f3e220c8c67d78c205dc4eca514' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

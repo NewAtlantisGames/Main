@@ -1,0 +1,682 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【译】Unity 制作 2D 飞行射击游戏 [9/10] | NewAtlantisGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lei Lavas">
+    
+
+    
+    <meta name="description" content="菜单 —— 开始游戏及重启游戏
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/menus/
+我们已经完成了一个有着基本玩法的关卡，并添加了音效、图片和粒子。
+不论怎样，当主角死亡时，游戏还在继续进行并且不可能再次开始。而且，当你运行游戏后，游戏就直接开始了。我们现在已经清楚我们要在什么地方添加菜单了。
+达米安 (Damien) 说两句：我先打个招">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Unity 制作 2D 飞行射击游戏 [9/10]">
+<meta property="og:url" content="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 9/index.html">
+<meta property="og:site_name" content="NewAtlantisGames">
+<meta property="og:description" content="菜单 —— 开始游戏及重启游戏
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/menus/
+我们已经完成了一个有着基本玩法的关卡，并添加了音效、图片和粒子。
+不论怎样，当主角死亡时，游戏还在继续进行并且不可能再次开始。而且，当你运行游戏后，游戏就直接开始了。我们现在已经清楚我们要在什么地方添加菜单了。
+达米安 (Damien) 说两句：我先打个招">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/background.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/logo.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/result1.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/result2.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/build_settings.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/build_settings_add.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/start.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/game_over.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/game_over_script.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/gui_skin.png">
+<meta property="og:updated_time" content="2015-09-25T07:25:40.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Unity 制作 2D 飞行射击游戏 [9/10]">
+<meta name="twitter:description" content="菜单 —— 开始游戏及重启游戏
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/menus/
+我们已经完成了一个有着基本玩法的关卡，并添加了音效、图片和粒子。
+不论怎样，当主角死亡时，游戏还在继续进行并且不可能再次开始。而且，当你运行游戏后，游戏就直接开始了。我们现在已经清楚我们要在什么地方添加菜单了。
+达米安 (Damien) 说两句：我先打个招">
+
+    
+    <link rel="alternative" href="/atom.xml" title="NewAtlantisGames" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/grouplogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/grouplogo.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?12e16f3e220c8c67d78c205dc4eca514";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="NewAtlantisGames" title="NewAtlantisGames"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="NewAtlantisGames">NewAtlantisGames</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.newatlantisgames.net">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 9/" title="【译】Unity 制作 2D 飞行射击游戏 [9/10]" itemprop="url">【译】Unity 制作 2D 飞行射击游戏 [9/10]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lei Lavas" target="_blank" itemprop="author">Lei Lavas</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-25T01:16:36.000Z" itemprop="datePublished"> 发表于 2015-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#资源"><span class="toc-number">1.</span> <span class="toc-text">资源 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LOGO"><span class="toc-number">1.2.</span> <span class="toc-text">LOGO</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#标题界面"><span class="toc-number">2.</span> <span class="toc-text">标题界面 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#场景"><span class="toc-number">3.</span> <span class="toc-text">场景 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚本"><span class="toc-number">4.</span> <span class="toc-text">脚本 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加要打包的场景"><span class="toc-number">5.</span> <span class="toc-text">添加要打包的场景 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主角死亡及重启游戏"><span class="toc-number">6.</span> <span class="toc-text">主角死亡及重启游戏 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#“这太丑了，我的眼睛都要瞎了”"><span class="toc-number">7.</span> <span class="toc-text">“这太丑了，我的眼睛都要瞎了”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">8.</span> <span class="toc-text">下一步 </span></a></li></ol>
+		
+		</div>
+		
+		<p><span style="color:#2ca6cb; font-size:32px">菜单 —— 开始游戏及重启游戏</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/menus/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/menus/</a></span></strong></p>
+<p>我们已经完成了一个有着基本玩法的关卡，并添加了音效、图片和粒子。</p>
+<p>不论怎样，当主角死亡时，游戏还在继续进行并且不可能再次开始。而且，当你运行游戏后，游戏就直接开始了。我们现在已经清楚我们要在什么地方添加菜单了。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">达米安 (Damien) 说两句：</span>我先打个招呼：制作菜单和 GUI 可一点儿也不有趣。通常你必须使用一个非常基础的 GUI 框架（或者根本没有框架）。<br>这将花费大量的时间并且结果是……玩家会很快的将它们跳过。</div></strong></p>
+<div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF"><strong>马蒂厄 (Matthieu) 说两句：</strong></span><strong>不像许多的游戏开发者，我不同意上面的说法。创建一个好的游戏 GUI 不是一件轻松的工作，但是同样值得并且有趣。不管怎么样，制作菜单需要好的工具和一些好的设计策略（就像设计一款 App 的界面一样）。</strong><br><br><strong>但是话说回来了，再好的界面也会被隐藏并且还不能使玩家过分注意它。</strong></div>
+
+<p>很不幸的是，如果你没有大量的时间或使用第三方的插件，使用 Unity 制作出一个炫酷的菜单将是不太容易的。</p>
+<p>在本教程中我们不会去制作一个很复杂的 GUI。Unity 自带的工具对我们来说就足够了，但是你也会发现它们实在是……太有限了。</p>
+<p>让我们先从基础的开始吧。</p>
+<h1 id="资源">资源 </h1><h2 id="背景"> 背景</h2><p><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/background.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<h2 id="LOGO">LOGO</h2><p><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/logo.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<p>在你的项目中导入这些资源。你可以将它们放在 “Textures” 文件夹下的 “Menu” 子文件夹中。不然之前的 “background” 图片会被覆盖掉。</p>
+<p>按钮的话，我们就使用 Unity 自带的吧（很丑）。</p>
+<h1 id="标题界面">标题界面 </h1><p> 几乎所有的游戏都有一个标题界面，这是玩家在运行游戏后第一个接触的界面。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">达米安 (Damien) 说两句：</span>一些游戏的标题界面非常帅并且让人印象深刻：比如 Megaman, Metal Slug 等等（我是标题界面的大粉丝）。</div></strong></p>
+<p>我们将要制作的不会那么帅，但是……很简单！</p>
+<h1 id="场景">场景 </h1><p> 首先，创建一个新的场景：</p>
+<ol>
+<li>“File” → “New scene”。</li>
+<li>将它保存在 “Scenes” 文件夹中，并命名为 “Menu”。</li>
+</ol>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>你可以使用 <span style="background-color:#FFFFFF">cmd + N</span> (OS X) 或者 <span style="background-color:#FFFFFF">ctrl + n</span> (Windows) 快捷键。</div></strong></p>
+<p>我们的标题界面将由如下元素构成：</p>
+<ul>
+<li>一个背景。</li>
+<li>一个 LOGO。</li>
+<li>一个显示按钮的脚本。</li>
+</ul>
+<p>创建背景：</p>
+<ol>
+<li>创建一个新的精灵 <span style="background-color:#d9d9d9">Sprite</span>。</li>
+<li>将它的坐标改为 <span style="background-color:#d9d9d9">(0, 0, 1)</span>。</li>
+<li>大小为 <span style="background-color:#d9d9d9">(2, 2, 1)</span>。</li>
+</ol>
+<p>创建 LOGO：</p>
+<ol>
+<li>创建一个新的精灵 <span style="background-color:#d9d9d9">Sprite</span>。</li>
+<li>将它的坐标改为 <span style="background-color:#d9d9d9">(0, 2, 0)</span>。</li>
+<li>大小为 <span style="background-color:#d9d9d9">(0.75, 0.75, 1)</span>。</li>
+</ol>
+<p>你应该得到如下结果：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/result1.png"></p>
+<p>当然了，你可以加上你的名字，游戏介绍，甚至笑话和动画。菜单是一片自由的大陆。时刻记着：玩家总是想尽可能快的开始游戏。</p>
+<h1 id="脚本">脚本 </h1><p> 现在我们将要添加一个开始游戏按钮，通过脚本方式。</p>
+<p>在 “Scripts” 文件夹中创建一个新脚本 “MenuScript”，然后将它附加到 “Scripts” 游戏对象上。</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment">/// &lt;summary&gt;</span>
+<span class="comment">/// Title screen script</span>
+<span class="comment">/// &lt;/summary&gt;</span>
+<span class="keyword">public</span> <span class="keyword">class</span> MenuScript : MonoBehaviour
+{<span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span><span class="params">()</span>
+  </span>{<span class="keyword">const</span> <span class="keyword">int</span> buttonWidth = <span class="number">84</span>;
+    <span class="keyword">const</span> <span class="keyword">int</span> buttonHeight = <span class="number">60</span>;
+
+    <span class="comment">// Determine the button's place on screen</span>
+    <span class="comment">// Center in X, 2/3 of the height in Y</span>
+    Rect buttonRect = <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>),
+          (<span class="number">2</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>),
+          buttonWidth,
+          buttonHeight
+        );
+
+    <span class="comment">// Draw a button to start the game</span>
+    <span class="keyword">if</span>(GUI.Button(buttonRect,<span class="string">"Start!"</span>))
+    {<span class="comment">// On Click, load the first level.</span>
+      <span class="comment">// "Stage1" is the name of the first scene we created.</span>
+      Application.LoadLevel(<span class="string">"Stage1"</span>);
+    }
+  }
+}
+</code></pre><p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">关于语法：</span>是的，这里的语法是 <a href="http://docs.unity3d.com/Documentation/ScriptReference/GUI.Button.html" target="_blank" rel="external"> 有点怪</a>。</div></strong></p>
+<p>我们绘制了一个按钮，当玩家点击它的时候，会加载场景 “Stage1”。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span> <span style="background-color:#FFFFFF">OnGUI</span> 方法在每一帧中被调用，并且应该把所有与显示 GUI 元素有关的代码都放到此方法中：生命条、菜单、交互界面等等。<span style="background-color:#FFFFFF">GUI</span> 对象允许你快速通过脚本来创建一个 GUI 组件，就像带着 <span style="background-color:#FFFFFF">GUI.Button</span> 方法的按钮。</div></strong></p>
+<p>好，现在我们运行游戏来看看我们牛 X 的菜单吧：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/result2.png"></p>
+<p>点击按钮然后……崩溃了！</p>
+<blockquote>
+<p>Level ‘Stage1’ (-1) couldn’t be loaded because it has not been added to the build settings. To add a level to the build settings use the menu File-&gt;Build Settings…</p>
+</blockquote>
+<p>我们要做的就是明白错误信息的含意。</p>
+<h1 id="添加要打包的场景">添加要打包的场景 </h1><p> 打开 “File” → “Build Settings”：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/build_settings.png"></p>
+<p>现在，拖拽所有你想打包的场景。这里非常简单：就是 “Menu” 和 “Stage1”。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/build_settings_add.png"></p>
+<p>返回菜单界面，然后点击 “Start!” 运行游戏。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/start.gif"></p>
+<div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"><strong>小技巧：</strong></span><strong>方法 <span style="background-color:#FFFFFF">Application.LoadLevel()</span> 的作用就是将当前的场景清空，并且重新实例化所有的游戏对象。但是有时候，你想保持一个游戏对象从第一个场景到第二个场景（比如在两个菜单切换间保持音乐的连续），那又该怎么办呢？</strong><br><br><strong>在 Unity 提供了一个方法 <span style="background-color:#FFFFFF">DontDestroyOnLoad(aGameObject)</span> 用来实现上面所说的例子。只要在一个游戏对象上调用它，就不用担心在创建新场景时将它清除了。实事上，它是根本不会被清除掉。所以如果你想在未来的某个场景中清除它，你就必须得手动清除了。</strong></div>
+
+<h1 id="主角死亡及重启游戏">主角死亡及重启游戏 </h1><p> 最后，我们要让主角在死亡以后可以重新开始游戏。就像你所看到的，这事时常发生（我们将在未来的教程中“简化”游戏）。</p>
+<p>现在我们的游戏流程如下：</p>
+<ol>
+<li>主角被子弹击中。</li>
+<li><span style="background-color:#d9d9d9">HealthScript.OnCollisionEnter</span> 被调用。</li>
+<li>主角失去 1 点生命值。</li>
+<li>当主角的生命值小于 1 点时，脚本”HealthScript”将摧毁主角。</li>
+</ol>
+<p>我们还要新增两个步骤：</p>
+<ol>
+<li><span style="background-color:#d9d9d9">PlayerScript.OnDestroy</span> 被调用。</li>
+<li>创建一个 “GameOverScript” 脚本，并将它添加到场景中。</li>
+</ol>
+<p>在 “Scripts” 文件夹中创建一个新脚本 “GameOverScript” 。</p>
+<p>下面是一小段代码，用来显示 “Restart” 和 “Back to Menu” 按钮：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment">/// &lt;summary&gt;</span>
+<span class="comment">/// Start or quit the game</span>
+<span class="comment">/// &lt;/summary&gt;</span>
+<span class="keyword">public</span> <span class="keyword">class</span> GameOverScript : MonoBehaviour
+{<span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span><span class="params">()</span>
+  </span>{<span class="keyword">const</span> <span class="keyword">int</span> buttonWidth = <span class="number">120</span>;
+    <span class="keyword">const</span> <span class="keyword">int</span> buttonHeight = <span class="number">60</span>;
+
+    <span class="keyword">if</span> (
+      GUI.Button(<span class="comment">// Center in X, 1/3 of the height in Y</span>
+        <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>),
+          (<span class="number">1</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>),
+          buttonWidth,
+          buttonHeight
+        ),
+        <span class="string">"Retry!"</span>
+      )
+    )
+    {<span class="comment">// Reload the level</span>
+      Application.LoadLevel(<span class="string">"Stage1"</span>);
+    }
+
+    <span class="keyword">if</span> (
+      GUI.Button(<span class="comment">// Center in X, 2/3 of the height in Y</span>
+        <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>),
+          (<span class="number">2</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>),
+          buttonWidth,
+          buttonHeight
+        ),
+        <span class="string">"Back to menu"</span>
+      )
+    )
+    {<span class="comment">// Reload the level</span>
+      Application.LoadLevel(<span class="string">"Menu"</span>);
+    }
+  }
+}
+</code></pre><p>这和我们第一个写的脚本是完全一样的，只不过这里是两个按钮。</p>
+<p>现在，在脚本 “PlayerScript” 中，我们必须在主角死亡时执行下面一段代码：</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">OnDestroy</span><span class="params">()</span>
+</span>{<span class="comment">// Game Over.</span>
+  <span class="comment">// Add the script to the parent because the current game</span>
+  <span class="comment">// object is likely going to be destroyed immediately.</span>
+  transform.parent.gameObject.AddComponent&lt;GameOverScript&gt;();}
+</code></pre><p>运行游戏并让主角去死（这应该不会花很长时间）：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/game_over.png"></p>
+<p>你可以在场景的某个地方找到这个脚本，如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/game_over_script.png"></p>
+<p>当然了，这个界面还可以再优化，比如说显示分数，添加动画等等。</p>
+<p>但是至少游戏可以玩了 :)</p>
+<h1 id="“这太丑了，我的眼睛都要瞎了”">“这太丑了，我的眼睛都要瞎了”</h1><p>糟糕！</p>
+<p>如果你想优化一下这个丑爆的 UI，你可以创建 “GUI Skin”。</p>
+<ul>
+<li>“Assets” → “Create” → “Gui Skin”，如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/gui_skin.png"></li>
+</ul>
+<p>在“检视(Inspector)”面板中，你可以通过调整 UI 选项来得到一些奇妙的效果。请确保将 skin 保存在 “Resources” 文件夹中。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>在 Unity 中，”Resources” 文件夹非常特殊。在这个文件夹中的所有文件都会和游戏一起打包并且可以通过 <span style="background-color:#FFFFFF">Resources.Load()</span> 方法来加载。<br>这样可以允许在游戏运行时加载游戏对象，并且这些对象可以是来自你的用户（就像 mod 一样？）。</div></strong></p>
+<p>不论怎样，skin 不会被应用直到你在脚本中设置它们。</p>
+<p>在我们所有之前的 GUI 脚本中，我们必须通过 <span style="background-color:#d9d9d9">GUI.skin = Resources.Load(“GUISkin”);</span> 来加载（只加载一次，而不是每一帧）skin 。</p>
+<p>下面是一个在 “MenuScript” 中的例子（观察  <span style="background-color:#d9d9d9">Start()</span> 方法）：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment">/// &lt;summary&gt;</span>
+<span class="comment">/// Title screen script</span>
+<span class="comment">/// &lt;/summary&gt;</span>
+<span class="keyword">public</span> <span class="keyword">class</span> MenuScript : MonoBehaviour
+{<span class="keyword">private</span> GUISkin skin;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+  </span>{<span class="comment">// Load a skin for the buttons</span>
+    skin = Resources.Load(<span class="string">"GUISkin"</span>) as GUISkin;
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span><span class="params">()</span>
+  </span>{<span class="keyword">const</span> <span class="keyword">int</span> buttonWidth = <span class="number">128</span>;
+    <span class="keyword">const</span> <span class="keyword">int</span> buttonHeight = <span class="number">60</span>;
+
+    <span class="comment">// Set the skin to use</span>
+    GUI.skin = skin;
+
+    <span class="comment">// Draw a button to start the game</span>
+    <span class="keyword">if</span> (GUI.Button(<span class="comment">// Center in X, 2/3 of the height in Y</span>
+      <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>), (<span class="number">2</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>), buttonWidth, buttonHeight),
+      <span class="string">"START"</span>
+      ))
+    {<span class="comment">// On Click, load the first level.</span>
+      Application.LoadLevel(<span class="string">"Stage1"</span>); <span class="comment">// "Stage1" is the scene name</span>
+    }
+  }
+}
+</code></pre><p>就如你所看到的，这是一件量大并且枯燥的工作，而且做出来的菜单看起来死笨死笨的。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>如果你不差钱，并且在你的游戏中有大量的菜单和文本，可以考虑买一个 <a href="http://www.tasharen.com/?page_id=140" target="_blank" rel="external">NGUI</a> 插件吧，非常值，真的。</div></strong></p>
+<h1 id="下一步">下一步 </h1><p> 我们学习了如何制作必须的菜单界面。</p>
+<p>看看我们到目前为止都完成了些什么：</p>
+<ul>
+<li>使用 3 个背景层完成了视差效果。</li>
+<li>大量的粒子！</li>
+<li>标题界面。</li>
+<li>画面和音效。</li>
+<li>有一个主角和许多敌人的飞行射击游戏。</li>
+</ul>
+<p>恭喜你！但是很不幸运的是，这个游戏目前只能在你自己的电脑上玩。如果要去销售我们的这款超值游戏的话，我们还需要发布它。</p>
+<p>这就是我们在下一章中将要探讨的内容：发布。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Unity2D新手教程/">Unity2D新手教程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 9/" data-title="【译】Unity 制作 2D 飞行射击游戏 [9/10] | NewAtlantisGames" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 8/" title="【译】Unity 制作 2D 飞行射击游戏 [8/10]">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【译】Unity 制作 2D 飞行射击游戏 [8/10]</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 10/"  title="【译】Unity 制作 2D 飞行射击游戏 [10/10]">
+ <strong>下一篇：</strong><br/> 
+ <span>【译】Unity 制作 2D 飞行射击游戏 [10/10]
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 9/" data-title="【译】Unity 制作 2D 飞行射击游戏 [9/10]" data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 9/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#资源"><span class="toc-number">1.</span> <span class="toc-text">资源 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.1.</span> <span class="toc-text"> 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LOGO"><span class="toc-number">1.2.</span> <span class="toc-text">LOGO</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#标题界面"><span class="toc-number">2.</span> <span class="toc-text">标题界面 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#场景"><span class="toc-number">3.</span> <span class="toc-text">场景 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#脚本"><span class="toc-number">4.</span> <span class="toc-text">脚本 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加要打包的场景"><span class="toc-number">5.</span> <span class="toc-text">添加要打包的场景 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#主角死亡及重启游戏"><span class="toc-number">6.</span> <span class="toc-text">主角死亡及重启游戏 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#“这太丑了，我的眼睛都要瞎了”"><span class="toc-number">7.</span> <span class="toc-text">“这太丑了，我的眼睛都要瞎了”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">8.</span> <span class="toc-text">下一步 </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">文章分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Unity2D新手教程/" title="Unity2D新手教程">Unity2D新手教程<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">团队作品</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" title="IntoDark">IntoDark</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 现在不为自己一直的梦想拼博 <br/>
+			以后回想起来，一定会后悔不己</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:4newatlantis@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Lei Lavas">Lei Lavas</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"NewAtlantisGames"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F12e16f3e220c8c67d78c205dc4eca514' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

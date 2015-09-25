@@ -1,0 +1,529 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【译】Unity 制作 2D 飞行射击游戏 [1/10] | NewAtlantisGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lei Lavas">
+    
+
+    
+    <meta name="description" content="安装 Unity 并且创建你的第一个游戏场景
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/
+在第一个章节中，你将获得一些非常基本的信息：首先是 Unity 的下载及安装，然后是游戏中创建第一个场景的准备工作。
+配置你的环境变量  我们先从最简单的开始：下载并且安装配置 Unity。
+安装 Unity从  官方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Unity 制作 2D 飞行射击游戏 [1/10]">
+<meta property="og:url" content="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/index.html">
+<meta property="og:site_name" content="NewAtlantisGames">
+<meta property="og:description" content="安装 Unity 并且创建你的第一个游戏场景
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/
+在第一个章节中，你将获得一些非常基本的信息：首先是 Unity 的下载及安装，然后是游戏中创建第一个场景的准备工作。
+配置你的环境变量  我们先从最简单的开始：下载并且安装配置 Unity。
+安装 Unity从  官方">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity_vs2013.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/create_project.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/empty_project.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/folders.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/logical_objects.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity_create_empty.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/first_scene.png">
+<meta property="og:updated_time" content="2015-09-25T07:24:01.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Unity 制作 2D 飞行射击游戏 [1/10]">
+<meta name="twitter:description" content="安装 Unity 并且创建你的第一个游戏场景
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/
+在第一个章节中，你将获得一些非常基本的信息：首先是 Unity 的下载及安装，然后是游戏中创建第一个场景的准备工作。
+配置你的环境变量  我们先从最简单的开始：下载并且安装配置 Unity。
+安装 Unity从  官方">
+
+    
+    <link rel="alternative" href="/atom.xml" title="NewAtlantisGames" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/grouplogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/grouplogo.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?12e16f3e220c8c67d78c205dc4eca514";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="NewAtlantisGames" title="NewAtlantisGames"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="NewAtlantisGames">NewAtlantisGames</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.newatlantisgames.net">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/" title="【译】Unity 制作 2D 飞行射击游戏 [1/10]" itemprop="url">【译】Unity 制作 2D 飞行射击游戏 [1/10]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lei Lavas" target="_blank" itemprop="author">Lei Lavas</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-25T01:16:44.000Z" itemprop="datePublished"> 发表于 2015-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置你的环境变量"><span class="toc-number">1.</span> <span class="toc-text">配置你的环境变量 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装 Unity"><span class="toc-number">2.</span> <span class="toc-text">安装 Unity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择一个代码编辑器"><span class="toc-number">3.</span> <span class="toc-text">选择一个代码编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows 操作系统"><span class="toc-number">3.1.</span> <span class="toc-text">Windows 操作系统 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac（苹果）操作系统"><span class="toc-number">3.2.</span> <span class="toc-text">Mac（苹果）操作系统 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用哪种编程语言？"><span class="toc-number">3.3.</span> <span class="toc-text">使用哪种编程语言？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如果我是个完全的 Unity 新手该做些什么？"><span class="toc-number">4.</span> <span class="toc-text">如果我是个完全的 Unity 新手该做些什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建第一个游戏场景"><span class="toc-number">5.</span> <span class="toc-text">创建第一个游戏场景 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个新工程"><span class="toc-number">5.1.</span> <span class="toc-text"> 创建一个新工程 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#团队合作必须的准备"><span class="toc-number">5.2.</span> <span class="toc-text">团队合作必须的准备 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity 主界面布局"><span class="toc-number">5.3.</span> <span class="toc-text">Unity 主界面布局 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程资源"><span class="toc-number">5.4.</span> <span class="toc-text">工程资源 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#预设（Prefabs）"><span class="toc-number">5.4.1.</span> <span class="toc-text">预设（Prefabs）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏场景（Scenes）"><span class="toc-number">5.4.2.</span> <span class="toc-text">游戏场景（Scenes）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#音效（Sounds）"><span class="toc-number">5.4.3.</span> <span class="toc-text">音效（Sounds）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本（Scripts）"><span class="toc-number">5.4.4.</span> <span class="toc-text">脚本（Scripts）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贴图（Textures）"><span class="toc-number">5.4.5.</span> <span class="toc-text">贴图（Textures）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建我们的第一个游戏场景"><span class="toc-number">5.5.</span> <span class="toc-text">创建我们的第一个游戏场景 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#空对象"><span class="toc-number">5.5.1.</span> <span class="toc-text">空对象 </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#填充游戏场景"><span class="toc-number">5.5.2.</span> <span class="toc-text">填充游戏场景 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">6.</span> <span class="toc-text">下一步 </span></a></li></ol>
+		
+		</div>
+		
+		<p><span style="color:#2ca6cb; font-size:32px">安装 Unity 并且创建你的第一个游戏场景</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/</a></span></strong></p>
+<p>在第一个章节中，你将获得一些非常基本的信息：首先是 Unity 的下载及安装，然后是游戏中创建第一个场景的准备工作。</p>
+<h1 id="配置你的环境变量">配置你的环境变量 </h1><p> 我们先从最简单的开始：下载并且安装配置 Unity。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity.png" style="width: 300px;"></p>
+<h1 id="安装 Unity">安装 Unity</h1><p>从 <a href="http://unity3d.com/unity/download" target="_blank" rel="external"> 官方网站 </a> 下载最新版本的 Unity。<br>运行可执行文件并完成安装。</p>
+<h1 id="选择一个代码编辑器">选择一个代码编辑器</h1><p>Unity 自版本 4.0.1 起，就自带 MonoDevelop 代码编辑器。</p>
+<h2 id="Windows 操作系统"><span style="color:#878787">Windows 操作系统 </span></h2><p> 如果你使用的是 Windows 操作系统，你可以（也应该）将此编辑器作为备选：</p>
+<ul>
+<li><a href="http://www.microsoft.com/visualstudio/eng/downloads#d-2013-express" target="_blank" rel="external"><strong>Visual Studio 2013 Desktop (C#)</strong></a> for Windows</li>
+</ul>
+<p>同样的：下载并安装，过程非常简单因为所有东西都是打包好的，虽然你可能要多等一会儿。然后，在 Unity 参数配置中，将默认的代码编辑器更改为 Visual Studio。如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity_vs2013.png"></p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;">最好了解一下：Visual Studio 2013 Express 的 Debugger（运行调试模式）不能在 Unity 中使用。你必须购买专业版的 Visual Studio 并且购买 <a href="http://unityvs.com/" target="_blank" rel="external">UnityVS 插件</a>。使用 Express 版本可以让你有一个更好的代码编辑工具，但是缺少 Debugger（运行调试模式）还是非常不便的。<br></div></strong></p>
+<h2 id="Mac（苹果）操作系统"><span style="color:#878787">Mac（苹果）操作系统 </span></h2><p><a href="http://monodevelop.com/" target="_blank" rel="external">MonoDevelop 4</a> 与 <a href="http://xamarin.com/studio" target="_blank" rel="external">Xamarin Studio</a> 非常的相似，这意味着它比过去版本 Unity 自带的 MonoDevelp2 更好用。虽然并非完美，但如果你在 Mac 系统上开发，MonoDevelop 4 仍然是最好的选择。</p>
+<h2 id="使用哪种编程语言？"><span style="color:#878787">使用哪种编程语言？</span></h2><p>Unity 允许你使用 3 种编程语言：JavaScript(Unity Script)，C# 及 Boo。<br>我们强烈推荐你使用 C#。因为它更强大并且不易犯错，除此之外，还因为这篇教程使用的就是 C#。</p>
+<h1 id="如果我是个完全的 Unity 新手该做些什么？">如果我是个完全的 Unity 新手该做些什么？</h1><p>如果你以前从未接触过 Unity，我们将尽我们最大努力在本篇教程中尽可能多的教授一些知识点。<br>学习使用 Unity 的主界面是相当容易的。当你第一次打开 Unity 时可能会害怕，但是经过几个小时的学习后，再使用起来就会感觉很舒服。</p>
+<p>下面是一些有趣的资源并且应该可以补充我们的教程：</p>
+<ul>
+<li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor" target="_blank" rel="external">官方 Unity 教程</a>：官方的视频教程非常棒。你应该花一个下午的时间来学习它们——我们向你保证你会觉得时间花得非常值。</li>
+<li><a href="http://unitypatterns.com/" target="_blank" rel="external">Unity Patterns</a>：一个新建的、包含许多非常好的文章和工具的网站。如果你对“协同程序”的概念不是那么熟悉的话，那么此网站中的相关教程你一定要读。</li>
+</ul>
+<h1 id="创建第一个游戏场景">创建第一个游戏场景 </h1><h2 id="创建一个新工程"> 创建一个新工程 </h2><p> 在 Unity 主界面左上角打开“文件（File）”菜单，然后选择“创建新工程（New Project…）”。目前为止不需要选择下面列表中的任何包。如果你需要这些包的话，晚些时候也可以重新导入，但是在刚开始的时候导入它们会使你混乱。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/create_project.png"></p>
+<p>选择下方的 <strong>2D</strong> 选项。当然你也可以在工程中随时切换此设定 <br> 不用担心工程的名称。工程名称是在选项中定义的，并且修改工程文件夹的名称就可以修改工程名。</p>
+<h2 id="团队合作必须的准备">团队合作必须的准备 </h2><p> 就像 Damien 在 <a href="http://dmayance.com/git-and-unity-projects/" target="_blank" rel="external"> 另外一篇教程 </a> 中所解释的，如果你计划使用 Git 或 SVN（版本控制工具），你第一件要做的事就是开启一些团队合作所必须的设置。<br>如果你对本内容有兴趣的话，点击 <a href="http://dmayance.com/git-and-unity-projects/" target="_blank" rel="external"> 这里 </a> 查看教程。</p>
+<h2 id="Unity 主界面布局">Unity 主界面布局 </h2><p> 现在展现在你眼前的就是一个空的场景。下图所示的是我们所使用的界面布局，你应该花一些时间根据自己的需要调整出一个方便自己工作的界面布局。我（Damien）个人喜欢控制台窗口紧挨着游戏预览窗口，但是如果你的显示器太小的话，你就得将它合并。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/empty_project.png"></p>
+<p>在开始游戏创作之前，花几分钟的时间组织一下你的工程和游戏场景。</p>
+<p>我们推荐你在 Unity 的“工程（Project）”面板中创建一些文件夹来组织你的游戏资源。这些文件夹都会创建在你的工程项目中的“材料（Assets）”文件夹下。<br><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>材料（Assets）文件夹包含了所有你添加在工程（Project）面板中的内容。材料（Assets）文件夹在 Unity 中可以显示也可以隐藏，取决于工程（Project）面板的布局显示设置（单列显示（One-column）或者双列显示（Two-columns）），但是你如果在 Windows 目录中打开工程文件夹的话，你一定会看到材料（Assets）文件夹。<br></div></strong><br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/folders.png"><br>上图的文件夹分类是我们工作室所使用的，当然你也可以根据自己的需要做些修改。</p>
+<h2 id="工程资源">工程资源 </h2><p> 在你的工程（Project）面板中，你会发现有如下几种不同的资源分类：</p>
+<h3 id="预设（Prefabs）"><span style="color:#878787">预设（Prefabs）</span></h3><p>可重复使用的游戏对象（例如：子弹、敌人、金币等）。<br>预设在编程语言中可被视为一个 <strong> 类（class）</strong>，它可以被实例化为游戏对象。预设就是一种在游戏场景中或游戏进行中可以随意被复制和修改的模具。</p>
+<h3 id="游戏场景（Scenes）"><span style="color:#878787">游戏场景（Scenes）</span></h3><p>游戏场景就是一个基本的游戏关卡或一个游戏菜单。<br>与其他在工程（Project）面板中创建的对象不同，游戏场景是在文件（File）菜单中创建的。如果你想创建一个游戏场景，点击“新建场景（New Scene）”子菜单，然后别忘记将新创建的场景保存在“场景（Scenes）”文件夹中。<br>游戏场景需要手动保存。开始学习 Unity 时的一个典型错误就是对一个场景及其所包含的元素作出了修改，但是却忘记将这些修改保存。你的版本控制工具直到你保存场景后，才会标记出文件已被修改。</p>
+<h3 id="音效（Sounds）"><span style="color:#878787">音效（Sounds）</span></h3><p>我想这个就不必多说了吧。唯一要注意的是你是否需要将音乐从中分离到另外的文件夹。</p>
+<h3 id="脚本（Scripts）"><span style="color:#878787">脚本（Scripts）</span></h3><p>游戏中所有的代码都在这里。在 C# 工程项目中，我们将此文件夹当作代码的根文件夹使用。</p>
+<h3 id="贴图（Textures）"><span style="color:#878787">贴图（Textures）</span></h3><p>贴图就是你游戏中的精灵和图片。在 2D 项目中，你可以将此文件夹更名为“精灵（Sprites）”。<br>在 2D 项目中这个文件夹不是那么重要，但是一定要保证其名称为“贴图（Textures）”，这样 Unity 才能认出这个文件夹并且进行一些操作。如果你想多了解这部分的内容，你可以阅读 <a href="http://answers.unity3d.com/questions/172384/importing-models.html" target="_blank" rel="external"> 这个 </a> 或 <a href="http://docs.unity3d.com/Documentation/Components/class-Mesh.html" target="_blank" rel="external">这个</a> 。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意“资源（Resources）”文件夹：</span>如果你以前使用过 Unity，你可能知道“资源（Resources）”是一个有用的并且特别的文件夹。它可以让你在脚本中装载游戏对象或者文件（使用静态 <span style="background-color:#FFFFFF">Resources</span> 类）。<br>我们不会使用这个文件夹，直到……接近尾声的时候（在讲解菜单的章节）。所以为了简洁明了，我们决定现在先不用它。<br></div></strong></p>
+<h2 id="创建我们的第一个游戏场景">创建我们的第一个游戏场景 </h2><p>“层级（Hierarchy）”面板包含了游戏场景中的每一个可用的游戏对象。层级面板将是你点击“开始（Play）”按钮运行游戏后可以调整游戏对象的接口。<br> 游戏场景中的每一个对象都是 Unity 中的“游戏对象”。你可以在游戏场景中直接创建一个对象，或者在另一个游戏对象上创建一个子对象。你能在任何时候对通拖拽一个对象来改变它的父级对象。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/logical_objects.png"><br>如上图所示，Level 对象包含了 3 个子对象。</p>
+<h3 id="空对象"><span style="color:#878787">空对象 </span></h3><p> 在 Unity 中有一个小诀窍：你可以创建一个空的游戏对象来充当其它游戏对象的“文件夹”。这样做会使你的层级面板更简洁更有条理。<br> <img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity_create_empty.png"></p>
+<p><strong>保证这些空对象全都在坐标（0，0，0）位置，这样你才能容易的找到它们！对于这些空对象来说，坐标没有什么实际的用处。</strong><br><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>改变这些空对象的坐标将会改变它们包含的子对象的相对位置。我们在本教程中将不会讨论此方面内容，所以就让它们的坐标都设在 <span style="background-color:#FFFFFF">（0，0，0）</span> 上吧。</div></strong><br><strong>将这些空对象视作纯粹逻辑上的对象就行了。</strong></p>
+<h3 id="填充游戏场景"><span style="color:#878787">填充游戏场景 </span></h3><p> 默认的，新的游戏场景被创建，同时还有一个默认的主摄像机 <strong>Main Camera</strong>。保持它们别动。<br> 现在，你需要创建一些空对象：</p>
+<ul>
+<li><strong>Scripts（脚本）：</strong>我们将把全局脚本添加到这个对象上。也就是说我们将把与单个对象无关的脚本附加到这个对象上。例如，我们将把一个名为“Game”的控制脚本附加到这个对象上。</li>
+<li><strong>Render（着色器）：</strong>将摄像机附加到这个对象上。如果有灯光对象的话，我们也应该把它们附加到这个对象上。</li>
+<li><strong>Level（层级）</strong><br>在 <strong>Level（层级）</strong> 对象上附加 3 个空子对象：<ul>
+<li><strong>0 - Background（背景层级）</strong></li>
+<li><strong>1 - Middleground（中景层级）</strong></li>
+<li><strong>2 – Foreground（前景层级）</strong></li>
+</ul>
+</li>
+</ul>
+<p>将游戏场景保存到“场景（Scenes）”文件夹中。说说你想如何称呼这个文件夹（“Stage1（关卡 1）”怎么样？）。<br>现在你应该有如下图所示的内容：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/first_scene.png"></p>
+<div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"><strong>小提示：</strong></span><strong>默认情况下，游戏对象的位置与它的父级对象的位置是绑定的。</strong><br><br><strong>对摄像机对象来说，这个特性带来的好处是：如果摄像机对象是另一个对象的子对象，那么这个摄像机对象的位置将会一直自动跟随它的父级对象。如果摄像机对象直接在场景中或者在一个空对象中，那么它的视野就是固定的。不论怎样，如果你将摄像机附加在一个正在移动的游戏对象上，摄像机将会在场景中一直跟随此游戏对象。</strong><br><br><strong>尽管如此，对于我们的游戏来说，我们希望摄像机是固定的，因此我们才把它放在 <span style="background-color:#FFFFFF">Render</span> 空对象中。但是记着这个特性，还是非常有好处的。</strong><br><strong>我们将会在“Parallax Scrolling（视差移动）”章节中涉及此内容。</strong></div>
+
+<h1 id="下一步">下一步 </h1><p> 我们离完成一个游戏还远着呢，是吧？</p>
+<p>我们目前已经创建了一些游戏中基础的内容。在下一篇中我们将开始添加一些更有趣的东西：背景及一些其他元素！</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Unity2D新手教程/">Unity2D新手教程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/" data-title="【译】Unity 制作 2D 飞行射击游戏 [1/10] | NewAtlantisGames" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/" title="【译】Unity 制作 2D 飞行射击游戏 [前言]">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【译】Unity 制作 2D 飞行射击游戏 [前言]</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 2/"  title="【译】Unity 制作 2D 飞行射击游戏 [2/10]">
+ <strong>下一篇：</strong><br/> 
+ <span>【译】Unity 制作 2D 飞行射击游戏 [2/10]
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/" data-title="【译】Unity 制作 2D 飞行射击游戏 [1/10]" data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置你的环境变量"><span class="toc-number">1.</span> <span class="toc-text">配置你的环境变量 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装 Unity"><span class="toc-number">2.</span> <span class="toc-text">安装 Unity</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选择一个代码编辑器"><span class="toc-number">3.</span> <span class="toc-text">选择一个代码编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows 操作系统"><span class="toc-number">3.1.</span> <span class="toc-text">Windows 操作系统 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac（苹果）操作系统"><span class="toc-number">3.2.</span> <span class="toc-text">Mac（苹果）操作系统 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用哪种编程语言？"><span class="toc-number">3.3.</span> <span class="toc-text">使用哪种编程语言？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如果我是个完全的 Unity 新手该做些什么？"><span class="toc-number">4.</span> <span class="toc-text">如果我是个完全的 Unity 新手该做些什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建第一个游戏场景"><span class="toc-number">5.</span> <span class="toc-text">创建第一个游戏场景 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个新工程"><span class="toc-number">5.1.</span> <span class="toc-text"> 创建一个新工程 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#团队合作必须的准备"><span class="toc-number">5.2.</span> <span class="toc-text">团队合作必须的准备 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unity 主界面布局"><span class="toc-number">5.3.</span> <span class="toc-text">Unity 主界面布局 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工程资源"><span class="toc-number">5.4.</span> <span class="toc-text">工程资源 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#预设（Prefabs）"><span class="toc-number">5.4.1.</span> <span class="toc-text">预设（Prefabs）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏场景（Scenes）"><span class="toc-number">5.4.2.</span> <span class="toc-text">游戏场景（Scenes）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#音效（Sounds）"><span class="toc-number">5.4.3.</span> <span class="toc-text">音效（Sounds）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本（Scripts）"><span class="toc-number">5.4.4.</span> <span class="toc-text">脚本（Scripts）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贴图（Textures）"><span class="toc-number">5.4.5.</span> <span class="toc-text">贴图（Textures）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建我们的第一个游戏场景"><span class="toc-number">5.5.</span> <span class="toc-text">创建我们的第一个游戏场景 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#空对象"><span class="toc-number">5.5.1.</span> <span class="toc-text">空对象 </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#填充游戏场景"><span class="toc-number">5.5.2.</span> <span class="toc-text">填充游戏场景 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">6.</span> <span class="toc-text">下一步 </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">文章分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Unity2D新手教程/" title="Unity2D新手教程">Unity2D新手教程<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">团队作品</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" title="IntoDark">IntoDark</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 现在不为自己一直的梦想拼博 <br/>
+			以后回想起来，一定会后悔不己</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:4newatlantis@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Lei Lavas">Lei Lavas</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"NewAtlantisGames"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F12e16f3e220c8c67d78c205dc4eca514' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

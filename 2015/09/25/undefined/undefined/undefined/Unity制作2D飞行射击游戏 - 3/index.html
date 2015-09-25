@@ -1,0 +1,671 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【译】Unity 制作 2D 飞行射击游戏 [3/10] | NewAtlantisGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lei Lavas">
+    
+
+    
+    <meta name="description" content="创建主角和敌人
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/
+在上一章中，我们已经添加了背景及一些小玩意儿。现在是添加一些真正有用的东西的时候啦，比如说主角！
+创建主角  创建一个可以操控的主角需要以下一些元素：一个精灵，操控主角的方法以及让主角与游戏世界互动的方法。
+我们将一步一步的去探索这些。
+让我们先">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Unity 制作 2D 飞行射击游戏 [3/10]">
+<meta property="og:url" content="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/index.html">
+<meta property="og:site_name" content="NewAtlantisGames">
+<meta property="og:description" content="创建主角和敌人
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/
+在上一章中，我们已经添加了背景及一些小玩意儿。现在是添加一些真正有用的东西的时候啦，比如说主角！
+创建主角  创建一个可以操控的主角需要以下一些元素：一个精灵，操控主角的方法以及让主角与游戏世界互动的方法。
+我们将一步一步的去探索这些。
+让我们先">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/empty_go_components.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/go_components.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/hitbox.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/adding_player.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/failing_ship.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player_full_settings.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/moving_ship.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player_value_tweak.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/poulpi.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/enemy_definition.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/moving_enemy.gif">
+<meta property="og:updated_time" content="2015-09-25T07:24:29.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Unity 制作 2D 飞行射击游戏 [3/10]">
+<meta name="twitter:description" content="创建主角和敌人
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/
+在上一章中，我们已经添加了背景及一些小玩意儿。现在是添加一些真正有用的东西的时候啦，比如说主角！
+创建主角  创建一个可以操控的主角需要以下一些元素：一个精灵，操控主角的方法以及让主角与游戏世界互动的方法。
+我们将一步一步的去探索这些。
+让我们先">
+
+    
+    <link rel="alternative" href="/atom.xml" title="NewAtlantisGames" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/grouplogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/grouplogo.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?12e16f3e220c8c67d78c205dc4eca514";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="NewAtlantisGames" title="NewAtlantisGames"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="NewAtlantisGames">NewAtlantisGames</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.newatlantisgames.net">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/" title="【译】Unity 制作 2D 飞行射击游戏 [3/10]" itemprop="url">【译】Unity 制作 2D 飞行射击游戏 [3/10]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lei Lavas" target="_blank" itemprop="author">Lei Lavas</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-25T01:16:42.000Z" itemprop="datePublished"> 发表于 2015-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建主角"><span class="toc-number">1.</span> <span class="toc-text">创建主角 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加精灵"><span class="toc-number">1.1.</span> <span class="toc-text">添加精灵 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于组件的说明"><span class="toc-number">1.2.</span> <span class="toc-text">关于组件的说明 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加一个碰撞盒 (Box_Collider)"><span class="toc-number">1.3.</span> <span class="toc-text"> 添加一个碰撞盒 (Box Collider)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神奇的刚体 (Rigidbody)"><span class="toc-number">1.4.</span> <span class="toc-text"> 神奇的刚体 (Rigidbody)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使主角移动"><span class="toc-number">1.5.</span> <span class="toc-text">使主角移动 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加第一个敌人"><span class="toc-number">2.</span> <span class="toc-text">添加第一个敌人 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加精灵 -1"><span class="toc-number">2.1.</span> <span class="toc-text">添加精灵 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加脚本"><span class="toc-number">2.2.</span> <span class="toc-text">添加脚本 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">3.</span> <span class="toc-text">下一步 </span></a></li></ol>
+		
+		</div>
+		
+		<p><span style="color:#2ca6cb; font-size:32px">创建主角和敌人</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/</a></span></strong></p>
+<p>在上一章中，我们已经添加了背景及一些小玩意儿。现在是添加一些真正有用的东西的时候啦，比如说主角！</p>
+<h1 id="创建主角">创建主角 </h1><p> 创建一个可以操控的主角需要以下一些元素：一个精灵，操控主角的方法以及让主角与游戏世界互动的方法。</p>
+<p>我们将一步一步的去探索这些。</p>
+<p>让我们先从精灵开始吧。</p>
+<h2 id="添加精灵">添加精灵 </h2><p> 下面就是我们要用到的图片：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player.png"><br><em>(右键点击保存图片)</em></p>
+<ol>
+<li>将主角图片复制到“贴图（Texture）”文件夹中。</li>
+<li>创建一个新的精灵。给它起名为“Player”。</li>
+<li>选择这个精灵，并在“检视（Inspector）”窗口中找到“Sprite Renderer（精灵渲染器）”组件。</li>
+</ol>
+<p>如果在进行这一步时感觉有些困难，那么推荐你查看上一章的内容。我们用同样的方法设置过背景及平台。</p>
+<ol>
+<li>将主角放入到“2 - Foreground”图层中。</li>
+<li>改变主角的缩放尺寸为 (0.2, 0.2, 1)。</li>
+</ol>
+<h2 id="关于组件的说明">关于组件的说明 </h2><p> 我们刚刚说过“Sprite Renderer（精灵渲染器）”组件。如果你还没有注意到的话，那么可以这样说：一个游戏对象就是由一些可以在”Inspector（检视）”面板中查看的组件构成的。</p>
+<p>默认情况下。一个空的游戏对象看起来像这样：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/empty_go_components.png"><br>这个对象只包含有一个组件：一个”Transform”组件。这个组件是每个对象必需的，并且是不能移除和禁用的。</p>
+<p>你在一个对象上想加多少组件就可以加多少。比如说脚本就是作为一种组件而被添加的。大多数的组件在其对象的生命周期中都可以被启用或禁用。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/go_components.png"><br><em>（你可以点击这个复选框来将它禁用。你也可以右键点击一个组件，在弹出的菜单中进行重置、移除等操作）</em></p>
+<p><strong><div style="background-color:#73c1ec ; padding:17px;"><span style="color:#FFFFFF">注意：</span>组件之间可以相互调用。比如组件 A 的运行依赖于另一个对象上的组件 B，你只需要将组件 B 所在的整个对象拖拽至组件 A 上，那么组件 A 就会自己找到包含在对象中的正确组件 B。</div></strong></p>
+<p>“Sprite Renderer（精灵渲染器）”就是一种可以显示精灵贴图的组件。</p>
+<p>现在我们学习了关于组件的概念，那么就让我们为主角来添加一个吧！</p>
+<h2 id="添加一个碰撞盒 (Box_Collider)"> 添加一个碰撞盒 (Box Collider)</h2><p> 点击主角对象上的“添加组件(Add Component)”按钮。选择”Box Collider 2D”。</p>
+<p>这样就能描绘出主角的 <a href="http://en.wikipedia.org/wiki/Hitbox" target="_blank" rel="external"> 碰撞边缘</a>。</p>
+<p>你可以在“场景(Scene)”中看到碰撞盒，并且可以在“检视(Inspector)”窗口中通过调节”Size”属性来改变它的大小。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>还有另一种方法来编辑碰撞盒。选择一个有碰撞盒的游戏对象并且按住键盘上的 <span style="background-color:#FFFFFF">Shift</span> 键，你将会看到在碰撞盒（绿色的矩形）的四个角上显示出四个小的方块。拖动其中的一个小方块就能改变碰撞盒的形状。但请小心的是，蓝色的矩形代表的是你游戏对象的 <span style="background-color:#FFFFFF">Transform</span> 组件，而不是碰撞盫。</div></strong></p>
+<p>我们将碰撞盒的大小设置为 (10,10)。</p>
+<p>这个碰撞盒的大小对于一个飞行射游戏来说太大了，但是它仍然小于精灵的尺寸：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/hitbox.png"><br>对目前来看，它足够了。</p>
+<p><strong><div style="background-color:#8bd259 ; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>如果你计划制作一款飞行射击游戏，你得花费大量的时间去调整你的碰撞盒。一般来说，碰撞盒的大小与主角精灵中的某个小部件的大小相等就好。比如说驾驶舱怎么样？同时你也应该修改碰撞盒的形状————比如说用”Circle Collider 2D（2D 圆形碰撞盒）”。改变形状并不会改变碰撞盒的行为，这要多谢 Unity ，但是这样做可以略微的提升游戏体验。</div></strong></p>
+<p>将主角游戏对象保存为一个预设(Prefab)。那么现在你就有了一个基本的主角实体了！<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/adding_player.png"></p>
+<p><span style="color:#878787; font-size:23px">2D 多边形碰撞盒(Polygon Collider 2D)</span></p>
+<p>如果你想要一个特别精确并且有不规则形状的碰撞盒，Unity 提供了一种叫作”Polygon Collider 2D（2D 多边形碰撞盒）”的组件。它的执行效率比较低，但是绝对能满足你对形状的要求。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>“Polygon Collider 2D（2D 多边形碰撞盒）”就像其他类型的碰撞盒一样：你能通过鼠标在“场景 (Scene)”中修改形状。按住<span style="background-color:#FFFFFF">ctrl</span> 或<span style="background-color:#FFFFFF">cmd</span>键，你能移除形状中的一个点。按住 <span style="background-color:#FFFFFF">shift</span> 键你可以在碰撞盒上调整或添加一个点。</div></strong></p>
+<h2 id="神奇的刚体 (Rigidbody)"> 神奇的刚体 (Rigidbody)</h2><p> 还有最后一个组件将要添加到主角上：一个“2D 刚体(Rigidbody 2D)”。</p>
+<p>这个组件将会告诉物理引擎如何处理游戏对象。此外，它还会触发脚本中的碰撞事件。</p>
+<ol>
+<li>在“层级(Hierarchy)”面板中选择游戏对象 Player。</li>
+<li>添加一个”Rigidbody 2D（2D 刚体）”组件。</li>
+</ol>
+<p>现在，点击 Play 按钮来观察一下运行的效果：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/failing_ship.gif"></p>
+<p>飞船掉下去了！</p>
+<p>呵呵，和我们心爱的重力说声 Hello 吧 :)</p>
+<p>这是因为新建的场景自带开启的重力并且刚体 (Rigidbody) 也给了物体质量，所以飞船就掉下去了。</p>
+<div style="background-color:#d9d9d9; padding:17px;">Unity 默认的重力值为 9.81，也就是现实中地球的重力。</div>
+
+<p>重力可以被用在一些种类的游戏中，但是我们这里并不需要它。幸运的是，在刚体中禁用重力是非常简单的，只需要将”Gravity Scale”设置为 0 就可以了。就是这样，飞船又可以飞起来了。</p>
+<p>同时你也需要勾上”Fixed Angles(锁定角度)”选项，因为我们不想让飞船因为物理的原因而转动。</p>
+<p>完成后的设置如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player_full_settings.png"></p>
+<h2 id="使主角移动">使主角移动 </h2><p> 是写点儿脚本的的时候了！到目前为止，我们没有为任何东西编写过脚本。这就是 Unity 的力量（也是我们为什么爱她的原因）。</p>
+<p>在 Unity 中，在”Scripts”文件夹中创建一个新的 C# 脚本。给它命名为 “PlayerScript”。</p>
+<p><strong><div style="background-color:#d9d9d9 ; padding:17px;"><span style="color:#FFFFFF">注意：</span>你也可以使用 Java Script。但就像我们之前说过的，这里将使用 C#，但是在不同的编程语言之间转换也是十分简单的。</div></strong></p>
+<p>打开你最喜爱的代码编辑器或者使用”Sync（同步）”子菜单（在菜单栏中点击”Assets”，然后点击”Sync MonoDevelop Project”）来编辑脚本。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">“Sync MonoDevelop Project”：</span>这个子菜单项有些怪。首先，它的名称不会改变，即使你将默认的编辑器改为其他的。当你第一次开始编程的时候，我们推荐你使用这个默认的编辑器，因为使用这个编辑器，Unity 会创建一个解决方案（Solution），并且自动链接 Unity 自带的类库（同样 Visual Studio, Xamarin Studio 或者 MonoDevelop 也是可以的）。<br>如果你用其他编辑器打开脚本，你集成开发环境 (IDE) 的编译器 (Compiler) 将会捕捉到一些错误，因为它没有认出 Unity。<br>其实这个并不要紧因为你永远都不会直接地去编译，但是 MonoDevelop 能为 Unity 对象提供自动完成代码功能，并且能准确地发现错误。</div></strong></p>
+<p>如果你是从 XNA 转过来的，你也不会被落下。</p>
+<p>你可以定义一些当需要时 Unity 可以执行的方法（这些被称作 “Message”，就像我们不常用的 C# 继承系统）。</p>
+<p>脚本中自带了 <strong>Start</strong> 和 <strong>Update</strong> 方法。下面是一个我们常用的函数列表：</p>
+<ul>
+<li><span style="background-color:#d9d9d9"><strong>Awake()</strong></span> 在对象被创建时调用一次。就把它看作是构建函数的替代品吧。</li>
+<li><span style="background-color:#d9d9d9"><strong>Start()</strong></span> 在 <span style="background-color:#e9e9e9">Awake()</span> 之后执行。不同之处是如果脚本组件被禁用，则 <span style="background-color:#e9e9e9">Start()</span> 不会被执行（想想在检视 (Inspector) 窗口中组件上的复选框，这个不勾上的话，<span style="background-color:#e9e9e9">Start()</span> 是不会执行的）。</li>
+<li><span style="background-color:#d9d9d9"><strong>Update()</strong></span> 在游戏主循环中的每一帧被执行。</li>
+<li><span style="background-color:#d9d9d9"><strong>FixedUpdate()</strong></span> 在修正过的每一帧执行。当你需要处理与物理特性相关的代码时，应该写在 <span style="background-color:#e9e9e9">FixedUpdate()</span> 中（就是涉及到“刚体(RigidBody)”和力）。</li>
+<li><span style="background-color:#d9d9d9"><strong>Destroy()</strong></span> 当对象被销毁时执行。这是你最后进行清理工作或执行一些代码的机会了。</li>
+</ul>
+<p>当然也有一些与碰撞相关的函数：</p>
+<ul>
+<li><span style="background-color:#d9d9d9"><strong>OnCollisionEnter2D(CollisionInfo2D info)</strong></span> 当其他碰撞盒与本物体的碰撞盒接触时调用。</li>
+<li><span style="background-color:#d9d9d9"><strong>OnCollisionExit2D(CollisionInfo2D info)</strong></span> 当其他碰撞盒再也不与本物体的碰撞盒接触时调用。</li>
+<li><span style="background-color:#d9d9d9"><strong>OnTriggerEnter2D(Collider2D otherCollider)</strong></span> 当其他的碰撞盒组件选项中的 “Trigger” 被选中时，与本物体的碰撞盒接触时调用。</li>
+<li><span style="background-color:#d9d9d9"><strong>OnTriggerExit2D(Collider2D otherCollider)</strong></span> 当其他的碰撞盒组件选项中的 “Trigger” 被选中时，再也不与本物体的碰撞盒接触时调用。</li>
+</ul>
+<p>呼……总算介绍完了，这些是有点儿乏味，但是必须得让你知道，不好意思。</p>
+<p><strong><div style="background-color:#73c1ec ; padding:17px;"><span style="color:#FFFFFF">注意“2D”后缀：</span>现在你应该已经注意到了，我们目前为止所有说过的东西都带有“2D”这个后缀。比如“Box Collider 2D”，“Rigidbody 2D”，“OnCollisionEnter2D” 或者 “OnTriggerEnter2D” 方法等等。这些新的组件和方法是在 Unity 4.3 版本后才出现的。<br>当你使用它们时，你使用的是集成在 Unity 4.3 中的 2D 物理引擎（基于 Box2D），而不是使用的 3D 引擎（基于 PhysX）。这两种引擎有的相似的概念和对象，但是它们的工作原因却不完全一样。当你开始使用其中之一时（如果做 2D 游戏，那最好用基于 2D 游戏的 Box2D 引擎），一定要贯彻始终。这就是我们为什么一直使用带“2D”后缀的方法和对象了。</div></strong></p>
+<p>当我们将来要用到它们的时候，还会再返回来详细的讲解。</p>
+<p>现在为我们的主角脚本添加一些简单的控制代码：<br>使用键盘上的方向键移动飞船。</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Player controller and behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> 1 - The speed of the ship</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 1 - 飞船的速度</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">50</span>, <span class="number">50</span>);
+
+  <span class="comment">// 2 - Store the movement</span>
+  <span class="comment">// 2 - 存储飞船的移动状态</span>
+  <span class="keyword">private</span> Vector2 movement;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 3 - Retrieve axis information</span>
+    <span class="comment">// 3 - 取到方向轴上的值</span>
+    <span class="keyword">float</span> inputX = Input.GetAxis(<span class="string">"Horizontal"</span>);
+    <span class="keyword">float</span> inputY = Input.GetAxis(<span class="string">"Vertical"</span>);
+
+    <span class="comment">// 4 - Movement per direction</span>
+    <span class="comment">// 4 - 飞船每个方向上的移动状态</span>
+    movement = <span class="keyword">new</span> Vector2(
+      speed.x * inputX,
+      speed.y * inputY);
+
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 5 - Move the game object</span>
+    <span class="comment">// 5 - 移动飞船</span>
+    rigidbody2D.velocity = movement;
+  }
+}
+</code></pre><p><em>（代码中标有数字的注释下面都会详细解释）</em></p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意 C# 的编程惯例：</span>注意成员变量 <span style="background-color:#FFFFFF">speed</span> 的可见性：是 public（公开的）。在 C# 中，类 (Class) 中的内部成员变量应该声明为私有的 (Private)。<br> 但是把成员变量声明为公开 (Public) 的，可使它的值在 Unity 的“检视面板 (Inspector)”中被修改，甚至在游戏执行中也可以。这是 Unity 的一个强大特性，让你不必修改代码就可以调试游戏。<br> 记住我们现在写的是脚本，而不是常规的 C# 代码，这就意味着我们要打破一些规则和惯例。</div></strong></p>
+<p><span style="color:#878787; font-size:23px">代码详解</span></p>
+<ol>
+<li>我们先声明了一个公开的（Public）变量，这样它就会出现在 Unity 的检视 (Inspector) 面板中了。这是飞船的速度。</li>
+<li>我们在每一帧存储了飞船的移动状态。</li>
+<li>我们使用了默认的轴控制，这是可以在 <span style="color:#2ca6cb"><strong>“Edit” → “Project Settings” → “Input”</strong></span> 中修改的。轴控制可以返回一个在 [-1, 1] 之间的值，0 为默认值，1 代表向右，-1 代表向左。</li>
+<li>我们把方向乘以了速度。</li>
+<li>我们改变了刚体的速度。这样做可以使物理引擎赋予刚体一个速度从而使其移动。我们在 FixedUpdate() 中写入这些代码，因为它们与物理效果有关。</li>
+</ol>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">教程更新小记：</span>如果你之前读过这篇教程，你应该还记得我们之前是直接使用的 transform.Translate 。这样做是可以的，但是不推荐，因为这样会让物理引擎运行不正常（对物理引擎来说，Translate 相当于是在瞬间移动，不会产生碰撞事件）。<br>感谢你的反馈，我们因此更新了脚本来帮助人们正确的移动游戏中的物体。</div></strong></p>
+<p>现在，把这个脚本附加到游戏对象上。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>你可以通过把脚本从“项目(Project)”面板上直接拖拽到“层级(Hierarchy)”面板中的游戏对象上，来为此游戏对象添加脚本。你也可以先选择一个游戏对象，然后在“检视(Inspector)”窗口中点击”Add Component”按钮，然后找到要添加的脚本并手动添加。</div></strong></p>
+<p>点击 Unity 编辑器上方的 “Play” 按钮来运行游戏。游戏开始运行并且你的飞船可以移动了！恭喜你，你相当于完成了游戏中的 <span style="color:#2ca6cb"><strong>“Hello World!”</strong></span> :)</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/moving_ship.gif"></p>
+<p>试着改变一下速度：选择主角，在“检视(Inspector)”面板中修改速度值，然后看看游戏中的结果。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player_value_tweak.png"></p>
+<p><strong><div style="background-color:#f67b64; padding:17px;"><span style="color:#FFFFFF">请小心：</span>在游戏运行时做出的修改在游戏停止运行后都会恢复！对于调试游戏来说这是个好事情，但是如果你想保留修改后的结果，请记住你所做出的调整，并在游戏运行结束后再次修改并保存。<br>不管怎样，这个特性还是蛮方便的：你可以在你游戏运行的时候随便胡乱修改以测试一些新鲜好玩的东西，并且不用担心会毁了你的工程。</div></strong></p>
+<h1 id="添加第一个敌人">添加第一个敌人 </h1><p> 一个飞行射击游戏如果没有成吨出现的敌人用来倾泄子弹，那么它就什么也不是了。</p>
+<p>让我们用一个无辜的章鱼来作我们的敌人吧，就叫他“小章鱼”吧：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/poulpi.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<h2 id="添加精灵 -1">添加精灵 </h2><p> 是时候创建一个新的精灵了！再次这样做：</p>
+<ol>
+<li>将图片文件复制到“Textures（贴图）”文件夹中。</li>
+<li>使用此图片创建一个新精灵 <span style="background-color:#d9d9d9">Sprite</span>。</li>
+<li>在 <span style="background-color:#d9d9d9">Transform</span> 中修改“缩放(Scale)”属性为 <span style="background-color:#d9d9d9">(0.4, 0.4, 1)</span>。</li>
+<li>添加一个”Box Collider 2D”组件并把大小设为 <span style="background-color:#d9d9d9">(4, 4)</span>。</li>
+<li>添加一个”Rigidbody 2D”组件，把”Gravity Scale”属性设为 <span style="background-color:#d9d9d9">0</span> 并将”Fixed Angles”勾选。</li>
+</ol>
+<p>然后将其保存为预设(Prefab)……就是这样！</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/enemy_definition.png"></p>
+<h2 id="添加脚本">添加脚本 </h2><p> 我们将要编写一个简单的行为：章鱼会一直向一个方向移动。</p>
+<p>创建一个新的脚本并命名为”MoveScript”。</p>
+<p>我们可以将其命名为”EnemyScript”，但是我们计划在其他地方再次使用它。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>基于 Unity 组件化系统的模块提供给我们一个很好的，将不同功能的脚本分开独立处理的途径。当然，你可以将所有的功能和参数全都放在一个臃肿的脚本里，那是你的选择，但是我们强烈不推荐那样做。</div></strong></p>
+<p>我们将要从”PlayerScript”脚本中复制一些移动相关的代码出来。我们将要添加另外一个 <strong> 设计变量 </strong>（并将其声明为公共(Public) 变量，这样我们就能在“检视(Inspector)”面板中修改它了）。</p>
+<p><strong> 译者注：设计变量 (designer variable) 意思就是在工程中用来优化调试的变量</strong></p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Simply moves the current game object</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MoveScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment">// 1 - Designer variables</span>
+  <span class="comment">// 1 - 设计变量</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Object speed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">10</span>, <span class="number">10</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Moving direction</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 direction = <span class="keyword">new</span> Vector2(-<span class="number">1</span>, <span class="number">0</span>);
+
+  <span class="keyword">private</span> Vector2 movement;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 2 - Movement</span>
+    <span class="comment">// 2 - 移动</span>
+    movement = <span class="keyword">new</span> Vector2(
+      speed.x * direction.x,
+      speed.y * direction.y);
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Apply movement to the rigidbody</span>
+    rigidbody2D.velocity = movement;
+  }
+}
+</code></pre><p>将脚本附加到章鱼上。点击 “Play” 按钮：章鱼应该像下图一样移动起来了。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/moving_enemy.gif"></p>
+<p>如果你将主角移动至章鱼的前方，这两个精灵会发生碰撞。但是他们只会阻挡住彼此，因为我们还没有为它们添加碰撞事件。</p>
+<h1 id="下一步">下一步 </h1><p> 你在这章中已经会了怎样添加一个主角，并且用键盘来操控它。然后，我们又创建了一个有着基本行为的敌人。</p>
+<p>那么现在，我们想将那个会动的东西消灭掉！为了达到这个目的，我们需要子弹！</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Unity2D新手教程/">Unity2D新手教程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/" data-title="【译】Unity 制作 2D 飞行射击游戏 [3/10] | NewAtlantisGames" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 2/" title="【译】Unity 制作 2D 飞行射击游戏 [2/10]">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【译】Unity 制作 2D 飞行射击游戏 [2/10]</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/"  title="【译】Unity 制作 2D 飞行射击游戏 [4/10]">
+ <strong>下一篇：</strong><br/> 
+ <span>【译】Unity 制作 2D 飞行射击游戏 [4/10]
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/" data-title="【译】Unity 制作 2D 飞行射击游戏 [3/10]" data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建主角"><span class="toc-number">1.</span> <span class="toc-text">创建主角 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加精灵"><span class="toc-number">1.1.</span> <span class="toc-text">添加精灵 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于组件的说明"><span class="toc-number">1.2.</span> <span class="toc-text">关于组件的说明 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加一个碰撞盒 (Box_Collider)"><span class="toc-number">1.3.</span> <span class="toc-text"> 添加一个碰撞盒 (Box Collider)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神奇的刚体 (Rigidbody)"><span class="toc-number">1.4.</span> <span class="toc-text"> 神奇的刚体 (Rigidbody)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使主角移动"><span class="toc-number">1.5.</span> <span class="toc-text">使主角移动 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加第一个敌人"><span class="toc-number">2.</span> <span class="toc-text">添加第一个敌人 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加精灵 -1"><span class="toc-number">2.1.</span> <span class="toc-text">添加精灵 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加脚本"><span class="toc-number">2.2.</span> <span class="toc-text">添加脚本 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">3.</span> <span class="toc-text">下一步 </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">文章分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Unity2D新手教程/" title="Unity2D新手教程">Unity2D新手教程<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">团队作品</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" title="IntoDark">IntoDark</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 现在不为自己一直的梦想拼博 <br/>
+			以后回想起来，一定会后悔不己</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:4newatlantis@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Lei Lavas">Lei Lavas</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"NewAtlantisGames"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F12e16f3e220c8c67d78c205dc4eca514' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

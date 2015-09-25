@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.newatlantisgames.net//"/>
-  <updated>2015-08-17T07:53:40.527Z</updated>
+  <updated>2015-09-25T07:58:48.967Z</updated>
   <id>http://www.newatlantisgames.net//</id>
   
   <author>
@@ -16,25 +16,2004 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[写在最前面的话]]></title>
-    <link href="http://www.newatlantisgames.net/2015/08/11/undefined/undefined/undefined/%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AF%9D/"/>
-    <id>http://www.newatlantisgames.net/2015/08/11/undefined/undefined/undefined/写在最前面的话/</id>
-    <published>2015-08-11T07:26:52.000Z</published>
-    <updated>2015-08-17T07:53:40.527Z</updated>
-    <content type="html"><![CDATA[<h1 id="前言">前言 </h1><p> 好久没有写文章了，刚一开始，就感觉自己的文字没有条理，杂乱无章，算了，可能写一写就会好些吧。<br>经过了一整天的折腾，自己的博客总算是搭起来了，这下可算是有个自由自在的天地来交流经验和抒发情感了。看到我这篇博客的读者们，首先谢谢你们，我在这里要说一下我建这博客的目的：</p>
-<blockquote>
-<p>1. 分享我自学 Unity 制作 2D 游戏的经验，帮助和我一样的初学者起步<br>2. 和广大游戏爱好者及游戏制作者交流，以求更大的进步和更广的视野<br>3. 为自己制作的游戏做宣传，获得一些收益，毕竟我已辞职，目前还没有收入，还有老婆和孩子要养</p>
-</blockquote>
-<h1 id="我和电子游戏结缘">我和电子游戏结缘 </h1><p> 我 1986 年出生于山西太原，因为父母工作忙，只要幼儿园一放假，我就被送到姥姥家由姥姥和姥爷照顾。因为家里不是很富裕，小时候也没什么像样的玩具，不过姥爷的动手能力超强，经常用硬纸片或雪糕棒一类的东西做坦克、飞机、大炮给我玩，直到那一天——</p>
-<p>我后来回想那应该是我四岁左右的时候，有一天我和爸爸妈妈到姥姥家，刚进卧室，就看见舅舅坐在床上，眼睛一直盯着黑白电视机，但是电视机里播放的并不是电视节目，而是一些我没见过的东西……那个，好像是个人吧，手里还有一根棍，跳起来那么高，还能在空中把身体变成一个球……再看舅舅，手里还握着一个长方形的东西，好像就是这个东西在控制电视里的那个小人。这时爸爸开口问舅舅：“小毛，你这是个啥了？”舅舅都没顾上回头：“问他们借的游戏机。”然后爸爸看了一会儿，向舅舅要过来也玩了一下，结果到了一个地方，怎么都跳不过去，这时在旁边的我早就按捺不住了：“我来我来！！”一开始舅舅还不让我玩，怕我给人家玩坏了，但是实在是经不住我的死缠烂打，答应就让我玩一下，如果这一命死了，就不让玩了，所以我玩的时候格外的认真，没一会儿就到了他们都过不去的那关了。我摒住气，手和胳膊一起使劲，哈！你们都跳过不去的沟，我一下就跳过去了！这时我得意地看着爸爸和舅舅，然后爸爸说了一句再简单不过，但是让我铭记至今的话：“呀，看来你玩这挺有天赋的么！行咾！你这可以了。”</p>
-<p>直至今日，我闭上眼睛，当时的一幕幕欢乐的画面仍然让我回味无穷，就是从那时起，我和游戏就结下了不解之缘。</p>
-<h1 id="立志做游戏">立志做游戏 </h1><p> 大约是小学五年级的时候吧，我家附近悄悄地兴起了“电脑房”，那些平日里做电脑培训的学校，在周六日没有课时，就会把机房对外开放。机器上只有一款游戏，那就是大名鼎鼎的《命令与征服》，这款游戏对我来说</p>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [前言]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%200/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 0/</id>
+    <published>2015-09-25T01:16:45.000Z</published>
+    <updated>2015-09-25T07:58:48.967Z</updated>
+    <content type="html"><![CDATA[<div style="background-color:#d9d9d9; padding:17px;"><strong>译者前记：<br><br>大家好，我是 LavaLei，是一名 Unity 爱好者，之前曾就职于一游戏公司，现已辞职自己制作游戏。其实我学习 Unity 的时间并不长，从第一次接触到现在也就 1 年的时间，并且辞职前是做游戏策划工作，Unity 与我的本职并无关联，但我一直在业余时间自学，所以，我也是个彻头彻尾的初学者。</strong><br><br><strong>在 2015 年的 7 月份，我发布了自己制作的第一款游戏：<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" rel="external">IntoDark</a>，这就算是对我一段时间以来学习 Unity 的一个小结。游戏很简单，但制作的过程中遇到了很多的坑，比如移动广告的植入，就将近花费了我近半个月的时间（因为我对 Java 一窍不通）！后来在搜索引擎的帮助下，各种问题迎刃而解，在此由衷感谢那些无私分享的前辈们！向你们深深的致敬！</strong><br><br><strong>在学习的过程中，一个国外游戏工作室（<a href="http://pixelnest.io/" target="_blank" rel="external">Pixelnest</a>）的教程让我顺利地踏上了 Unity 之路，让我从一个一知半解的生手，变成一个初学者，所以接下来，我将把他们优秀的 Unity 教程翻译给那些想要学习，但又是英文苦手的同胞们。</strong><br><br><strong>题外话：佛法中提到，越是分享，得到的就越多，我对此深信不已，所以不论是将来把自己项目的教程分享出来，还是翻译那些优秀的国外教程，我都会一直做下去，让越多的人受益越好！</strong><br><br><strong>本人英文也就四级水平，所以文章中难免有些翻译得不准确的地方，欢迎大家批评指正！</strong></div>
+
+<p><span style="color:#2ca6cb; font-size:32px">使用 Unity 制作 2D 游戏</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/</a></span></strong></p>
+<p>使用 <strong>Unity</strong> 自带的 2D 工具，并且通过此教程，你将学会如何制作一个飞行射击游戏。</p>
+<p>制作完成后的效果如下所示（<em>点击 <a href="http://pixelnest.io/tutorials/2d-game-unity/-demo/demo.html" target="_blank" rel="external"> 这里 </a> 进行游戏</em>）：<br><a href="http://pixelnest.io/tutorials/2d-game-unity/-demo/demo.html" target="_blank" rel="external"><img src="http://pixelnest.io/tutorials/2d-game-unity/-img/result.png"></a></p>
+<p>通过一段时间的努力，你也可以做出像 <a href="http://steredenn.pixelnest.io/" target="_blank" rel="external">Steredenn</a> 一样的游戏，实事上此游戏中所用的代码全都来自于此篇教程！</p>
+<p>我们此次所做的游戏为横向卷轴飞行射击游戏。无论怎样，如果本篇教程达到预期效果，你将明白如何在现有的代码基础上进行扩展，从而做出许多其他类型的游戏。</p>
+<p>教程中所用例子的资源、游戏及创意均来自游戏 <a href="http://www.thegreatpaperadventure.com/" target="_blank" rel="external">《纸片大冒险》(The Great Paper Adventure)</a>。达米安(Damien) 在许多年前使用 <a href="http://en.wikipedia.org/wiki/Microsoft_XNA" target="_blank" rel="external">XNA</a> 制作了此游戏。当我们开始写这篇 Unity 教程时，我们认为使用这些原材料是再好不过的了。</p>
+<h1 id="关于 Unity">关于 Unity</h1><p><a href="http://unity3d.com/" target="_blank" rel="external">Unity3D</a>非常受欢迎并且是制作多平台游戏的最佳选择。本教程假定你有少许的编程语言基础，并且附带了解一些工具和引擎知识，但也不是必须的。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/-img/unity.png"><br>本教程使用的 Unity 版本为 4.3<strong>免费版</strong>。</p>
+<p><strong>如果你使用的是 Unity5，请注意这篇教程没有做相应的更新。但是 <a href="https://github.com/pixelnest/tutorial-2d-game-unity/" target="_blank" rel="external"> 源代码库 </a> 已为 Unity5 及新的 UI 系统更新。</strong></p>
+<h1 id="视频版">视频版 </h1><p> 如果你更愿意看视频，而不是读教程，那么请点击这里 <a href="http://gamedevnation.com/creating-a-2d-game-with-unity/" target="_blank" rel="external">Jay Jennings’s work from Game Dev Nation</a>。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>章节“使用 Unity2D 制作动画”目前还没有视频版。<br></div></strong></p>
+<h1 id="许可说明">许可说明 </h1><p> 教程中所用资源及美工符合 <a href="http://creativecommons.org/licenses/by-nc/2.0/fr/" target="_blank" rel="external">CC-BY-NC</a> 许可。这些资源被 <a href="http://twitter.com/mrlapinou" target="_blank" rel="external">Thibault Person</a> 制作并使用在游戏 <a href="http://www.thegreatpaperadventure.com/" target="_blank" rel="external">《纸片大冒险》(The Great Paper Adventure)</a> 中。</p>
+<p>源代码所有权属于 Pixelnest 工作室并且已在 <a href="http://choosealicense.com/licenses/mit/" target="_blank" rel="external">MIT 许可</a> 下发布。</p>
+<p>了解更多关于我们在 <a href="https://github.com/pixelnest/tutorial-2d-game-unity/blob/master/LICENSE.md" target="_blank" rel="external">GitHub</a> 上的许可的信息。</p>
+<p>源代码已在 <a href="https://github.com/pixelnest/tutorial-2d-game-unity/" target="_blank" rel="external">GitHub 代码库</a> 上公开。</p>
+<h1 id="联系我们">联系我们 </h1><p> 如果你在浏览过程中发现排版错误、内容错误或拼写错误，请在 <a href="http://twitter.com/pixelnest" target="_blank" rel="external">Twitter</a> 上告诉我们。除此之外你还可以通过 <a href="site@pixelnest.io"> 电子邮件 </a> 联系我们。</p>
+<p>如果你针对特定的章节想了解更多信息，或者对任意章节不明白，我们很乐意为你答疑解惑。</p>
+<p>最后，如果你喜欢我们所做的一切，请在 <a href="http://twitter.com/pixelnest" target="_blank" rel="external">Twitter</a> 上关注我们吧 :)</p>
+<p>这篇教程主要由 <a href="http://twitter.com/valryon" target="_blank" rel="external"> 达米安 (Damien)</a> 负责编排，由 <a href="http://twitter.com/solarsailer" target="_blank" rel="external"> 马蒂厄 (Matthieu)</a> 负责编辑。希望大家能从中受益。</p>
+<p>那么，你准备好了吗？让我们沉浸在 Unity 的世界中吧！</p>
+<p><img src="http://pixelnest.io/work/steredenn/-img/banner.png"><br><a href="http://steredenn.pixelnest.io/" target="_blank" rel="external">点击了解我们新游戏的更多信息！</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="前言">前言 </h1><p> 好久没有写文章了，刚一开始，就感觉自己的文字没有条理，杂乱无章，算了，可能写一写就会好些吧。<br>经过了一整天的折腾，自己的博客总算是搭起来了，这下可算是有个自由自在的天地来交流经验和抒发情感了。看到我这篇博客的读者们，首先谢谢你]]>
+    <![CDATA[<div style="background-color:#d9d9d9; padding:17px;"><strong>译者前记：<br><br>大家好，我是 LavaLei，是一名 Unity 爱好者，之前曾就职于一游戏公司，现已辞职自己制作游戏。其实我学习 Unity 的时]]>
     </summary>
     
-      <category term="心路历程" scheme="http://www.newatlantisgames.net/categories/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [1/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%201/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 1/</id>
+    <published>2015-09-25T01:16:44.000Z</published>
+    <updated>2015-09-25T07:24:01.343Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">安装 Unity 并且创建你的第一个游戏场景</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/</a></span></strong></p>
+<p>在第一个章节中，你将获得一些非常基本的信息：首先是 Unity 的下载及安装，然后是游戏中创建第一个场景的准备工作。</p>
+<h1 id="配置你的环境变量">配置你的环境变量 </h1><p> 我们先从最简单的开始：下载并且安装配置 Unity。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity.png" style="width: 300px;"></p>
+<h1 id="安装 Unity">安装 Unity</h1><p>从 <a href="http://unity3d.com/unity/download" target="_blank" rel="external"> 官方网站 </a> 下载最新版本的 Unity。<br>运行可执行文件并完成安装。</p>
+<h1 id="选择一个代码编辑器">选择一个代码编辑器</h1><p>Unity 自版本 4.0.1 起，就自带 MonoDevelop 代码编辑器。</p>
+<h2 id="Windows 操作系统"><span style="color:#878787">Windows 操作系统 </span></h2><p> 如果你使用的是 Windows 操作系统，你可以（也应该）将此编辑器作为备选：</p>
+<ul>
+<li><a href="http://www.microsoft.com/visualstudio/eng/downloads#d-2013-express" target="_blank" rel="external"><strong>Visual Studio 2013 Desktop (C#)</strong></a> for Windows</li>
+</ul>
+<p>同样的：下载并安装，过程非常简单因为所有东西都是打包好的，虽然你可能要多等一会儿。然后，在 Unity 参数配置中，将默认的代码编辑器更改为 Visual Studio。如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity_vs2013.png"></p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;">最好了解一下：Visual Studio 2013 Express 的 Debugger（运行调试模式）不能在 Unity 中使用。你必须购买专业版的 Visual Studio 并且购买 <a href="http://unityvs.com/" target="_blank" rel="external">UnityVS 插件</a>。使用 Express 版本可以让你有一个更好的代码编辑工具，但是缺少 Debugger（运行调试模式）还是非常不便的。<br></div></strong></p>
+<h2 id="Mac（苹果）操作系统"><span style="color:#878787">Mac（苹果）操作系统 </span></h2><p><a href="http://monodevelop.com/" target="_blank" rel="external">MonoDevelop 4</a> 与 <a href="http://xamarin.com/studio" target="_blank" rel="external">Xamarin Studio</a> 非常的相似，这意味着它比过去版本 Unity 自带的 MonoDevelp2 更好用。虽然并非完美，但如果你在 Mac 系统上开发，MonoDevelop 4 仍然是最好的选择。</p>
+<h2 id="使用哪种编程语言？"><span style="color:#878787">使用哪种编程语言？</span></h2><p>Unity 允许你使用 3 种编程语言：JavaScript(Unity Script)，C# 及 Boo。<br>我们强烈推荐你使用 C#。因为它更强大并且不易犯错，除此之外，还因为这篇教程使用的就是 C#。</p>
+<h1 id="如果我是个完全的 Unity 新手该做些什么？">如果我是个完全的 Unity 新手该做些什么？</h1><p>如果你以前从未接触过 Unity，我们将尽我们最大努力在本篇教程中尽可能多的教授一些知识点。<br>学习使用 Unity 的主界面是相当容易的。当你第一次打开 Unity 时可能会害怕，但是经过几个小时的学习后，再使用起来就会感觉很舒服。</p>
+<p>下面是一些有趣的资源并且应该可以补充我们的教程：</p>
+<ul>
+<li><a href="http://unity3d.com/learn/tutorials/modules/beginner/editor" target="_blank" rel="external">官方 Unity 教程</a>：官方的视频教程非常棒。你应该花一个下午的时间来学习它们——我们向你保证你会觉得时间花得非常值。</li>
+<li><a href="http://unitypatterns.com/" target="_blank" rel="external">Unity Patterns</a>：一个新建的、包含许多非常好的文章和工具的网站。如果你对“协同程序”的概念不是那么熟悉的话，那么此网站中的相关教程你一定要读。</li>
+</ul>
+<h1 id="创建第一个游戏场景">创建第一个游戏场景 </h1><h2 id="创建一个新工程"> 创建一个新工程 </h2><p> 在 Unity 主界面左上角打开“文件（File）”菜单，然后选择“创建新工程（New Project…）”。目前为止不需要选择下面列表中的任何包。如果你需要这些包的话，晚些时候也可以重新导入，但是在刚开始的时候导入它们会使你混乱。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/create_project.png"></p>
+<p>选择下方的 <strong>2D</strong> 选项。当然你也可以在工程中随时切换此设定 <br> 不用担心工程的名称。工程名称是在选项中定义的，并且修改工程文件夹的名称就可以修改工程名。</p>
+<h2 id="团队合作必须的准备">团队合作必须的准备 </h2><p> 就像 Damien 在 <a href="http://dmayance.com/git-and-unity-projects/" target="_blank" rel="external"> 另外一篇教程 </a> 中所解释的，如果你计划使用 Git 或 SVN（版本控制工具），你第一件要做的事就是开启一些团队合作所必须的设置。<br>如果你对本内容有兴趣的话，点击 <a href="http://dmayance.com/git-and-unity-projects/" target="_blank" rel="external"> 这里 </a> 查看教程。</p>
+<h2 id="Unity 主界面布局">Unity 主界面布局 </h2><p> 现在展现在你眼前的就是一个空的场景。下图所示的是我们所使用的界面布局，你应该花一些时间根据自己的需要调整出一个方便自己工作的界面布局。我（Damien）个人喜欢控制台窗口紧挨着游戏预览窗口，但是如果你的显示器太小的话，你就得将它合并。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/empty_project.png"></p>
+<p>在开始游戏创作之前，花几分钟的时间组织一下你的工程和游戏场景。</p>
+<p>我们推荐你在 Unity 的“工程（Project）”面板中创建一些文件夹来组织你的游戏资源。这些文件夹都会创建在你的工程项目中的“材料（Assets）”文件夹下。<br><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>材料（Assets）文件夹包含了所有你添加在工程（Project）面板中的内容。材料（Assets）文件夹在 Unity 中可以显示也可以隐藏，取决于工程（Project）面板的布局显示设置（单列显示（One-column）或者双列显示（Two-columns）），但是你如果在 Windows 目录中打开工程文件夹的话，你一定会看到材料（Assets）文件夹。<br></div></strong><br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/folders.png"><br>上图的文件夹分类是我们工作室所使用的，当然你也可以根据自己的需要做些修改。</p>
+<h2 id="工程资源">工程资源 </h2><p> 在你的工程（Project）面板中，你会发现有如下几种不同的资源分类：</p>
+<h3 id="预设（Prefabs）"><span style="color:#878787">预设（Prefabs）</span></h3><p>可重复使用的游戏对象（例如：子弹、敌人、金币等）。<br>预设在编程语言中可被视为一个 <strong> 类（class）</strong>，它可以被实例化为游戏对象。预设就是一种在游戏场景中或游戏进行中可以随意被复制和修改的模具。</p>
+<h3 id="游戏场景（Scenes）"><span style="color:#878787">游戏场景（Scenes）</span></h3><p>游戏场景就是一个基本的游戏关卡或一个游戏菜单。<br>与其他在工程（Project）面板中创建的对象不同，游戏场景是在文件（File）菜单中创建的。如果你想创建一个游戏场景，点击“新建场景（New Scene）”子菜单，然后别忘记将新创建的场景保存在“场景（Scenes）”文件夹中。<br>游戏场景需要手动保存。开始学习 Unity 时的一个典型错误就是对一个场景及其所包含的元素作出了修改，但是却忘记将这些修改保存。你的版本控制工具直到你保存场景后，才会标记出文件已被修改。</p>
+<h3 id="音效（Sounds）"><span style="color:#878787">音效（Sounds）</span></h3><p>我想这个就不必多说了吧。唯一要注意的是你是否需要将音乐从中分离到另外的文件夹。</p>
+<h3 id="脚本（Scripts）"><span style="color:#878787">脚本（Scripts）</span></h3><p>游戏中所有的代码都在这里。在 C# 工程项目中，我们将此文件夹当作代码的根文件夹使用。</p>
+<h3 id="贴图（Textures）"><span style="color:#878787">贴图（Textures）</span></h3><p>贴图就是你游戏中的精灵和图片。在 2D 项目中，你可以将此文件夹更名为“精灵（Sprites）”。<br>在 2D 项目中这个文件夹不是那么重要，但是一定要保证其名称为“贴图（Textures）”，这样 Unity 才能认出这个文件夹并且进行一些操作。如果你想多了解这部分的内容，你可以阅读 <a href="http://answers.unity3d.com/questions/172384/importing-models.html" target="_blank" rel="external"> 这个 </a> 或 <a href="http://docs.unity3d.com/Documentation/Components/class-Mesh.html" target="_blank" rel="external">这个</a> 。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意“资源（Resources）”文件夹：</span>如果你以前使用过 Unity，你可能知道“资源（Resources）”是一个有用的并且特别的文件夹。它可以让你在脚本中装载游戏对象或者文件（使用静态 <span style="background-color:#FFFFFF">Resources</span> 类）。<br>我们不会使用这个文件夹，直到……接近尾声的时候（在讲解菜单的章节）。所以为了简洁明了，我们决定现在先不用它。<br></div></strong></p>
+<h2 id="创建我们的第一个游戏场景">创建我们的第一个游戏场景 </h2><p>“层级（Hierarchy）”面板包含了游戏场景中的每一个可用的游戏对象。层级面板将是你点击“开始（Play）”按钮运行游戏后可以调整游戏对象的接口。<br> 游戏场景中的每一个对象都是 Unity 中的“游戏对象”。你可以在游戏场景中直接创建一个对象，或者在另一个游戏对象上创建一个子对象。你能在任何时候对通拖拽一个对象来改变它的父级对象。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/logical_objects.png"><br>如上图所示，Level 对象包含了 3 个子对象。</p>
+<h3 id="空对象"><span style="color:#878787">空对象 </span></h3><p> 在 Unity 中有一个小诀窍：你可以创建一个空的游戏对象来充当其它游戏对象的“文件夹”。这样做会使你的层级面板更简洁更有条理。<br> <img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/unity_create_empty.png"></p>
+<p><strong>保证这些空对象全都在坐标（0，0，0）位置，这样你才能容易的找到它们！对于这些空对象来说，坐标没有什么实际的用处。</strong><br><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>改变这些空对象的坐标将会改变它们包含的子对象的相对位置。我们在本教程中将不会讨论此方面内容，所以就让它们的坐标都设在 <span style="background-color:#FFFFFF">（0，0，0）</span> 上吧。</div></strong><br><strong>将这些空对象视作纯粹逻辑上的对象就行了。</strong></p>
+<h3 id="填充游戏场景"><span style="color:#878787">填充游戏场景 </span></h3><p> 默认的，新的游戏场景被创建，同时还有一个默认的主摄像机 <strong>Main Camera</strong>。保持它们别动。<br> 现在，你需要创建一些空对象：</p>
+<ul>
+<li><strong>Scripts（脚本）：</strong>我们将把全局脚本添加到这个对象上。也就是说我们将把与单个对象无关的脚本附加到这个对象上。例如，我们将把一个名为“Game”的控制脚本附加到这个对象上。</li>
+<li><strong>Render（着色器）：</strong>将摄像机附加到这个对象上。如果有灯光对象的话，我们也应该把它们附加到这个对象上。</li>
+<li><strong>Level（层级）</strong><br>在 <strong>Level（层级）</strong> 对象上附加 3 个空子对象：<ul>
+<li><strong>0 - Background（背景层级）</strong></li>
+<li><strong>1 - Middleground（中景层级）</strong></li>
+<li><strong>2 – Foreground（前景层级）</strong></li>
+</ul>
+</li>
+</ul>
+<p>将游戏场景保存到“场景（Scenes）”文件夹中。说说你想如何称呼这个文件夹（“Stage1（关卡 1）”怎么样？）。<br>现在你应该有如下图所示的内容：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/install-and-scene/-img/first_scene.png"></p>
+<div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"><strong>小提示：</strong></span><strong>默认情况下，游戏对象的位置与它的父级对象的位置是绑定的。</strong><br><br><strong>对摄像机对象来说，这个特性带来的好处是：如果摄像机对象是另一个对象的子对象，那么这个摄像机对象的位置将会一直自动跟随它的父级对象。如果摄像机对象直接在场景中或者在一个空对象中，那么它的视野就是固定的。不论怎样，如果你将摄像机附加在一个正在移动的游戏对象上，摄像机将会在场景中一直跟随此游戏对象。</strong><br><br><strong>尽管如此，对于我们的游戏来说，我们希望摄像机是固定的，因此我们才把它放在 <span style="background-color:#FFFFFF">Render</span> 空对象中。但是记着这个特性，还是非常有好处的。</strong><br><strong>我们将会在“Parallax Scrolling（视差移动）”章节中涉及此内容。</strong></div>
+
+<h1 id="下一步">下一步 </h1><p> 我们离完成一个游戏还远着呢，是吧？</p>
+<p>我们目前已经创建了一些游戏中基础的内容。在下一篇中我们将开始添加一些更有趣的东西：背景及一些其他元素！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">安装 Unity 并且创建你的第一个游戏场景</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [2/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%202/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 2/</id>
+    <published>2015-09-25T01:16:43.000Z</published>
+    <updated>2015-09-25T07:24:17.708Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">添加并显示背景</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/</a></span></strong></p>
+<p>使用在上一章中创建的空对象，现在我们来学习如何添加一个背景及梦幻般的云彩。</p>
+<h1 id="添加一个背景">添加一个背景 </h1><p> 你添加的第一个背景将是静止的。我们将用到下面这张图片：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/background.png"><br><em>（点击鼠标右键来保存图片）</em></p>
+<p>将这张图片导入到 “Textures” 文件夹中。可以简单的复制到此文件夹中，或者从浏览器中拖拽过去。</p>
+<p>目前先不必关心导入相关的设置。</p>
+<p>在 Unity 中，在场景（Scene）中创建一个新的 <span style="background-color:#e9e9e9"><em> 精灵（Sprite）</em></span>游戏对象。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/new_sprite.png"></p>
+<h2 id="什么是精灵（Sprite）">什么是精灵（Sprite）</h2><p>笼统讲，我们将一个 2D 游戏中所显示的图片就叫作“精灵（Sprite）”。这里来讲，它就是 Unity 中一种特定的 2D 游戏对象。</p>
+<h2 id="为精灵添加贴图">为精灵添加贴图</h2><p>Unity 可能已经自动将你的背景图片设置为一个精灵。如果没有，或者你想改变精灵的贴图的话，在检视窗口（Inspector）中选择”background”：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/sprite_select.png"><br><em>（你必须点击输入框右侧的小圆图标来打开“选择精灵（Select Sprite）”检视窗口）</em></p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">“我的精灵为什么不在对话框中显示？”：</span>首先，确认你是在“选择精灵（Select Sprite）”对话框中的“材料（Assets）”标签页。<br>有些读者反馈了这个问题，在他们的项目中，这个对话框是空的。原因可以是 Unity 安装不正确，甚至是在新建的 2D 工程中，图片被作为“贴图（Texture）”导入，而不是“精灵（Sprite）”。<br>为了修复这个问题，你需要在“项目（Project）”面板中选择这张图片，然后在“检视窗口（Inspector）”中，将“贴图类型（Texture Type）”属性的值改为“精灵（Sprite）”：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/sprite.png"><br>我们不知道为什么大家有的人有这个问题，而有的没有。</div></strong><br>OK，我们已经设置好了一个有着蓝天白云的背景精灵了。现在让我们重新整理一下场景吧。<br>在“层级（Hierarchy）”面板中，选择 <span style="background-color:#e9e9e9">New Sprite</span> 。将它改名为 <span style="background-color:#e9e9e9">Background1</span> 或者其他让你容易记住的名字。</p>
+<p>然后将这个对象移动为如下的层级关系：<span style="background-color:#e9e9e9">Level → 0 → Background</span> 。将它的坐标改为 <span style="background-color:#e9e9e9">(0,0,0)</span>。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/display_background.png"></p>
+<p>小练习：复制背景（Background）并将其坐标改为 <span style="background-color:#e9e9e9">(20,0,0)</span>。第二个图片应该和第一个图片完美的拼接在了一起。<br><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"> 小技巧：</span>你可以使用快捷键  <span style="background-color:#FFFFFF">ctrl + D</span> (Windows) 或者 <span style="background-color:#FFFFFF">cmd + d</span> (OS X) 来复制一个对象。</div></strong><br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/background2_in_place.png"></p>
+<h1 id="添加背景元素">添加背景元素 </h1><p> 这些元素不会增加游戏的可玩性，但是能增强场景的视觉效果。</p>
+<p>下面就是一些简单的飞行平台精灵：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/platforms.png"><br><em>（右键点击保存图片）</em></p>
+<p>就如你所看到的，我们在一个文件中有两个平台。这将是一个学习如何使用新的 Unity 工具来裁切精灵的好例子。</p>
+<p><span style="font-color:32">从一张图片中获取两个精灵</span></p>
+<ol>
+<li>从“贴图（Textures）”文件夹中导入图片。</li>
+<li>选择”platforms”精灵并查看检视窗口（inspector）。</li>
+<li>将”Sprite Mode”修改为”Multiple”。</li>
+<li>点击”Sprite Editor”。</li>
+</ol>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/sprite_multiple.png"></p>
+<p>在打开的新窗口中（”Sprite Editor”），按住鼠标左键拖动，并分别使拖拽出的矩形框住每一个平台，这样我们就将一个大的贴图裁切为更小的。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/sprite_editor.png"><br>左上角的“裁切（Slice）”按钮允许你快速并且自动完成这项枯燥的工作：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/slice.png"></p>
+<p>Unity 会找到图片中的物体并自动将它们裁切。你可以指定默认的锚点，或者设置裁切尺寸的最小值。对于简单的图片来说，这样做是非常高效的。但不论怎样，当你使用此工具后，一定要小心并检查得到的结果是否是你想要的。</p>
+<p>在本教程中，你还是手动来进行这项工作吧。最后将裁切后的两个平台分别命名为”platform1”和”platform2”。</p>
+<p>现在，在图片文件中，你应该看到独立的两个精灵。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/sprite_editor_result.png"></p>
+<h1 id="将平台添加到场景中">将平台添加到场景中 </h1><p> 我们将像处理背景精灵一样处理这两个平台精灵：先创建一个新的精灵 <span style="background-color:#e9e9e9">Sprite</span> 并将其贴图设置为”platform1”精灵。”platform2”使用同样的方法完成配置。</p>
+<p>将他们移动到 <span style="background-color:#e9e9e9">1-Middleground</span> 对象的层级下。再次确认他们的 Z 轴坐标为 <span style="background-color:#e9e9e9">0</span> 。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/adding_platforms.png"></p>
+<p>然后……哈哈！非常完美！我直到现在都不敢相信这一切都是这样的简单（老实说，如果没有 Unity 自带的 2D 工具的话，这项工作将变得不那么容易了，因为这涉及到了四方体 (quad) 和图像拼接(image tiling)）。</p>
+<h1 id="预设">预设 </h1><p> 下面将这些平台存储为预设。要这样做，仅仅需要把它们从“层级(Hierarchy)”窗口中拖拽到“项目(Project)”面板的“预设(Prefabs)”文件夹中就行了。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/prefabs.png"></p>
+<p>这样做后，你将创建了一个以原始游戏对象为基础的 <span style="background-color:#e9e9e9"> 预设 (Prefab)</span>。你还会注意到，在被你转换为<span style="background-color:#e9e9e9"> 预设 </span> 的游戏对象的名称下，会多出一行按钮来。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/prefab_link.png"><br><strong><div style="background-color:#73c1ec ; padding:17px;"><span style="color:#FFFFFF">关于这些“预设 (Prefab)”按钮：</span> 如果你晚些时候编辑了这些游戏对象，你可以通过点击“应用 (Apply)”按钮，来让这些修改应用到<span style="background-color:#FFFFFF"> 预设 </span> 上，或者点击“恢复 (Revert)”按钮让游戏对象恢复到与<span style="background-color:#FFFFFF"> 预设 </span> 一样（也就是取消对此游戏对象所做的所有修改）。“选择 (Select)”按钮将会把你当前选择的物体，从游戏对象上切换至“项目(Project)”面板中此对象的<span style="background-color:#FFFFFF"> 预设 </span> 上（被选中的预设会高亮闪动一下）。</div></strong></p>
+<p>创建平台的预设对象是为了以后更方便的使用。只是简单地把平台的 <span style="background-color:#FFFFFF"> 预设 </span> 拖动到场景中，就向场景添加了一个平台的复制对象。用同样的方法再向场景中添加一个平台。</p>
+<p>你现在可以添加更多的平台，并修改它们的坐标、大小及所属的平面（你可以把它们放在背景 (background) 或者前景 (foreground) 中，<strong>但是务必保证平台的 Z 轴坐标为 0</strong>）。</p>
+<h1 id="图层">图层 </h1><p> 在我们学习更多东西之前，我们先要修改一下图层顺序，以免发生显示顺序上的问题。</p>
+<p>简单地在“层级(Hierarchy)”窗口中选择游戏对象，并将它们的 Z 轴坐标按如下表格修改：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图层</th>
+<th style="text-align:center">Z 轴坐标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0 - 背景(Background)</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">1 - 中景(Middleground)</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">2 - 前景(Foreground)</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>如果你在“场景(Scene)”中从 2D 视角切换至 3D 视角后，你将会清晰的看到图层顺序：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/layers.gif"></p>
+<h1 id="摄像机和光照">摄像机和光照 </h1><p> 在这篇教程的上一个版本中（Unity 4.2），我们花了大量的篇幅仔细的解释了如何在 2D 游戏中设置摄像机及光照效果。</p>
+<p>好消息是那些现在已经没用了。你也没什么可做的了。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">另外说一下：</span>如果你点击主摄像机 (Main Camera) 对象，你会看到在“Projection（投射）”设置下有一个“Orthographic（正交）”选项。这个选项可以让摄像机渲染 2D 游戏而不必考虑 3D 方面的东西。但请时刻记住，虽然你制作的是 2D 游戏，但 Unity 仍然使用的是 3D 引擎来渲染游戏。上面的那个 gif 图片很好的说明了这一点。</div></strong></p>
+<h1 id="下一步">下一步 </h1><p> 你已经学会了如何创建简单的静止背景及如何正确的显示它们。然后，我们教会你如何使用图片制作简单的精灵。</p>
+<p>在下一章中，我们将学习如何添加主角及敌人。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">添加并显示背景</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [3/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%203/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 3/</id>
+    <published>2015-09-25T01:16:42.000Z</published>
+    <updated>2015-09-25T07:24:29.417Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">创建主角和敌人</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/</a></span></strong></p>
+<p>在上一章中，我们已经添加了背景及一些小玩意儿。现在是添加一些真正有用的东西的时候啦，比如说主角！</p>
+<h1 id="创建主角">创建主角 </h1><p> 创建一个可以操控的主角需要以下一些元素：一个精灵，操控主角的方法以及让主角与游戏世界互动的方法。</p>
+<p>我们将一步一步的去探索这些。</p>
+<p>让我们先从精灵开始吧。</p>
+<h2 id="添加精灵">添加精灵 </h2><p> 下面就是我们要用到的图片：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player.png"><br><em>(右键点击保存图片)</em></p>
+<ol>
+<li>将主角图片复制到“贴图（Texture）”文件夹中。</li>
+<li>创建一个新的精灵。给它起名为“Player”。</li>
+<li>选择这个精灵，并在“检视（Inspector）”窗口中找到“Sprite Renderer（精灵渲染器）”组件。</li>
+</ol>
+<p>如果在进行这一步时感觉有些困难，那么推荐你查看上一章的内容。我们用同样的方法设置过背景及平台。</p>
+<ol>
+<li>将主角放入到“2 - Foreground”图层中。</li>
+<li>改变主角的缩放尺寸为 (0.2, 0.2, 1)。</li>
+</ol>
+<h2 id="关于组件的说明">关于组件的说明 </h2><p> 我们刚刚说过“Sprite Renderer（精灵渲染器）”组件。如果你还没有注意到的话，那么可以这样说：一个游戏对象就是由一些可以在”Inspector（检视）”面板中查看的组件构成的。</p>
+<p>默认情况下。一个空的游戏对象看起来像这样：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/empty_go_components.png"><br>这个对象只包含有一个组件：一个”Transform”组件。这个组件是每个对象必需的，并且是不能移除和禁用的。</p>
+<p>你在一个对象上想加多少组件就可以加多少。比如说脚本就是作为一种组件而被添加的。大多数的组件在其对象的生命周期中都可以被启用或禁用。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/go_components.png"><br><em>（你可以点击这个复选框来将它禁用。你也可以右键点击一个组件，在弹出的菜单中进行重置、移除等操作）</em></p>
+<p><strong><div style="background-color:#73c1ec ; padding:17px;"><span style="color:#FFFFFF">注意：</span>组件之间可以相互调用。比如组件 A 的运行依赖于另一个对象上的组件 B，你只需要将组件 B 所在的整个对象拖拽至组件 A 上，那么组件 A 就会自己找到包含在对象中的正确组件 B。</div></strong></p>
+<p>“Sprite Renderer（精灵渲染器）”就是一种可以显示精灵贴图的组件。</p>
+<p>现在我们学习了关于组件的概念，那么就让我们为主角来添加一个吧！</p>
+<h2 id="添加一个碰撞盒 (Box_Collider)"> 添加一个碰撞盒 (Box Collider)</h2><p> 点击主角对象上的“添加组件(Add Component)”按钮。选择”Box Collider 2D”。</p>
+<p>这样就能描绘出主角的 <a href="http://en.wikipedia.org/wiki/Hitbox" target="_blank" rel="external"> 碰撞边缘</a>。</p>
+<p>你可以在“场景(Scene)”中看到碰撞盒，并且可以在“检视(Inspector)”窗口中通过调节”Size”属性来改变它的大小。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>还有另一种方法来编辑碰撞盒。选择一个有碰撞盒的游戏对象并且按住键盘上的 <span style="background-color:#FFFFFF">Shift</span> 键，你将会看到在碰撞盒（绿色的矩形）的四个角上显示出四个小的方块。拖动其中的一个小方块就能改变碰撞盒的形状。但请小心的是，蓝色的矩形代表的是你游戏对象的 <span style="background-color:#FFFFFF">Transform</span> 组件，而不是碰撞盫。</div></strong></p>
+<p>我们将碰撞盒的大小设置为 (10,10)。</p>
+<p>这个碰撞盒的大小对于一个飞行射游戏来说太大了，但是它仍然小于精灵的尺寸：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/hitbox.png"><br>对目前来看，它足够了。</p>
+<p><strong><div style="background-color:#8bd259 ; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>如果你计划制作一款飞行射击游戏，你得花费大量的时间去调整你的碰撞盒。一般来说，碰撞盒的大小与主角精灵中的某个小部件的大小相等就好。比如说驾驶舱怎么样？同时你也应该修改碰撞盒的形状————比如说用”Circle Collider 2D（2D 圆形碰撞盒）”。改变形状并不会改变碰撞盒的行为，这要多谢 Unity ，但是这样做可以略微的提升游戏体验。</div></strong></p>
+<p>将主角游戏对象保存为一个预设(Prefab)。那么现在你就有了一个基本的主角实体了！<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/adding_player.png"></p>
+<p><span style="color:#878787; font-size:23px">2D 多边形碰撞盒(Polygon Collider 2D)</span></p>
+<p>如果你想要一个特别精确并且有不规则形状的碰撞盒，Unity 提供了一种叫作”Polygon Collider 2D（2D 多边形碰撞盒）”的组件。它的执行效率比较低，但是绝对能满足你对形状的要求。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>“Polygon Collider 2D（2D 多边形碰撞盒）”就像其他类型的碰撞盒一样：你能通过鼠标在“场景 (Scene)”中修改形状。按住<span style="background-color:#FFFFFF">ctrl</span> 或<span style="background-color:#FFFFFF">cmd</span>键，你能移除形状中的一个点。按住 <span style="background-color:#FFFFFF">shift</span> 键你可以在碰撞盒上调整或添加一个点。</div></strong></p>
+<h2 id="神奇的刚体 (Rigidbody)"> 神奇的刚体 (Rigidbody)</h2><p> 还有最后一个组件将要添加到主角上：一个“2D 刚体(Rigidbody 2D)”。</p>
+<p>这个组件将会告诉物理引擎如何处理游戏对象。此外，它还会触发脚本中的碰撞事件。</p>
+<ol>
+<li>在“层级(Hierarchy)”面板中选择游戏对象 Player。</li>
+<li>添加一个”Rigidbody 2D（2D 刚体）”组件。</li>
+</ol>
+<p>现在，点击 Play 按钮来观察一下运行的效果：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/failing_ship.gif"></p>
+<p>飞船掉下去了！</p>
+<p>呵呵，和我们心爱的重力说声 Hello 吧 :)</p>
+<p>这是因为新建的场景自带开启的重力并且刚体 (Rigidbody) 也给了物体质量，所以飞船就掉下去了。</p>
+<div style="background-color:#d9d9d9; padding:17px;">Unity 默认的重力值为 9.81，也就是现实中地球的重力。</div>
+
+<p>重力可以被用在一些种类的游戏中，但是我们这里并不需要它。幸运的是，在刚体中禁用重力是非常简单的，只需要将”Gravity Scale”设置为 0 就可以了。就是这样，飞船又可以飞起来了。</p>
+<p>同时你也需要勾上”Fixed Angles(锁定角度)”选项，因为我们不想让飞船因为物理的原因而转动。</p>
+<p>完成后的设置如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player_full_settings.png"></p>
+<h2 id="使主角移动">使主角移动 </h2><p> 是写点儿脚本的的时候了！到目前为止，我们没有为任何东西编写过脚本。这就是 Unity 的力量（也是我们为什么爱她的原因）。</p>
+<p>在 Unity 中，在”Scripts”文件夹中创建一个新的 C# 脚本。给它命名为 “PlayerScript”。</p>
+<p><strong><div style="background-color:#d9d9d9 ; padding:17px;"><span style="color:#FFFFFF">注意：</span>你也可以使用 Java Script。但就像我们之前说过的，这里将使用 C#，但是在不同的编程语言之间转换也是十分简单的。</div></strong></p>
+<p>打开你最喜爱的代码编辑器或者使用”Sync（同步）”子菜单（在菜单栏中点击”Assets”，然后点击”Sync MonoDevelop Project”）来编辑脚本。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">“Sync MonoDevelop Project”：</span>这个子菜单项有些怪。首先，它的名称不会改变，即使你将默认的编辑器改为其他的。当你第一次开始编程的时候，我们推荐你使用这个默认的编辑器，因为使用这个编辑器，Unity 会创建一个解决方案（Solution），并且自动链接 Unity 自带的类库（同样 Visual Studio, Xamarin Studio 或者 MonoDevelop 也是可以的）。<br>如果你用其他编辑器打开脚本，你集成开发环境 (IDE) 的编译器 (Compiler) 将会捕捉到一些错误，因为它没有认出 Unity。<br>其实这个并不要紧因为你永远都不会直接地去编译，但是 MonoDevelop 能为 Unity 对象提供自动完成代码功能，并且能准确地发现错误。</div></strong></p>
+<p>如果你是从 XNA 转过来的，你也不会被落下。</p>
+<p>你可以定义一些当需要时 Unity 可以执行的方法（这些被称作 “Message”，就像我们不常用的 C# 继承系统）。</p>
+<p>脚本中自带了 <strong>Start</strong> 和 <strong>Update</strong> 方法。下面是一个我们常用的函数列表：</p>
+<ul>
+<li><span style="background-color:#d9d9d9"><strong>Awake()</strong></span> 在对象被创建时调用一次。就把它看作是构建函数的替代品吧。</li>
+<li><span style="background-color:#d9d9d9"><strong>Start()</strong></span> 在 <span style="background-color:#e9e9e9">Awake()</span> 之后执行。不同之处是如果脚本组件被禁用，则 <span style="background-color:#e9e9e9">Start()</span> 不会被执行（想想在检视 (Inspector) 窗口中组件上的复选框，这个不勾上的话，<span style="background-color:#e9e9e9">Start()</span> 是不会执行的）。</li>
+<li><span style="background-color:#d9d9d9"><strong>Update()</strong></span> 在游戏主循环中的每一帧被执行。</li>
+<li><span style="background-color:#d9d9d9"><strong>FixedUpdate()</strong></span> 在修正过的每一帧执行。当你需要处理与物理特性相关的代码时，应该写在 <span style="background-color:#e9e9e9">FixedUpdate()</span> 中（就是涉及到“刚体(RigidBody)”和力）。</li>
+<li><span style="background-color:#d9d9d9"><strong>Destroy()</strong></span> 当对象被销毁时执行。这是你最后进行清理工作或执行一些代码的机会了。</li>
+</ul>
+<p>当然也有一些与碰撞相关的函数：</p>
+<ul>
+<li><span style="background-color:#d9d9d9"><strong>OnCollisionEnter2D(CollisionInfo2D info)</strong></span> 当其他碰撞盒与本物体的碰撞盒接触时调用。</li>
+<li><span style="background-color:#d9d9d9"><strong>OnCollisionExit2D(CollisionInfo2D info)</strong></span> 当其他碰撞盒再也不与本物体的碰撞盒接触时调用。</li>
+<li><span style="background-color:#d9d9d9"><strong>OnTriggerEnter2D(Collider2D otherCollider)</strong></span> 当其他的碰撞盒组件选项中的 “Trigger” 被选中时，与本物体的碰撞盒接触时调用。</li>
+<li><span style="background-color:#d9d9d9"><strong>OnTriggerExit2D(Collider2D otherCollider)</strong></span> 当其他的碰撞盒组件选项中的 “Trigger” 被选中时，再也不与本物体的碰撞盒接触时调用。</li>
+</ul>
+<p>呼……总算介绍完了，这些是有点儿乏味，但是必须得让你知道，不好意思。</p>
+<p><strong><div style="background-color:#73c1ec ; padding:17px;"><span style="color:#FFFFFF">注意“2D”后缀：</span>现在你应该已经注意到了，我们目前为止所有说过的东西都带有“2D”这个后缀。比如“Box Collider 2D”，“Rigidbody 2D”，“OnCollisionEnter2D” 或者 “OnTriggerEnter2D” 方法等等。这些新的组件和方法是在 Unity 4.3 版本后才出现的。<br>当你使用它们时，你使用的是集成在 Unity 4.3 中的 2D 物理引擎（基于 Box2D），而不是使用的 3D 引擎（基于 PhysX）。这两种引擎有的相似的概念和对象，但是它们的工作原因却不完全一样。当你开始使用其中之一时（如果做 2D 游戏，那最好用基于 2D 游戏的 Box2D 引擎），一定要贯彻始终。这就是我们为什么一直使用带“2D”后缀的方法和对象了。</div></strong></p>
+<p>当我们将来要用到它们的时候，还会再返回来详细的讲解。</p>
+<p>现在为我们的主角脚本添加一些简单的控制代码：<br>使用键盘上的方向键移动飞船。</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Player controller and behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> 1 - The speed of the ship</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 1 - 飞船的速度</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">50</span>, <span class="number">50</span>);
+
+  <span class="comment">// 2 - Store the movement</span>
+  <span class="comment">// 2 - 存储飞船的移动状态</span>
+  <span class="keyword">private</span> Vector2 movement;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 3 - Retrieve axis information</span>
+    <span class="comment">// 3 - 取到方向轴上的值</span>
+    <span class="keyword">float</span> inputX = Input.GetAxis(<span class="string">"Horizontal"</span>);
+    <span class="keyword">float</span> inputY = Input.GetAxis(<span class="string">"Vertical"</span>);
+
+    <span class="comment">// 4 - Movement per direction</span>
+    <span class="comment">// 4 - 飞船每个方向上的移动状态</span>
+    movement = <span class="keyword">new</span> Vector2(
+      speed.x * inputX,
+      speed.y * inputY);
+
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 5 - Move the game object</span>
+    <span class="comment">// 5 - 移动飞船</span>
+    rigidbody2D.velocity = movement;
+  }
+}
+</code></pre><p><em>（代码中标有数字的注释下面都会详细解释）</em></p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意 C# 的编程惯例：</span>注意成员变量 <span style="background-color:#FFFFFF">speed</span> 的可见性：是 public（公开的）。在 C# 中，类 (Class) 中的内部成员变量应该声明为私有的 (Private)。<br> 但是把成员变量声明为公开 (Public) 的，可使它的值在 Unity 的“检视面板 (Inspector)”中被修改，甚至在游戏执行中也可以。这是 Unity 的一个强大特性，让你不必修改代码就可以调试游戏。<br> 记住我们现在写的是脚本，而不是常规的 C# 代码，这就意味着我们要打破一些规则和惯例。</div></strong></p>
+<p><span style="color:#878787; font-size:23px">代码详解</span></p>
+<ol>
+<li>我们先声明了一个公开的（Public）变量，这样它就会出现在 Unity 的检视 (Inspector) 面板中了。这是飞船的速度。</li>
+<li>我们在每一帧存储了飞船的移动状态。</li>
+<li>我们使用了默认的轴控制，这是可以在 <span style="color:#2ca6cb"><strong>“Edit” → “Project Settings” → “Input”</strong></span> 中修改的。轴控制可以返回一个在 [-1, 1] 之间的值，0 为默认值，1 代表向右，-1 代表向左。</li>
+<li>我们把方向乘以了速度。</li>
+<li>我们改变了刚体的速度。这样做可以使物理引擎赋予刚体一个速度从而使其移动。我们在 FixedUpdate() 中写入这些代码，因为它们与物理效果有关。</li>
+</ol>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">教程更新小记：</span>如果你之前读过这篇教程，你应该还记得我们之前是直接使用的 transform.Translate 。这样做是可以的，但是不推荐，因为这样会让物理引擎运行不正常（对物理引擎来说，Translate 相当于是在瞬间移动，不会产生碰撞事件）。<br>感谢你的反馈，我们因此更新了脚本来帮助人们正确的移动游戏中的物体。</div></strong></p>
+<p>现在，把这个脚本附加到游戏对象上。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>你可以通过把脚本从“项目(Project)”面板上直接拖拽到“层级(Hierarchy)”面板中的游戏对象上，来为此游戏对象添加脚本。你也可以先选择一个游戏对象，然后在“检视(Inspector)”窗口中点击”Add Component”按钮，然后找到要添加的脚本并手动添加。</div></strong></p>
+<p>点击 Unity 编辑器上方的 “Play” 按钮来运行游戏。游戏开始运行并且你的飞船可以移动了！恭喜你，你相当于完成了游戏中的 <span style="color:#2ca6cb"><strong>“Hello World!”</strong></span> :)</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/moving_ship.gif"></p>
+<p>试着改变一下速度：选择主角，在“检视(Inspector)”面板中修改速度值，然后看看游戏中的结果。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/player_value_tweak.png"></p>
+<p><strong><div style="background-color:#f67b64; padding:17px;"><span style="color:#FFFFFF">请小心：</span>在游戏运行时做出的修改在游戏停止运行后都会恢复！对于调试游戏来说这是个好事情，但是如果你想保留修改后的结果，请记住你所做出的调整，并在游戏运行结束后再次修改并保存。<br>不管怎样，这个特性还是蛮方便的：你可以在你游戏运行的时候随便胡乱修改以测试一些新鲜好玩的东西，并且不用担心会毁了你的工程。</div></strong></p>
+<h1 id="添加第一个敌人">添加第一个敌人 </h1><p> 一个飞行射击游戏如果没有成吨出现的敌人用来倾泄子弹，那么它就什么也不是了。</p>
+<p>让我们用一个无辜的章鱼来作我们的敌人吧，就叫他“小章鱼”吧：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/poulpi.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<h2 id="添加精灵 -1">添加精灵 </h2><p> 是时候创建一个新的精灵了！再次这样做：</p>
+<ol>
+<li>将图片文件复制到“Textures（贴图）”文件夹中。</li>
+<li>使用此图片创建一个新精灵 <span style="background-color:#d9d9d9">Sprite</span>。</li>
+<li>在 <span style="background-color:#d9d9d9">Transform</span> 中修改“缩放(Scale)”属性为 <span style="background-color:#d9d9d9">(0.4, 0.4, 1)</span>。</li>
+<li>添加一个”Box Collider 2D”组件并把大小设为 <span style="background-color:#d9d9d9">(4, 4)</span>。</li>
+<li>添加一个”Rigidbody 2D”组件，把”Gravity Scale”属性设为 <span style="background-color:#d9d9d9">0</span> 并将”Fixed Angles”勾选。</li>
+</ol>
+<p>然后将其保存为预设(Prefab)……就是这样！</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/enemy_definition.png"></p>
+<h2 id="添加脚本">添加脚本 </h2><p> 我们将要编写一个简单的行为：章鱼会一直向一个方向移动。</p>
+<p>创建一个新的脚本并命名为”MoveScript”。</p>
+<p>我们可以将其命名为”EnemyScript”，但是我们计划在其他地方再次使用它。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>基于 Unity 组件化系统的模块提供给我们一个很好的，将不同功能的脚本分开独立处理的途径。当然，你可以将所有的功能和参数全都放在一个臃肿的脚本里，那是你的选择，但是我们强烈不推荐那样做。</div></strong></p>
+<p>我们将要从”PlayerScript”脚本中复制一些移动相关的代码出来。我们将要添加另外一个 <strong> 设计变量 </strong>（并将其声明为公共(Public) 变量，这样我们就能在“检视(Inspector)”面板中修改它了）。</p>
+<p><strong> 译者注：设计变量 (designer variable) 意思就是在工程中用来优化调试的变量</strong></p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Simply moves the current game object</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MoveScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment">// 1 - Designer variables</span>
+  <span class="comment">// 1 - 设计变量</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Object speed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">10</span>, <span class="number">10</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Moving direction</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 direction = <span class="keyword">new</span> Vector2(-<span class="number">1</span>, <span class="number">0</span>);
+
+  <span class="keyword">private</span> Vector2 movement;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 2 - Movement</span>
+    <span class="comment">// 2 - 移动</span>
+    movement = <span class="keyword">new</span> Vector2(
+      speed.x * direction.x,
+      speed.y * direction.y);
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">FixedUpdate</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Apply movement to the rigidbody</span>
+    rigidbody2D.velocity = movement;
+  }
+}
+</code></pre><p>将脚本附加到章鱼上。点击 “Play” 按钮：章鱼应该像下图一样移动起来了。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/player-and-enemies/-img/moving_enemy.gif"></p>
+<p>如果你将主角移动至章鱼的前方，这两个精灵会发生碰撞。但是他们只会阻挡住彼此，因为我们还没有为它们添加碰撞事件。</p>
+<h1 id="下一步">下一步 </h1><p> 你在这章中已经会了怎样添加一个主角，并且用键盘来操控它。然后，我们又创建了一个有着基本行为的敌人。</p>
+<p>那么现在，我们想将那个会动的东西消灭掉！为了达到这个目的，我们需要子弹！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">创建主角和敌人</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [4/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%204/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 4/</id>
+    <published>2015-09-25T01:16:41.000Z</published>
+    <updated>2015-09-25T07:24:40.804Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">射击（1/2）</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/shooting-1/</a></span></strong></p>
+<p>我们的飞船正面对着一个令人恐惧的章鱼，但是却什么也做不了……</p>
+<p>让我们给他一把武器和一些弹药吧！本章将包含稍微多一些的脚本，但别失去信心，这都是值得的。</p>
+<h1 id="创建子弹">创建子弹 </h1><p> 首先，在让主角射击之前，我们先创建一个主角将要用到的代表子弹的游戏对象吧。</p>
+<p>下面是子弹的精灵：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shot.png"><br><em>（鼠标右键点击保存图片）</em></p>
+<p>这个子弹将是我们常要用到的对象：当主角开始射击后，屏幕内将会出现很多的子弹实体。</p>
+<p>我们应该怎样使用它呢？当然了，将它保存为预设！</p>
+<h2 id="创建子弹的预设">创建子弹的预设 </h2><p> 你现在应该按照如下的程序进行：</p>
+<ol>
+<li>导入贴图。</li>
+<li>在场景中创建一个新的 <span style="background-color:#d9d9d9"> 精灵(Sprite)</span>。</li>
+<li>在精灵上加载图片。</li>
+<li>添加一个 “Rigidbody 2D” 组件，并将 “Gravity Scale” 设为 <span style="background-color:#d9d9d9">0</span>，将 “Fixed Angles” 勾选。</li>
+<li>添加一个 “Box Collider 2D” 组件，将大小设为 <span style="background-color:#d9d9d9">(1, 1)</span>。</li>
+</ol>
+<p>将子弹的缩放尺寸 (Scale) 设为 <span style="background-color:#d9d9d9">(0.75, 0.75, 1)</span>，这样看起来大小就合适了。</p>
+<p>无论怎样，这次，我们需要在“检视(Inspector)”面板中设置一个新的参数：</p>
+<ol>
+<li>在 “Box Collider 2D” 中，勾选 “IsTrigger” 选项。</li>
+</ol>
+<p>触发器碰撞盒在发生碰撞后会触发一个事件，但是却不会触发物理事件（比如互相阻挡）。</p>
+<p>意思就是子弹接触到其他物体后，会直接穿过去 ———— 不会发生任何像现实世界一样的相互作用，但是被碰撞的物体也会触发 “OnTriggerEnter2D” 事件。</p>
+<p>啦啦啦，你有子弹啦！现在我们来给子弹编写一个行为脚本。</p>
+<p>创建一个新脚本并命名为 “ShotScript”：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Projectile behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ShotScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment">// 1 - Designer variables</span>
+  <span class="comment">// 1 - 设计变量</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Damage inflicted</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">int</span> damage = <span class="number">1</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Projectile damage player or enemies?</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isEnemyShot = <span class="keyword">false</span>;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 2 - Limited time to live to avoid any leak</span>
+    <span class="comment">// 2 - 为子弹设置存在时间上限，以防内存泄漏</span>
+    Destroy(gameObject, <span class="number">20</span>); <span class="comment">// 20sec</span>
+  }
+}
+</code></pre><ol>
+<li>定义了速度、方向、伤害的设计变量。</li>
+<li>我们将在 20 秒后将子弹销毁以防内存泄漏。</li>
+</ol>
+<p>将 “ShotScript” 脚本附加到精灵上。同时再附加一个 “MoveScript” 脚本，这样你的子弹就会移动了。</p>
+<p>然后将子弹对象拖拽到“项目(Project)”面板中，这样就创建了子弹的预设(Prefab)。我们将在以后的几步中用到它。</p>
+<p>你现在的配置应该如下图所示：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shot_config1.png"></p>
+<p>当你点击 “Play” 按钮后，你将会看到子弹在移动。</p>
+<h2 id="添加碰撞及伤害">添加碰撞及伤害 </h2><p> 不管怎样，现在子弹还不能摧毁任何东西。</p>
+<p>别担心，因为我们还没有为它编写伤害行为。我们只需要再新建一个名为 “HealthScript” 的脚本：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Handle hitpoints and damages</span>
+<span class="comment"><span class="xmlDocTag">///</span> 处理生命值和伤害值</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">HealthScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Total hitpoints</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 总生命值</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">int</span> hp = <span class="number">1</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Enemy or player?</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 判断是敌人还是主角</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isEnemy = <span class="keyword">true</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Inflicts damage and check if the object should be destroyed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 造成伤害并判断物体是否应该被摧毁</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="damageCount"&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Damage</span>(<span class="params"><span class="keyword">int</span> damageCount</span>)
+  </span>{
+    hp -= damageCount;
+
+    <span class="keyword">if</span> (hp &lt;= <span class="number">0</span>)
+    {<span class="comment">// Dead!</span>
+      Destroy(gameObject);
+    }
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">OnTriggerEnter2D</span>(<span class="params">Collider2D otherCollider</span>)
+  </span>{<span class="comment">// Is this a shot?</span>
+    <span class="comment">// 判断这是否是一个子弹？</span>
+    ShotScript shot = otherCollider.gameObject.GetComponent&lt;ShotScript&gt;();
+    <span class="keyword">if</span> (shot != <span class="keyword">null</span>)
+    {<span class="comment">// Avoid friendly fire</span>
+      <span class="keyword">if</span> (shot.isEnemyShot != isEnemy)
+      {Damage(shot.damage);
+
+        <span class="comment">// Destroy the shot</span>
+        Destroy(shot.gameObject); 
+        <span class="comment">// Remember to always target the game object, otherwise you will just remove the script</span>
+        <span class="comment">// 记住你要销毁的是 game object（所以这里使用 shot.gameObject），否则你只是将脚本销毁，而不是游戏对象。</span>
+      }
+    }
+  }
+}
+</code></pre><p>将脚本 “HealthScript” 附加到章鱼 <strong><span style="background-color:#d9d9d9"> 预设</span></strong> 上。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">注意：</span>直接在 <span style="background-color:#d9d9d9"> 预设 (Prefab)</span> 上进行修改更好。因为这样做，每一个在场景中的敌人实例都会自动随着 <span style="background-color:#d9d9d9"> 预设 (Prefab)</span> 的改变而改变。这样做是非常重要的，因为我们的场景中将会有非常多的敌人，你不可能去一个一个地修改。<br>如果你已经在实例上做出修改而不是在 <span style="background-color:#d9d9d9"> 预设 </span> 上，也别担心：你可以点击“检视 (Inspector)”面板上方的 “Apply” 按钮来将修改应用到<span style="background-color:#d9d9d9"> 预设 (Prefab)</span> 上。</div></strong></p>
+<p>确保子弹和章鱼在同一水平线上，好让我们测试它们之间的碰撞效果。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>Box2D 物理引擎不使用 Z 轴。即使你的游戏对象不在同一个平面内，碰撞盒也总会在同一个平面内。</div></strong></p>
+<p>现在运行游戏观察效果：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/bang.gif"></p>
+<p>如果敌人的生命值大于子弹的伤害值，敌人就不会被消灭。试着修改敌人脚本 “HealthScript” 中的 hp 的值：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/bang2.gif"></p>
+<h1 id="射击">射击 </h1><p> 删除在场景中的子弹，我们已经将它完成并且也没它什么事了。</p>
+<p>我们需要新建一个脚本来发射子弹。新建一个名为：”WeaponScript” 的脚本。</p>
+<p>这个脚本将会被多次使用（主角、敌人等等），它的作用就是在附加它的游戏物体的前方生成一个子弹实例。</p>
+<p>下面是完整的脚本代码，比之前的脚本代码都要多。脚本下方有详细的解释：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Launch projectile</span>
+<span class="comment"><span class="xmlDocTag">///</span> 发射子弹</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WeaponScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment">//--------------------------------</span>
+  <span class="comment">// 1 - Designer variables</span>
+  <span class="comment">// 1 - 设计变量</span>
+  <span class="comment">//--------------------------------</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Projectile prefab for shooting</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 用来发射的子弹预设</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Transform shotPrefab;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Cooldown in seconds between two shots</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 在两次发射之间的时间间隔，用秒作为单位</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">float</span> shootingRate = <span class="number">0.25</span>f;
+
+  <span class="comment">//--------------------------------</span>
+  <span class="comment">// 2 - Cooldown</span>
+  <span class="comment">// 2 - 冷却</span>
+  <span class="comment">//--------------------------------</span>
+
+  <span class="keyword">private</span> <span class="keyword">float</span> shootCooldown;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{shootCooldown = <span class="number">0</span>f;
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="keyword">if</span> (shootCooldown &gt; <span class="number">0</span>)
+    {shootCooldown -= Time.deltaTime;}
+  }
+
+  <span class="comment">//--------------------------------</span>
+  <span class="comment">// 3 - Shooting from another script</span>
+  <span class="comment">// 3 - 让另外的脚本也可以射击</span>
+  <span class="comment">//--------------------------------</span>
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Create a new projectile if possible</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 如果可能的话，新建一个子弹</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Attack</span>(<span class="params"><span class="keyword">bool</span> isEnemy</span>)
+  </span>{<span class="keyword">if</span> (CanAttack)
+    {
+      shootCooldown = shootingRate;
+
+      <span class="comment">// Create a new shot</span>
+      <span class="comment">// 创建一个新子弹</span>
+      <span class="keyword">var</span> shotTransform = Instantiate(shotPrefab) <span class="keyword">as</span> Transform;
+
+      <span class="comment">// Assign position</span>
+      <span class="comment">// 分配坐标</span>
+      shotTransform.position = transform.position;
+
+      <span class="comment">// The is enemy property</span>
+      <span class="comment">// 敌人相关属性</span>
+      ShotScript shot = shotTransform.gameObject.GetComponent&lt;ShotScript&gt;();
+      <span class="keyword">if</span> (shot != <span class="keyword">null</span>)
+      {shot.isEnemyShot = isEnemy;}
+
+      <span class="comment">// Make the weapon shot always towards it</span>
+      <span class="comment">// 使武器总是朝向指定的方向发射</span>
+      MoveScript move = shotTransform.gameObject.GetComponent&lt;MoveScript&gt;();
+      <span class="keyword">if</span> (move != <span class="keyword">null</span>)
+      {move.direction = <span class="keyword">this</span>.transform.right; 
+        <span class="comment">// towards in 2D space is the right of the sprite</span>
+        <span class="comment">// 在 2D 空间中朝向精灵的右边</span>
+      }
+    }
+  }
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Is the weapon ready to create a new projectile?</span>
+  <span class="comment"><span class="xmlDocTag">///</span> 武器能否创建一个新的子弹？</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> CanAttack
+  {<span class="keyword">get</span>
+    {<span class="keyword">return</span> shootCooldown &lt;= <span class="number">0</span>f;
+    }
+  }
+}
+</code></pre><p>将此脚本附加给主角。</p>
+<p>脚本大致分为三个部分：</p>
+<p><span style="color:#d9d9d9">1. 在“检视(Inspector)”面板中可修改的变量</span></p>
+<p>我们此处有两个成员变量：<span style="background-color:#d9d9d9">shotPrefab（子弹预设）</span> 和 <span style="background-color:#d9d9d9">shootingRate（射击频率）</span>。</p>
+<p>第一个变量需要设置一下武器要用的子弹：</p>
+<p>在“层级(Hierarchy)”面板中选中主角。在 “WeaponScript” 组件中，你可以看到 “Shot Prefab” 属性的值是 “None”。</p>
+<p>将 “Shot” 预设拖拽至此处：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/dnd_prefab.png"></p>
+<p>Unity 会自动填补并完成脚本内容。很容易，不是吗？</p>
+<p>shootingRate 变量在脚本中设有一个默认值。我们此刻还不需要修改它。但是你可以运行游戏实验一下它在游戏中的效果。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">请小心：</span>在 Unity “检视 (Inspector)”面板中修改的变量值并不会改变脚本代码中此变量的默认值。如果你将此脚本附加在了另一个物体上，默认值还是脚本代码中设定的默认值。<br> 这很符合逻辑，但是你需要小心。如果你想决定调整后的值，你必须打开代码编辑器自己去手动修改。</div></strong></p>
+<p><span style="color:#d9d9d9">2. 射击冷却时间 </span><br> 武器是有射击频率的。如果没有的话，在每一帧中你都能生成成吨的子弹。</p>
+<p>所以我们设定了一个简单的冷却机制。如果有个值大于 0 时，我们就禁止射击。我们在每一帧中减去已经过的时间。</p>
+<p><span style="color:#d9d9d9">3. 公用的攻击方法 </span><br> 这是创建此脚本的主要目的：可以通用。这就是为什么我们定义了一个可生成子弹的公共方法。</p>
+<p>当子弹被实例化时，我们就获取子弹的脚本，然后根据需要修改其中的一些变量。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span><span style="background-color:#FFFFFF">GetComponent &lt;TypeOfComponent&gt; ()</span> 方法允许你获得一个指定对象的组件（也就是一个脚本，因为毕竟脚本本身就是一种组件）。其中的类型（就是 <span style="background-color:#FFFFFF">&lt;TypeOfComponent&gt;）</span> 被用来指定你想要获取的组件的类型。<br>还有一个 <span style="background-color:#FFFFFF">GetComponents&lt;TypeOfComponent&gt; ()</span>方法是用来获取成组的组件（返回一个组件数组）。</div></strong></p>
+<h2 id="让主角使用武器">让主角使用武器 </h2><p> 如果你些时运行游戏，什么变化也没有。我们是新建了一个武器，但是什么用都没有。</p>
+<p>的确，如果 “WeaponScript” 被附加到一个实体上，那么 <span style="background-color:#d9d9d9">Attack(bool)</span> 方法将永远不会被调用。</p>
+<p>让我们回到脚本 “PlayerScript”吧。</p>
+<p>在 <span style="background-color:#d9d9d9">Update()</span> 方法中，粘贴如下代码段：</p>
+<pre><code>void Update<span class="params">()</span>
+  {<span class="comment">// ...</span>
+
+    <span class="comment">// 5 - Shooting</span>
+    <span class="comment">// 5 - 射击</span>
+    bool shoot = Input.GetButtonDown<span class="params">(<span class="string">"Fire1"</span>)</span>;
+    shoot |= Input.GetButtonDown<span class="params">(<span class="string">"Fire2"</span>)</span>;
+    <span class="comment">// Careful: For Mac users, ctrl + arrow is a bad idea</span>
+    <span class="comment">// 小心：对苹果用户来说，ctrl + arrow 组合不是个好主意</span>
+
+    <span class="keyword">if</span> <span class="params">(shoot)</span>
+    {WeaponScript weapon = GetComponent&lt;WeaponScript&gt;<span class="params">()</span>;
+      <span class="keyword">if</span> <span class="params">(weapon != null)</span>
+      {<span class="comment">// false because the player is not an enemy</span>
+        <span class="comment">// 设定为 false 因为主角不是敌人</span>
+        weapon.Attack<span class="params">(<span class="literal">false</span>)</span>;
+      }
+    }
+
+    <span class="comment">// ...</span>
+  }
+</code></pre><p>这段代码无论你放在移动相关代码的前面或后面，都是无所谓的。</p>
+<p>我们做了什么？</p>
+<ol>
+<li>我们读取了键盘上的开火键被按下（默认为 <span style="background-color:#d9d9d9">ctrl</span>  键或 <span style="background-color:#d9d9d9">click</span>  键）。</li>
+<li>我们获取了武器的脚本。</li>
+<li>我们执行 <span style="background-color:#d9d9d9">Attack(false)</span> 方法。</li>
+</ol>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">按键按下：</span>你或许已经注意到了我们使用了 <span style="background-color:#e9e9e9">GetButtonDown()</span> 方法来获取键盘的输入。最后的那个 “Down” 表示当按键被按下时获取输入，并且只触发一次。而 <span style="background-color:#e9e9e9">GetButton()</span> 会在每一帧返回 true 直到按键被松开。在本教程中，我们很清楚我们需要的是 <span style="background-color:#e9e9e9">GetButtonDown()</span> 方法。<br>试试用一下 <span style="background-color:#e9e9e9">GetButton()</span> ，并观察有什么不同。</div></strong></p>
+<p>点击 “Play” 按钮运行游戏。你应该会得到这个：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shooting.gif"></p>
+<p>子弹飞得太慢了？尝试调整 “Shot” 预设相关的值直到你满意为止。</p>
+<p>额外奖励：只是为了有趣而已。给主角设定一个角度，比如 (0, 0 ,45) 。子弹发射后会向着 45 度方向飞去，但是子弹自身的角度还是保持不变。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-1/-img/shooting_rotation.png"></p>
+<h1 id="下一步">下一步 </h1><p> 我们可以射击了！虽然非常的简单，但是却很屌。你在本章学会了如何创建一个可以发射子弹并摧毁其他物体的武器。</p>
+<p>让敌人成群结队的来吧。;)</p>
+<p>但是到这里并没有结束！我们要让敌人也能射击。休息一下，接下来要做的事情和本章的内容基本相同。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">射击（1/2）</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [5/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%205/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 5/</id>
+    <published>2015-09-25T01:16:40.000Z</published>
+    <updated>2015-09-25T07:24:51.079Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">射击（2/2）</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/shooting-2/</a></span></strong></p>
+<p>我们的酷炫飞船现在正常向无辜的章鱼倾泄子弹。</p>
+<p>我们不能这样。章鱼们需要反击才对，为了自由而战……说多了，不好意思。</p>
+<p>用到我们在上一章中所做的，我们将要修改敌人的行为以使它们也能够射击。</p>
+<h1 id="敌人的子弹">敌人的子弹 </h1><p> 我们将使用下图的精灵来作为敌人的子弹：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/shot_poulpi.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<p>如果你像我一样懒的话，就把 “PlayerShot” 的预设复制一份，并重命名为 “EnemyShot1”，然后将精灵替换为上面的图片。</p>
+<p>要复制精灵，你可以先把预设拖拽到场景（Scene）窗口中以创建一个实体，然后重命名这个实体，最后把这个实体保存为预设。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;">或者你可以直接在 <span style="background-color:#FFFFFF">Prefab</span> 文件夹中通过快捷键 <span style="background-color:#FFFFFF">ctrl + D</span>（Windows） 或 <span style="background-color:#FFFFFF">cmd + D</span>（OS X） 来快速复制一个预设。<br>如果你不想复制，那么就重新创建一个精灵吧，然后添加刚体、碰撞盒等等。</div></strong></p>
+<p>子弹精灵正确的缩放尺寸为 <span style="background-color:#d9d9d9">(0.35, 0.35, 1)</span>。</p>
+<p>你目前所做的应该如下图所示：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/shot_config2.png"></p>
+<p>如果你点击 “Play” 按钮运行游戏，子弹很可能会移动并消灭敌人自己。这是因为脚本 “ShotScript” 中的属性设置（默认是会对章鱼造成伤害）。</p>
+<p>不用修改它们。还记得上一章中的 “WeaponScript” 脚本吗？它将会正确的设置这些属性值的。</p>
+<p>现在我们已经有了 “EnemyShot1” 的预设了，所以就将场景内的实体都移除吧。</p>
+<h1 id="开火">开火 </h1><p> 就像我们为主角所做的一样，我们需要在敌人上也添加一个武器并且让它能调用 Attack() 方法，这样它也能生成子弹了。</p>
+<h2 id="新的脚本和方法">新的脚本和方法</h2><ol>
+<li>为敌人添加脚本 “WeaponScript”。</li>
+<li>将预设 “EnemyShot1” 拖拽至脚本的 “Shot Prefab” 变量上。</li>
+<li><p>创建一个名为 “EnemyScript” 的脚本。它会自动的在每一帧触发武器。</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Enemy generic behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> 敌人的一般行为</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnemyScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="keyword">private</span> WeaponScript weapon;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Retrieve the weapon only once</span>
+    <span class="comment">// 取到武器对象</span>
+    weapon = GetComponent&lt;WeaponScript&gt;();}
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Auto-fire</span>
+    <span class="comment">// 自动开火</span>
+    <span class="keyword">if</span> (weapon != <span class="keyword">null</span> &amp;&amp; weapon.CanAttack)
+    {weapon.Attack(<span class="keyword">true</span>);
+    }
+  }
+}
+</code></pre></li>
+</ol>
+<p>将此脚本附加到敌人上。</p>
+<p>你的设置中下图所示（你应该观察到射击频率值被略微上调至 0.75）：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/enemy_config.png"><br><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">请记住：</span>如果你调整过场景中的游戏对象，一定记的要点击“检视（Inspector）”面板中的 “Apple” 按钮，这样才会把你所做的修改应用到 <span style="background-color:#FFFFFF"> 预设</span> 上。</div></strong></p>
+<p>试着运行游戏看看！<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/shoot_right.gif"></p>
+<p>OK，看起来算是运行正常吧。章鱼的武器向右发射，因为我们就是这么设定的。</p>
+<p>如果你将章鱼转上 180 度，虽然能让子弹向左发射，呃……同时章鱼也四脚朝天了。这可不是我们想要的效果。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/gizmo2.png"></p>
+<p>图上这是啥？！很明显，我们由于一些原因犯了这个错误。</p>
+<h2 id="向任意方向射击">向任意方向射击 </h2><p> 脚本 “WeaponScript” 被创建时有这样一个特性：你可通过简单的旋转附加此脚本的游戏对象，来修改子弹发射的方向。当我们旋转敌人精灵时印证了这一点。</p>
+<p>解决这个问题的小技巧就是，创建一个空的游戏对象，然后把这个空的游戏对象添加为敌人预设的子游戏对象。</p>
+<p>我们需要：</p>
+<ol>
+<li>创建一个 “Empty Game Object”。将其命名为 “WeaponObject” 。</li>
+<li>删除附加在敌人预设上的 “WeaponScript” 脚本。</li>
+<li>在 “WeaponObject” 对象上附加 “WeaponScript” 并且就像你之前做的，为其指定一个子弹预设。</li>
+<li>旋转 “WeaponObject” 为 <span style="background-color:#d9d9d9">(0, 0, 180)</span> 。</li>
+</ol>
+<p>如果你是在一个游戏实例上做的这些，那么千万别忘了点击 “Apply” 按钮来将这些修改应用到预设上。</p>
+<p>如下图所示：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/enemy_full_config.png"></p>
+<p>除此之外，我们还得在 “EnemyScript” 脚本上做一点小小的修改。</p>
+<p>在当前的状态下，”EnemyScript” 脚本调用方法 <span style="background-color:#d9d9d9">GetComponent &lt;WeaponScript&gt; ()</span> 后只会返回空值。确实，”WeaponScript” 已经不再附加在原先的对象上了。</p>
+<p>幸运的是，Unity 提供了一个能在子对象层级下查找指定游戏对象的方法：<span style="background-color:#d9d9d9">GetComponentInChildren &lt;Type&gt; ()</span> 。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>就像 <span style="background-color:#FFFFFF">GetComponent &lt;&gt; ()</span>，<span style="background-color:#FFFFFF">GetComponentInChildren &lt;&gt; ()</span> 同样也有复数形式的方法：<span style="background-color:#FFFFFF">GetComponentsInChildren &lt;Type&gt; ()</span>。注意在 “Component” 后面的 <span style="background-color:#FFFFFF">s</span> 。此方法返回一个指定类型组件的数组列表。</div></strong></p>
+<p>事实上，只是为了有趣，我们下面提供了一个控制多个武器的方法。我们将操控一个列表中的每个组件，而不是单单操控一个组件。</p>
+<p>请看完整的脚本 “EnemyScript” ：</p>
+<pre><code><span class="keyword">using</span> System.Collections.Generic;
+<span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Enemy generic behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> 敌人的一般行为</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnemyScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="keyword">private</span> WeaponScript[] weapons;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Retrieve the weapon only once</span>
+    <span class="comment">// 取到武器对象</span>
+    weapons = GetComponentsInChildren&lt;WeaponScript&gt;();}
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+    {<span class="comment">// Auto-fire</span>
+      <span class="comment">// 自动开火</span>
+      <span class="keyword">if</span> (weapon != <span class="keyword">null</span> &amp;&amp; weapon.CanAttack)
+      {weapon.Attack(<span class="keyword">true</span>);
+      }
+    }
+  }
+}
+</code></pre><p>最终，调整 “EnemyShot1” 预设的脚本 “MoveScript”中的速度属性，以使子弹的速度快于章鱼的速度：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/shoot_ok.gif"></p>
+<p>棒极了，我们现在有了超级危险的章鱼了。</p>
+<p><span style="color:#878787; font-size:23px">附加内容：向两个方向射击</span></p>
+<p>添加向两个方向射击只需要在编辑器中点点鼠标复制复制就行了，不包含任何的脚本：</p>
+<ol>
+<li>在敌人上添加另一个武器对象（复制第一个 “WeaponObject” 就可以了）。</li>
+<li>改变第二个 “WeaponObject” 对象的角度。</li>
+</ol>
+<p>敌人现在可以向两个方向射击了。</p>
+<p>下图为效果：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/shoot_two_dir.gif"></p>
+<p>这是一个利用 Unity 特性的好例子：通过创建独立的脚本，并且将其中一些有用的变量声明为公有（Public），你可以彻底的减少编写代码的数量。<em>更少的代码意味着更少的错误</em>。</p>
+<h1 id="猎杀主角">猎杀主角 </h1><p> 我们的章鱼很危险，对吧？呃，似乎不是。即使章鱼能射击了，但是还是不会伤害到主角。</p>
+<p>主角还是无敌的。一点挑战也没有。</p>
+<p>简单的在主角上添加一个 “HealthScript” 脚本。确保 “IsEnemy” 选项没有被勾选。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/player_no_enemy.png"></p>
+<p>运行游戏看看有什么不同：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/player_die.gif"></p>
+<h1 id="附加内容">附加内容 </h1><p> 我们将给你一些能让你的游戏看上去更酷的小提示。如果你对更我关于飞行射击游戏的想法不是很感兴趣的话，就跳过这部分吧。</p>
+<h2 id="主角和敌人的碰撞">主角和敌人的碰撞 </h2><p> 让我们看看我们是如何处理主角和敌人之间的碰撞的吧，结果就是非常挫败的看到主角和敌人碰在一起，然后他们就那样互相挡着……挡着……</p>
+<p>碰撞事件就是两个非触发器的 2D 碰撞盒交错在一起时的结果。我们需要简单地处理一下脚本 “PlayerScript” 中的 “OnCollisionEnter2D” 函数：</p>
+<pre><code><span class="comment">//PlayerScript.cs</span>
+<span class="comment">//....</span>
+
+void OnCollisionEnter2D<span class="params">(Collision2D collision)</span>
+  {bool damagePlayer = <span class="literal">false</span>;
+
+    <span class="comment">// Collision with enemy</span>
+    <span class="comment">// 与敌人碰撞</span>
+    EnemyScript enemy = collision.gameObject.GetComponent&lt;EnemyScript&gt;<span class="params">()</span>;
+    <span class="keyword">if</span> <span class="params">(enemy != null)</span>
+    {<span class="comment">// Kill the enemy</span>
+      <span class="comment">// 杀死敌人</span>
+      HealthScript enemyHealth = enemy.GetComponent&lt;HealthScript&gt;<span class="params">()</span>;
+      <span class="keyword">if</span> <span class="params">(enemyHealth != null)</span> enemyHealth.Damage<span class="params">(enemyHealth.hp)</span>;
+
+      damagePlayer = <span class="literal">true</span>;
+    }
+
+    <span class="comment">// Damage the player</span>
+    <span class="comment">// 对主角造成伤害</span>
+    <span class="keyword">if</span> <span class="params">(damagePlayer)</span>
+    {HealthScript playerHealth = this.GetComponent&lt;HealthScript&gt;<span class="params">()</span>;
+      <span class="keyword">if</span> <span class="params">(playerHealth != null)</span> playerHealth.Damage<span class="params">(<span class="number">1</span>)</span>;
+    }
+  }
+</code></pre><p>当发生碰撞时后，我们通过使用脚本 “HealthScript” 来对主角和敌人都造成伤害。这样做的话，与生命值 / 伤害值相关的行为就都联系在一起了。</p>
+<h2 id="弹幕池">弹幕池 </h2><p> 当你进行游戏时，就会在“层级(Hierarchy)”面板中观察到子弹被创建以及在 20 秒后子弹被销毁（除非子弹打到了主角或敌人）。</p>
+<p>如果你想开发一款像 <a href="http://en.wikipedia.org/wiki/Shoot_%27em_up#Bullet_hell" target="_blank" rel="external">danmaku</a> 一样有着大量弹幕的游戏，那么这个策略就不太可行了<strong>（译者注：因为同屏内大量的子弹会使游戏运行效率越来越低甚至崩溃）</strong>。</p>
+<p>解决这个问题的方法之一就是使用 <em>弹幕池</em>。简单的说，你可以用一个数组来限制子弹的总体数量。当数组满后，将删除最早生成的子弹并添加最新生成的子弹。</p>
+<p>我们在此处就不举例了，因为这非常的简单。我们在一个 <a href="http://dmayance.com/unity-paint-part-2/" target="_blank" rel="external"> 绘画脚本中使用了同样的方法</a>。</p>
+<p>你也可以减少子弹的存在时间来让它们消失的更快些。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">注意：</span>时刻记着大量使用  <span style="background-color:#FFFFFF">Instantiate</span> 方法会使游戏执行效率变低。<em>使用时一定要小心</em>。</div></strong></p>
+<h2 id="子弹的行为">子弹的行为 </h2><p> 一个好的飞行射击游戏应该有让人印象深刻的战斗。</p>
+<p>一些类库，像 BulletML，允许你很容易的定义一些复杂并且壮观的弹幕。<br><img src="http://pixelnest.io/work/bulletml-for-unity/-img/screenshot2.png"></p>
+<p>如果你对制作一款完整的飞行射击游戏感兴趣的话，看看我们制作的 <em><a href="http://pixelnest.io/work/bulletml-for-unity/" target="_blank" rel="external">BulletMl for Unity</a></em> 插件吧。</p>
+<h2 id="射击延时">射击延时 </h2><p> 在场景中添加一些有武装的敌人然后运行游戏。你应该看到敌人的射击是多么的同步啊。</p>
+<p>我们要为敌人的武器添加一个简单的延时：初始化冷却时间为任意一个非 0 的值。你可以自己写一个算法或者干脆使用随机数好了。</p>
+<p>敌人的速度也可以设置为随机数。</p>
+<p>这里再次声明，这都取决于你，取决于你想将你的游戏玩法上升到一个什么样的高度。</p>
+<h1 id="下一步">下一步 </h1><p> 我们本章学会了如何赋予敌人武器，同时也看到了重新使用一些脚本来优化游戏的玩法。</p>
+<p>我们几乎完成了一款飞行射击游戏！而且公平的说，这个游戏很基础，同时也很硬核<em>（译者注：光看下面的图片就知道游戏很有挑战，不是么？）</em>。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/shooting-2/-img/result.png"></p>
+<p>毫不犹豫地添加敌人和武器吧，然后测试并调整游戏。</p>
+<p>在下一章中，我们将学会如何通过增强游戏的背景和场景来创建一个大关卡。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">射击（2/2）</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [6/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%206/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 6/</id>
+    <published>2015-09-25T01:16:39.000Z</published>
+    <updated>2015-09-25T07:25:00.677Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">背景的视差滚动</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/</a></span></strong></p>
+<p>到目前为止，我们已经创建了一个有着主角和敌人的静态场景，这确实有些枯燥。现在我们就来美化一下我们的背景和场景。</p>
+<p>有一个存在于 2D 游戏中，并且已经有 15 年历史的特效，那就是“<a href="http://en.wikipedia.org/wiki/Parallax_scrolling" target="_blank" rel="external">视差滚动(parallax scrolling)</a>”。</p>
+<p>简短的说，这个特效就是让背景以不同的速度移动（也就是，越远的图层，移动速度越慢）。如果处理得当，这将让人有一种视差的错觉。这是一种很好，很强大，并且很容易实现的效果。</p>
+<p>除此以外，很多的飞行射击游戏只在一个方向轴上滚动 —— 更或者是在更多的方向轴上（除了最原始的那个游戏，<a href="http://en.wikipedia.org/wiki/Space_Invaders" target="_blank" rel="external">Space Invaders</a>）。</p>
+<p>让我们在 Unity 中实现这个特效吧。</p>
+<h1 id="理论部分：在我们的游戏中定义滚动">理论部分：在我们的游戏中定义滚动 </h1><p> 在我们的游戏中如何添加这样一种滚动效果，并且我们想要达到一种什么样的效果，这都需要好好的想想。</p>
+<p>在编写代码前思考是非常好的习惯。</p>
+<h2 id="我们想要什么移动起来？">我们想要什么移动起来？</h2><p>我们做出了如下的决定：</p>
+<ol>
+<li>第一种选择：主角和摄像机移动，其他的东西固定不动。</li>
+<li>第二种选择：主角和摄像机固定不动，其他的东西动起来。</li>
+</ol>
+<p>如果你使用的是摄像机的 <span style="background-color:#d9d9d9">透视模式</span> 的话，不用想，肯定是第一种选择更好。因为视差的定义就是：背景元素拥有更深的深度，它们在后边并且看起来移动得很慢。</p>
+<p>但在 Unity 中制作标准的 2D 游戏，我们使用的是摄像机的 <span style="background-color:#d9d9d9">正交模式</span> 。在这种渲染模式下，场景并没有深度可言。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">关于摄像机：</span>想想摄像机对象中的“投射模式 (Projection)”属性。它在我们的游戏中被设置为  <span style="background-color:#FFFFFF"> 正交模式 </span> 。<br><span style="background-color:#FFFFFF"> 透视模式 </span> 摄像机就是一个标准的有透视效果的 3D 摄像机。而 <span style="background-color:#FFFFFF"> 正交模式 </span> 摄像机在渲染游戏对象时都在同一个深度，没有透视效果，这个对于显示 UI 或着 2D 游戏来说，非常有用</div></strong></p>
+<p>为了在我们的游戏中添加视差滚动效果，解决方案融合了以上两种选择。我们将有两种滚动：</p>
+<ul>
+<li>主角将跟随摄像机一起向前移动。</li>
+<li>背景和其他元素以不同的速度移动（除了摄像机）。</li>
+</ul>
+<div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF"><strong>注意：</strong></span><strong>你也许会问：“为什么不将摄像机设为主角的子对象？”事实上，在 Unity 中，如果你将一个对象（包括摄像机）设为另一个对象的子对象，这个对象将保持它与父对象之间的位置关系。所以如果摄像机是主角的子对象并且是居中的话，摄像机就会一直以主角为中心并跟着主角移动。这样可能也算是一种解决方案吧，但是这可不是我们游戏中想要的效果。</strong><br><br><strong>在飞行射击游戏中，摄像机会限制主角的移动范围。如果摄像机可以跟随主角在垂直和水平方向上任意移动，那么主角的移动范围将没有限制。这里我们只想让主角在一个固定的范围内移动。</strong><br><br><strong>我们推荐在 2D 游戏中始终让摄像机保持独立。甚至在平台跳跃类游戏中，摄像机也不会死死得粘着主角：只有主角移动一定的范围后，摄像机才会跟上去。《超级玛丽》就是一个很好的例子。<a href="http://www.youtube.com/watch?v=TCIMPYM0AQg" target="_blank" rel="external">你可以看看它是怎样做的</a>。</strong></div>
+
+<h2 id="刷新敌人">刷新敌人 </h2><p> 为我们的游戏添加滚动是非常重要的，特别是对敌人来说。目前，当游戏一开始，敌人就开始移动并且射击。不论怎样，我们希望它们可以等待并且在出现在屏幕内之前是无敌的。</p>
+<p>我们应该如何刷新敌人？很明显这取决于游戏自身。你可以定义一个事件，当敌人已经预刷新完毕后，你就触发这个事件来刷新敌人。</p>
+<p>下面是我们将要做的：我们直接在场景中摆放好我们的章鱼（通过拖拽 Prefab 到场景面板中）。默认情况下，章鱼们是静止的并且无敌，直到摄像机显示它们。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/camera_use.png"></p>
+<p>这里通过使用 Unity 编辑器来摆放敌人，这是一个不错的主意。你没看错：在 Unity 中你什么都不用做，你已经有了一个关卡编辑器了。</p>
+<p><a href="http://gamedev.stackexchange.com/questions/2712/enemy-spawning-method-in-a-top-down-shooter" target="_blank" rel="external">再次声明，这只是个选择，并不科学</a> ;)</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>经过我们认真的思考后，决定把 Unity 编辑器当做关卡编辑器，因为这是非常高效的。除非你有时间又有钱，而且还有专门的关卡设计师和专业的工具。</div></strong></p>
+<h2 id="图层">图层 </h2><p> 首先，我们要定义我们的每个图层各要显示什么，它们是否要循环显示。当游戏运行时，一个可循环的背景将会一遍又一遍地循环显示。例如显示天空时使用循环就非常有用。</p>
+<p>现在我们为背景的元素添加一个新的显示图层。</p>
+<p>我们将有如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图层</th>
+<th style="text-align:center">是否循环</th>
+<th style="text-align:center">坐标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">天空背景</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">(0, 0, 10)</td>
+</tr>
+<tr>
+<td style="text-align:center">背景（第一排飞行的平台）</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">(0, 0, 9)</td>
+</tr>
+<tr>
+<td style="text-align:center">背景（第二排飞行的平台）</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">(0, 0, 5)</td>
+</tr>
+<tr>
+<td style="text-align:center">主角和敌人所在的前景</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">(0, 0, 0)</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/planes.png"></p>
+<p>我们也可以想像一下在主角之前还有一些图层。只要将 Z 轴数值保持在 [0, 10] 之间，除非你想去调整摄像机。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">千万要注意了：</span>如果你在前景之前添加了图层的话，一定要注意可见性。很多游戏不会这么做因为这将会减少游戏的清晰度（译者注：比如挡住主角或敌人）。</div></strong></p>
+<h1 id="实践部分：一头扎进代码里">实践部分：一头扎进代码里</h1><p>OK，我们现在已经知道如何在游戏中实现视差滚动了。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">你知道吗？</span>“滚动射击游戏(Scrolling shooters)”是飞行射击游戏的别称。</div></strong></p>
+<p>我们已经想好了，现在是实践的时候了！</p>
+<p>Unity 在它自带的标准包 (standard packages) 中已经包含了视差滚动的相关代码（看看资源商店 (Asset Store) 中的 2D 平台跳跃游戏的例子吧）。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">关于标准包：</span>标准包中的内容是十分实用的，但是注意别滥用它们。因为使用标准包会阻碍你思考，并且使你的游戏毫无特色。</div></strong></p>
+<h2 id="简单的滚动">简单的滚动 </h2><p> 我们先从简单的内容开始：滚动背景（没有循环）。</p>
+<p>还记得我们之前用过的 “MoveScript” 脚本吗？基本原理都是一样的：速度和方向随着时间而变化。</p>
+<p>创建一个新的脚本 “ScrollingScript” ：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Parallax scrolling script that should be assigned to a layer</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScrollingScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Scrolling speed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">2</span>, <span class="number">2</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Moving direction</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 direction = <span class="keyword">new</span> Vector2(-<span class="number">1</span>, <span class="number">0</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Movement should be applied to camera</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isLinkedToCamera = <span class="keyword">false</span>;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Movement</span>
+    Vector3 movement = <span class="keyword">new</span> Vector3(
+      speed.x * direction.x,
+      speed.y * direction.y,
+      <span class="number">0</span>);
+
+    movement *= Time.deltaTime;
+    transform.Translate(movement);
+
+    <span class="comment">// Move the camera</span>
+    <span class="keyword">if</span> (isLinkedToCamera)
+    {Camera.main.transform.Translate(movement);
+    }
+  }
+}
+</code></pre><p>把脚本附加到如下的对象上，并将按照表中相应的值来设置脚本：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图层</th>
+<th style="text-align:center">速度</th>
+<th style="text-align:center">方向</th>
+<th style="text-align:center">是否与摄像机绑定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0 - Background</td>
+<td style="text-align:center">(1, 1)</td>
+<td style="text-align:center">(-1, 0, 0)</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">1 - Background elements</td>
+<td style="text-align:center">(1.5, 1.5)</td>
+<td style="text-align:center">(-1, 0, 0)</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">2 - Middleground</td>
+<td style="text-align:center">(2.5, 2.5)</td>
+<td style="text-align:center">(-1, 0, 0)</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">3 - Foreground</td>
+<td style="text-align:center">(1, 1)</td>
+<td style="text-align:center">(1, 0, 0)</td>
+<td style="text-align:center">是</td>
+</tr>
+</tbody>
+</table>
+<p>为了确保效果，向场景中再添加如下元素：</p>
+<ul>
+<li>再添加一个 <a href="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/background.png" target="_blank" rel="external">backgournd</a>。</li>
+<li>在图层 <span style="background-color:#d9d9d9">1 - Background elements</span> 中添加一些小平台。</li>
+<li>将所有平台移动到图层 <span style="background-color:#d9d9d9">2 - Middleground</span> 中。</li>
+<li>将所有敌人移动到图层 <span style="background-color:#d9d9d9">3 - Foreground</span> 的右侧，距摄像机远一些。</li>
+</ul>
+<p>最后效果：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/scrolling1.gif"></p>
+<p>真不错！但是我们看到当敌人还在摄像机外时就开始移动和射击了！</p>
+<p>并且，当敌人越过主角后，就再也不会出现了（在游戏运行时切换到“场景(Scene)”面板并缩小画面，你将会在左边看到：章鱼还在移动）。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>你可以尝试调整一下各个变量的值 :)</div></strong></p>
+<p>我们将在迟些时候修复这些问题。现在首先要做的是，我们要使背景循环起来。</p>
+<h2 id="背景循环滚动">背景循环滚动 </h2><p> 为了得到循环的背景，我们唯一需要关注的是循环图层最左边的子对象。</p>
+<p>当此对象超过摄像机的左边缘时，我们将它移动至图层的右边，不确定这样做是否可行。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling_definition.png"></p>
+<p>对于填充图片的图层来说，你需要注意它的最小尺寸需要覆盖摄像机全部的显示范围，这样我们就不能看到背景更后面的东西了。本教程中使用了 3 个天空背景图片，但是这是随意弄的，并没有考虑过优化。</p>
+<p>你需要在你的游戏中找到一个在资源数量和灵活性之间的平衡点。</p>
+<p>在本教程中，我们使用的办法是获取图层中的所有子对象并检测它们是否在摄像机中被渲染（译者注：即被显示）。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">使用渲染器组件时需要注意的：</span>这个方法对不可见的对象没用（比如只是为了附加脚本而创建的对象）。</div></strong></p>
+<p>我们将使用一个很方便的方法来判断对象是否在摄像机中被显示。我们在 the community wiki 中找到的这个方法。它既不是一个类也不是一个脚本，而是一个 C# 扩展。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">关于扩展：</span>C# 语言允许你使用扩展方法来扩充一个类，并且不需要此类的基础代码。<br>创建一个带初参数的静态方法通常都以此开头：<span style="background-color:#FFFFFF">this Type currentInstance</span> 。<span style="background-color:#FFFFFF">Type</span> 类将可以在任何你可使用此类的地方使用此新方法。<br>在扩展方法中，你可以在当前的实例中通过使用 <span style="background-color:#FFFFFF">currentInstance</span> 参数代替 <span style="background-color:#FFFFFF">this</span> 来调用此扩展方法。</div></strong></p>
+<h2 id="“RendererExtensions”_脚本">“RendererExtensions” 脚本 </h2><p> 创建一个名为 “RendererExtensions.cs” 的脚本并且填充以下代码：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">RendererExtensions</span>
+{<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsVisibleFrom</span>(<span class="params"><span class="keyword">this</span> Renderer renderer, Camera camera</span>)
+  </span>{Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+    <span class="keyword">return</span> GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+  }
+}
+</code></pre><p>这很简单，不是吗？</p>
+<div style="background-color:#f67b64; padding:17px;"><span style="color:#FFFFFF"><strong>命名空间：</strong></span><strong>当你在“项目 (Project)”面板中创建脚本时，你可能已经注意到 Unity 并没有添加命名空间 <span style="background-color:#FFFFFF">MonoBehaviour</span> 。但是 Unity 还是处理了命名空间……除非当你在方法参数上使用默认值，这点很糟糕。</strong><br><br><strong> 在本教程中，我们根本没有用到命名空间。不管怎样，在你正式的项目中，你或许会用到它们。如果没有的话，给你的类及行为加上前缀，以免与第三方类库发生冲突（比如 NGUI）。</strong></div>
+
+<p>我们将要在最左边的背景上调用上面的脚本方法。</p>
+<h2 id="完整的_“ScrollingScript”_脚本">完整的 “ScrollingScript” 脚本 </h2><p> 观察下面完整的脚本 “ScrollingScript” （脚本下方有注释）；</p>
+<pre><code><span class="keyword">using</span> System.Collections.Generic;
+<span class="keyword">using</span> System.Linq;
+<span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Parallax scrolling script that should be assigned to a layer</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScrollingScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Scrolling speed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">10</span>, <span class="number">10</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Moving direction</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 direction = <span class="keyword">new</span> Vector2(-<span class="number">1</span>, <span class="number">0</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Movement should be applied to camera</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isLinkedToCamera = <span class="keyword">false</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> 1 - Background is infinite</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isLooping = <span class="keyword">false</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> 2 - List of children with a renderer.</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">private</span> List&lt;Transform&gt; backgroundPart;
+
+  <span class="comment">// 3 - Get all the children</span>
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{<span class="comment">// For infinite background only</span>
+    <span class="keyword">if</span> (isLooping)
+    {<span class="comment">// Get all the children of the layer with a renderer</span>
+      backgroundPart = <span class="keyword">new</span> List&lt;Transform&gt;();
+
+      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; transform.childCount; i++)
+      {Transform child = transform.GetChild(i);
+
+        <span class="comment">// Add only the visible children</span>
+        <span class="keyword">if</span> (child.renderer != <span class="keyword">null</span>)
+        {backgroundPart.Add(child);
+        }
+      }
+
+      <span class="comment">// Sort by position.</span>
+      <span class="comment">// <span class="doctag">Note:</span> Get the children from left to right.</span>
+      <span class="comment">// We would need to add a few conditions to handle</span>
+      <span class="comment">// all the possible scrolling directions.</span>
+      backgroundPart = backgroundPart.OrderBy(t =&gt; t.position.x).ToList();}
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Movement</span>
+    Vector3 movement = <span class="keyword">new</span> Vector3(
+      speed.x * direction.x,
+      speed.y * direction.y,
+      <span class="number">0</span>);
+
+    movement *= Time.deltaTime;
+    transform.Translate(movement);
+
+    <span class="comment">// Move the camera</span>
+    <span class="keyword">if</span> (isLinkedToCamera)
+    {Camera.main.transform.Translate(movement);
+    }
+
+    <span class="comment">// 4 - Loop</span>
+    <span class="keyword">if</span> (isLooping)
+    {<span class="comment">// Get the first object.</span>
+      <span class="comment">// The list is ordered from left (x position) to right.</span>
+      Transform firstChild = backgroundPart.FirstOrDefault();
+
+      <span class="keyword">if</span> (firstChild != <span class="keyword">null</span>)
+      {<span class="comment">// Check if the child is already (partly) before the camera.</span>
+        <span class="comment">// We test the position first because the IsVisibleFrom</span>
+        <span class="comment">// method is a bit heavier to execute.</span>
+        <span class="keyword">if</span> (firstChild.position.x &lt; Camera.main.transform.position.x)
+        {<span class="comment">// If the child is already on the left of the camera,</span>
+          <span class="comment">// we test if it's completely outside and needs to be</span>
+          <span class="comment">// recycled.</span>
+          <span class="keyword">if</span> (firstChild.renderer.IsVisibleFrom(Camera.main) == <span class="keyword">false</span>)
+          {<span class="comment">// Get the last child position.</span>
+            Transform lastChild = backgroundPart.LastOrDefault();
+            Vector3 lastPosition = lastChild.transform.position;
+            Vector3 lastSize = (lastChild.renderer.bounds.max - lastChild.renderer.bounds.min);
+
+            <span class="comment">// Set the position of the recyled one to be AFTER</span>
+            <span class="comment">// the last child.</span>
+            <span class="comment">// <span class="doctag">Note:</span> Only work for horizontal scrolling currently.</span>
+            firstChild.position = <span class="keyword">new</span> Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
+
+            <span class="comment">// Set the recycled child to the last position</span>
+            <span class="comment">// of the backgroundPart list.</span>
+            backgroundPart.Remove(firstChild);
+            backgroundPart.Add(firstChild);
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre><p><em>（代码注释中的数字对应下方的代码详解）</em></p>
+<p><span style="color:#d9d9d9; font-size:23px">代码详解</span></p>
+<ol>
+<li>我们需要一个公共变量以便在“检视(Inspector)”面板中开启“循环”模式。</li>
+<li>我们也需要用一个私有变量来存储图层的子对象。</li>
+<li>在 <span style="background-color:#d9d9d9">Start()</span> 方法中，我们将带有渲染器的多个子对象赋给了列表 <span style="background-color:#d9d9d9">backgroundPart</span> 。多亏了 <a href="http://msdn.microsoft.com/fr-fr/library/bb397926.aspx" target="_blank" rel="external">LINQ</a>，我们通过它们的 <span style="background-color:#d9d9d9">X</span> 坐标来排序并且把最左边的对象放在数组列表的首位。</li>
+<li>在 <span style="background-color:#d9d9d9">Update()</span> 方法中，如果 <span style="background-color:#d9d9d9">isLooping</span> 被赋值为 <span style="background-color:#d9d9d9">true</span>，我们将取到列表 <span style="background-color:#d9d9d9">backgroundPart</span> 中的第一个子对象，然后我们检测它是否完全的离开摄像机的显示区域，如果是的话，我们将它在场景中的位置移动到最后一个（即最右边）。最后，我们将它放在列表 <span style="background-color:#d9d9d9">backgroundPart</span> 的最后边。</li>
+</ol>
+<p>事实上，列表 <span style="background-color:#d9d9d9">backgroundPart</span> 中元素位置的变化和场景中的变化是一致的。</p>
+<p>记得在“检视（Inspector）”面板中勾选上 <span style="background-color:#d9d9d9">0 - Background</span> 附加脚本 “ScrollingScript” 中的 “Is Looping” 选项。否则，循环不会执行。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling.png"><br><em>（<a href="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling.gif" target="_blank" rel="external">点击查看动画演示</a>）</em></p>
+<p>Yeah！我们终于有了一个运行的“视差”解决方案了。</p>
+<div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF"><strong>注意：</strong></span><strong>为什么我们不用 <span style="background-color:#FFFFFF">OnBecameVisible()</span> 和 <span style="background-color:#FFFFFF">OnBecameInvisible()</span> 方法呢？因为它们是有问题的。</strong><br><br><strong>这两个方法的本意是在对象被摄像机渲染后（或者反之）执行一段代码。它们就像 <span style="background-color:#FFFFFF">Start()</span> 或 <span style="background-color:#FFFFFF">Stop()</span> 方法一样（如果你需要 Stop() 的话，简单地将其添加到 <span style="background-color:#FFFFFF">MonoBehaviour</span> 中，然后 Unity 就可以使用它了）。</strong><br><br><strong>这两个方法的问题是当对象被 Unity 编辑器的“场景(Scene)”窗口渲染后，它们也会被调用。这将意味着我们在 Unity 编辑器和打包好的游戏中所看到的行为是不一样的（无论在什么平台上），这是危险而且荒谬的，所以我们强烈建议不使用这两个方法。</strong></div>
+
+<h1 id="附加内容：优化现存脚本">附加内容：优化现存脚本 </h1><p> 让我们来更新一下前面的脚本吧。</p>
+<h2 id="刷新敌人脚本_v2">刷新敌人脚本 v2</h2><p>我们早先说过敌人应该被禁用，直到摄像机显示它们。</p>
+<p>同时它们也应该在离开屏幕的时候被移除。</p>
+<p>我们需要更新一下脚本 “EnemyScript”，然后脚本可以：</p>
+<ol>
+<li>禁用移动、碰撞盒及自动开火（当敌人完成初始化后）。</li>
+<li>检测敌人的渲染器是否进入摄像机的视野内。</li>
+<li>自行启动。</li>
+<li>当对象离开摄像机视野后自行销毁。</li>
+</ol>
+<p>（脚本注释中的数字将在脚本下方有详细解释）<br>    using UnityEngine;</p>
+<pre><code><span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Enemy generic behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnemyScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="keyword">private</span> <span class="keyword">bool</span> hasSpawn;
+  <span class="keyword">private</span> MoveScript moveScript;
+  <span class="keyword">private</span> WeaponScript[] weapons;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Retrieve the weapon only once</span>
+    weapons = GetComponentsInChildren&lt;WeaponScript&gt;();
+
+    <span class="comment">// Retrieve scripts to disable when not spawn</span>
+    moveScript = GetComponent&lt;MoveScript&gt;();}
+
+  <span class="comment">// 1 - Disable everything</span>
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{hasSpawn = <span class="keyword">false</span>;
+
+    <span class="comment">// Disable everything</span>
+    <span class="comment">// -- collider</span>
+    collider2D.enabled = <span class="keyword">false</span>;
+    <span class="comment">// -- Moving</span>
+    moveScript.enabled = <span class="keyword">false</span>;
+    <span class="comment">// -- Shooting</span>
+    <span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+    {weapon.enabled = <span class="keyword">false</span>;
+    }
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 2 - Check if the enemy has spawned.</span>
+    <span class="keyword">if</span> (hasSpawn == <span class="keyword">false</span>)
+    {<span class="keyword">if</span> (renderer.IsVisibleFrom(Camera.main))
+      {Spawn();
+      }
+    }
+    <span class="keyword">else</span>
+    {<span class="comment">// Auto-fire</span>
+      <span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+      {<span class="keyword">if</span> (weapon != <span class="keyword">null</span> &amp;&amp; weapon.enabled &amp;&amp; weapon.CanAttack)
+        {weapon.Attack(<span class="keyword">true</span>);
+        }
+      }
+
+      <span class="comment">// 4 - Out of the camera ? Destroy the game object.</span>
+      <span class="keyword">if</span> (renderer.IsVisibleFrom(Camera.main) == <span class="keyword">false</span>)
+      {Destroy(gameObject);
+      }
+    }
+  }
+
+  <span class="comment">// 3 - Activate itself.</span>
+  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Spawn</span>(<span class="params"></span>)
+  </span>{hasSpawn = <span class="keyword">true</span>;
+
+    <span class="comment">// Enable everything</span>
+    <span class="comment">// -- Collider</span>
+    collider2D.enabled = <span class="keyword">true</span>;
+    <span class="comment">// -- Moving</span>
+    moveScript.enabled = <span class="keyword">true</span>;
+    <span class="comment">// -- Shooting</span>
+    <span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+    {weapon.enabled = <span class="keyword">true</span>;
+    }
+  }
+}
+</code></pre><p>运行游戏。是的，有一个 Bug。</p>
+<p>禁用脚本 “MoveScript”，因为它产生了一个负面影响：主角永远接触不到敌人，因为所有敌人都跟随图层 <span style="background-color:#d9d9d9">3 - Foreground</span> 一起滚动：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/camera_moving_along.gif"></p>
+<p>请记住：我们已经为这个图层添加了脚本 “ScrollingScript”，以使摄像机跟随主角移动。</p>
+<p>但是有一个简单的解决办法：将脚本 “ScrollingScript” 从图层 <span style="background-color:#d9d9d9">3 - Foreground</span> 移动到主角上！</p>
+<p>为什么呢？因为在此图层中唯一移动的物体就是主角了，并且这个脚本并不是只针对某一种游戏对象。</p>
+<p>按下 “Play” 按钮并且观察：一切运行正常。</p>
+<ol>
+<li>敌人一直处在禁用状态直到它们被刷新（也就是说，直到摄像机移动到它们的位置）。</li>
+<li>当敌人移动出摄像机外后，它们会消失。</li>
+</ol>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/enemy_spawn.png"><br><em>（<a href="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/enemy_spawn.gif" target="_blank" rel="external">点击察看发生了什么</a>）</em></p>
+<h2 id="将主角限制在摄像机边缘内">将主角限制在摄像机边缘内 </h2><p> 你可能已经发现了目前主角还没有被限制在摄像机的显示范围之内。运行游戏，一直按下左方向键，你就会看到主角消失在屏幕内。</p>
+<p>我们必须修复这个问题。</p>
+<p>打开脚本 “PlayerScript”，在 “Update()” 方法的最后添加如下代码：</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span>
+  </span>{<span class="comment">// ...</span>
+
+    <span class="comment">// 6 - Make sure we are not outside the camera bounds</span>
+    var dist = (transform.position - Camera.main.transform.position).z;
+
+    var leftBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">0</span>, dist)
+    ).x;
+
+    var rightBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">0</span>, dist)
+    ).x;
+
+    var topBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">0</span>, dist)
+    ).y;
+
+    var bottomBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">1</span>, dist)
+    ).y;
+
+    transform.position = <span class="keyword">new</span> Vector3(Mathf.Clamp(transform.position.x, leftBorder, rightBorder),
+      Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
+      transform.position.z
+    );
+
+    <span class="comment">// End of the update method</span>
+  }
+</code></pre><p>新增的代码没什么需要解释的，只是比较啰嗦而已。</p>
+<p>我们取得摄像机的边缘并且确保主角的位置（以主角精灵的中心为准）始终在显示范围内。</p>
+<p>尝试调整代码并运行游戏以获得更好的理解。</p>
+<h1 id="下一步">下一步 </h1><p> 我们有了可以滚动的飞行射击游戏了！</p>
+<p>我们学习了如何给游添加一个滚动机制，以获得视差效果。不管怎样，目前的代码只支持从右向左滚动。但是运用你新学到的知识，你可以将游戏进一步的优化以使其可以向任意的方向滚动（附加内容：<a href="https://gist.github.com/Valryon/7547513" target="_blank" rel="external">我们已经做了这个，因为有人说自己卡在这儿了，点击这里察看代码及演示动画</a>）。</p>
+<p>当然，我们的游戏仍需要做出一些调整以使其更具有可玩性。比如说：</p>
+<ul>
+<li>缩小精灵的大小。</li>
+<li>调整主角和敌人的速度。</li>
+<li>添加更多的敌人。</li>
+<li>让游戏变得有趣。</li>
+</ul>
+<p>我们将会在未来的章节中详细说明上面几个关于游戏调整的要点（很不幸，还没有完成。不过正好你可以趁此时间自己实践一下）。</p>
+<p>在下一章中，我们将把注意力放在如何使我们的游戏更……炫酷。我们将学习如何玩转粒子系统！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">背景的视差滚动</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [7/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%207/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 7/</id>
+    <published>2015-09-25T01:16:38.000Z</published>
+    <updated>2015-09-25T07:25:09.909Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">玩转粒子系统</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/particles/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/particles/</a></span></strong></p>
+<p>我们的飞行射击游戏开始越来越像样了。现在我们来使用粒子系统让它更有视觉冲击。</p>
+<p>粒子系统（基本上）就是一个简单的、在短时间内执行重复动作的精灵。</p>
+<p>想想游戏中的爆炸、射线、烟雾等等，这些全都是使用粒子系统制作出来的 —— 大多数时间是的（爆炸效果也可能是用精灵动画制作的）。</p>
+<p>Unity 为我们提供了一个自带的、强大的粒子编辑器，名为 Shuriken 引擎。让我们看看能用它来做些什么。</p>
+<h1 id="爆炸效果预设">爆炸效果预设 </h1><p> 我们将要制作一个爆炸效果，当主角或敌人被摧毁时播放它。此项工作涉及到：</p>
+<ol>
+<li>为我们的爆炸创建一个粒子系统（并存储为预设）。</li>
+<li>当需要它的时候，实例化并播放。</li>
+</ol>
+<p>爆炸通常由两样内容构成：火光和烟雾。</p>
+<h2 id="烟雾粒子">烟雾粒子 </h2><p> 创建一个新的“粒子系统(Particle System)”（”Game Object” → “Create Other” → “Particle System”）。</p>
+<div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"><strong>小技巧：</strong></span><strong>我们强烈推荐你在场景的空白区域（或一个空的场景）中进行这项操作，这样才能容易地看清楚发生了什么。</strong><br><strong>如果你想在“场景 (Scene)”面板中居中显示一个对象，你可以在对象上或“层级(Hierarchy)”面板上鼠标<span style="background-color:#FFFFFF"> 双击 </span> 此对象，或者在选择此物体后按下 <span style="background-color:#FFFFFF">F</span> 键。</strong></div>
+
+<p>通过放大你的粒子，你将会看到一个持续放射出火花的游戏对象：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/new_particle_system.png"></p>
+<p>观察在“场景(Scene)”面板中出现的新窗口（带有”Pause”和”Stop”按钮的那个小面板），或者观察一下“检视(Inspector)”面板。“检视(Inspector)”面板中有许多粒子系统相关的选项。</p>
+<p>这看起来一点儿都不有趣好吧！</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>当你在“层级(Inspector)”面板中选中一个粒子系统时，它才会开始播放。如果你不选中它，它就会停止，这是个非常实用的设定，这样你就可以看到它在实际游戏运行时的样子了。</div></strong></p>
+<p>我们将会使用下面的图片精灵来作为烟雾的粒子：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/cloud.png"><br><em>(鼠标右键点击保存图片)</em></p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>当你使用自己的资源时，如果图片的透明度有问题，请确认透明的像素是黑色的并且 Alpha （透明度）值为 <span style="background-color:#FFFFFF">0</span> 。<br>确实，甚至如果像素是不可见的，它还有会有个值，因为计算机会用到它。</div></strong></p>
+<p>将图片复制到“贴图(Textures)”文件夹中。将”Texture Type”属性设置为”Texture”，并将”Alpha Is Transparent”选项勾上。你所做的应该如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/cloud_settings.png"></p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>我们正在使用 Unity 的 3D 特性，而不是 2D 的。事实上，这都无所谓。当你使用“2D”工具时，你只是在使用 Unity 的一个子集。但 Unity 所有的强大功能，不管你用不用，它都在那里。</div></strong></p>
+<p>将贴图分配给粒子系统：</p>
+<ol>
+<li>将贴图拖拽到粒子系统的“检视(Inspector)”面板上（或者拖拽到“层级(Hierarchy)”面板中的粒子系统上，这样也可以为粒子系统分配正确的贴图）。</li>
+<li>修改 Shader 属性为 “Particles” → “Alpha Blended”：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/cloud_shader.png"></li>
+</ol>
+<p>为了创建一个完美的烟雾粒子，我们得在“检视(Inspector)”面板做许多的修改。</p>
+<p>在本篇教程中，我们推荐你使用如下的设置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Duration</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Max Particles</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Lifetime</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Color</td>
+<td style="text-align:center">Gray</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Speed</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Size</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">Emission</td>
+<td style="text-align:center">Bursts</td>
+<td style="text-align:center">0 : 15</td>
+</tr>
+<tr>
+<td style="text-align:center">Shape</td>
+<td style="text-align:center">Shape</td>
+<td style="text-align:center">Sphere</td>
+</tr>
+<tr>
+<td style="text-align:center">Color Over Lifetime</td>
+<td style="text-align:center">Color</td>
+<td style="text-align:center">参照下方 (N°1)</td>
+</tr>
+<tr>
+<td style="text-align:center">Size Over Lifetime</td>
+<td style="text-align:center">Size</td>
+<td style="text-align:center">参照下方 (N°2)</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:#878787; font-size:23px">N°1 — Color Over lifetime</span></p>
+<p>在末端设置 alpha 值来创建一个渐隐：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/fade_out.png"></p>
+<p><span style="color:#878787; font-size:23px">N°2 — Size Over lifetime</span></p>
+<p>选择一个递减的曲线：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/decreasing_curve.png"></p>
+<p>设置结果如下图所示：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/smoke_settings.png"></p>
+<p>你可以自己随便作些调整，然后运行游戏观察粒子效果，毕竟这是你的游戏 :)</p>
+<p>当你调整得感觉合适了，取消勾选 “Looping” 选项。</p>
+<p>观察结束：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/smoke_effect.gif"></p>
+<p>很明显这个效果不是很完美，但创建它确实很简单。一个看起来视觉效果很棒的游戏和一个看起来很糟的游戏，它们之间的区别或许就在有没有粒子系统上。</p>
+<p>将它保存为预设。你可以在文件夹 “Prefabs” 下再创建一个文件夹 “Particles” 用来存放粒子预设，然后将这个粒子命名为 “SmokeEffect” 。</p>
+<h2 id="火焰粒子">火焰粒子 </h2><p> 这个粒子与上面的有所不同。</p>
+<ol>
+<li>创建一个新的粒子系统，就像你在上面所做的。</li>
+<li>使用默认的材质制作火焰（将”Renderer/Material”改为”Default-Particle”），这就足够我们用了。</li>
+</ol>
+<p>我们推荐进行如下设置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Looping</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Duration</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Max Particles</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Lifetime</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Speed</td>
+<td style="text-align:center">0.5</td>
+</tr>
+<tr>
+<td style="text-align:center">General</td>
+<td style="text-align:center">Start Size</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">Emission</td>
+<td style="text-align:center">Bursts</td>
+<td style="text-align:center">0 : 10</td>
+</tr>
+<tr>
+<td style="text-align:center">Shape</td>
+<td style="text-align:center">Shape</td>
+<td style="text-align:center">Box</td>
+</tr>
+<tr>
+<td style="text-align:center">Color Over Lifetime</td>
+<td style="text-align:center">Color</td>
+<td style="text-align:center">参照下方 (N°1)</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:#878787; font-size:23px">N°1 — Color Over lifetime</span></p>
+<p>创建一个从黄色到橙色，并且最后变为透明的梯度渐变：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/fire_gradient.png"></p>
+<p>效果如下图所示：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/fire_effect.gif"></p>
+<p>将这个粒子保存为 “FireEffect” 预设。</p>
+<p>接下来，我们将在脚本中使用这些粒子。</p>
+<h1 id="创建辅助脚本">创建辅助脚本 </h1><p> 实例化粒子系统的方法与实例化主角和子弹的方法完全一样。</p>
+<p>无论怎样，你必须记住当粒子系统不再被需要时一定要删除它们。</p>
+<p>同时，我们将把火焰粒子和烟雾粒子结合在一起来作为我们的爆炸效果。</p>
+<p>让我们创建一个 “SpecialEffectsHelper” 脚本：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Creating instance of particles from code with no effort</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SpecialEffectsHelper</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Singleton</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">static</span> SpecialEffectsHelper Instance;
+
+  <span class="keyword">public</span> ParticleSystem smokeEffect;
+  <span class="keyword">public</span> ParticleSystem fireEffect;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Register the singleton</span>
+    <span class="keyword">if</span> (Instance != <span class="keyword">null</span>)
+    {Debug.LogError(<span class="string">"Multiple instances of SpecialEffectsHelper!"</span>);
+    }
+
+    Instance = <span class="keyword">this</span>;
+  }
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Create an explosion at the given location</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="position"&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Explosion</span>(<span class="params">Vector3 position</span>)
+  </span>{<span class="comment">// Smoke on the water</span>
+    instantiate(smokeEffect, position);
+
+    <span class="comment">// Tu tu tu, tu tu tudu</span>
+
+    <span class="comment">// Fire in the sky</span>
+    instantiate(fireEffect, position);
+  }
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Instantiate a Particle system from prefab</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="prefab"&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;returns&gt;</span><span class="xmlDocTag">&lt;/returns&gt;</span></span>
+  <span class="function"><span class="keyword">private</span> ParticleSystem <span class="title">instantiate</span>(<span class="params">ParticleSystem prefab, Vector3 position</span>)
+  </span>{
+    ParticleSystem newParticleSystem = Instantiate(
+      prefab,
+      position,
+      Quaternion.identity
+    ) <span class="keyword">as</span> ParticleSystem;
+
+    <span class="comment">// Make sure it will be destroyed</span>
+    Destroy(
+      newParticleSystem.gameObject,
+      newParticleSystem.startLifetime
+    );
+
+    <span class="keyword">return</span> newParticleSystem;
+  }
+}
+</code></pre><p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>因为我们可以在场景中同时拥有多个粒子系统，并且每次我们不得不去创建新的预设。如果我们确定同时只使用一个粒子系统，我们就需要保持这个引用并且每次都去使用它。</div></strong></p>
+<p>我们创建了一个你可以通过 <span style="background-color:#d9d9d9">SpecialEffectsHelper.Instance</span> 的成员变量从任何地方访问的单件(Singleton)。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">单件：</span>单件是一种设计模式，它保证一个游戏对象只被实例化一次。这个内容对于我们的脚本来说有些离题：不论怎样，原理就是这个。</div></strong></p>
+<ol>
+<li>把这个脚本分配给“层级(Hierarchy)”面板中的 “Scripts” 游戏对象。</li>
+<li>检查一下，然后使用正确的预设填充相应的属性。</li>
+</ol>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/filling_script.png"></p>
+<h1 id="让它爆炸吧！">让它爆炸吧！</h1><p>终于到了调用脚本的时候了！</p>
+<p>打开脚本 “HealthScript”。我们将在游戏对象被摧毁时，显示我们可爱的爆炸特效。</p>
+<p>我们需要做的就是在代码中添加如下一行：</p>
+<pre><code><span class="tag">SpecialEffectsHelper</span><span class="class">.Instance</span><span class="class">.Explosion</span>(<span class="tag">transform</span><span class="class">.position</span>);
+</code></pre><p>把这行代码插到脚本 “HealthScript” 的 <span style="background-color:#d9d9d9">OnTriggerEnter()</span> 方法中：</p>
+<pre><code><span class="function"><span class="keyword">public</span> <span class="title">Damage</span><span class="params">(<span class="keyword">int</span> damageCount)</span>
+</span>{<span class="comment">// ...</span>
+
+  <span class="keyword">if</span> (hp &lt;= <span class="number">0</span>)
+  {<span class="comment">// 'Splosion!</span>
+    SpecialEffectsHelper.Instance.Explosion(transform.position);
+
+    <span class="comment">// Dead!</span>
+    Destroy(gameObject);
+  }
+
+  <span class="comment">// ...</span>
+}
+</code></pre><p>开始游戏。向敌人射击，然后呢，让主角慷慨就义吧。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/explosions.png"><br><em><a href="http://pixelnest.io/tutorials/2d-game-unity/particles/-img/explosions.gif" target="_blank" rel="external">（点击这里察看结果）</a></em></p>
+<p>还不赖，是吧？虽然还可以做得更好。</p>
+<p>但是，嘿，能不能使用粒子系统做出一个漂亮的爆炸效果，这都取决于你自己了。重要的是你现在已经知道如何去做了 :)</p>
+<h1 id="下一步">下一步 </h1><p> 我们已经学会了如何使用 Unity 自带的引擎去制作粒子特效。并且就如你所看到的一样，这非常简单。此外，你所添加的粒子系统运行得非常好。</p>
+<p>不论怎样还是请小心！因为以后你就会慢慢发现，你花在调整粒子特效上的时间会远远超过编写其他枯燥的功能的时间，比如说高分系统。</p>
+<p>就像 Jams Silva 在 <a href="http://www.amazon.com/Building-XNA-2-0-Games-Professionals/dp/1430209798" target="_blank" rel="external">Building XNA 2.0 games</a> 中所写的一样，你应该在开发进入尾声时再添加或调整粒子系统，或者进行其他让人会很快失去兴趣的工作。</p>
+<p>就像添加粒子系统一样，还有另一种方法能提高你游戏的品质：那就是音效！我们将在下一章中学习相关的内容。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">玩转粒子系统</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://p]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [8/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%208/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 8/</id>
+    <published>2015-09-25T01:16:37.000Z</published>
+    <updated>2015-09-25T07:25:32.020Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">添加音效和音乐</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/sounds/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/sounds/</a></span></strong></p>
+<p>目前我们已经使用粒子系统在视觉上优化了我们的游戏，现在我们要再加一些音效和音乐。虽然在 Unity 中这非常的简单，但对我们的游戏来说却非常重要。</p>
+<p>你在本章中将会学到在哪里找到音效和音乐，然后使用脚本把它们在游戏中播放出来。</p>
+<h1 id="找一些音效和音乐">找一些音效和音乐 </h1><p>Damien 最近（也不算是吧）参与了<a href="http://gamedev.stackexchange.com/questions/22525/how-does-a-one-man-developer-do-its-games-sounds" target="_blank" rel="external"> 关于本主题在 Stack Exchange 上的一个有趣的试论</a>。</p>
+<p>在我们现有知识的基础上，一个游戏开发者可以：</p>
+<ul>
+<li>买一些音效和音乐。</li>
+<li>雇佣 / 认识音乐制作人。</li>
+<li>从免费网站上下载（比如 <a href="http://www.findsounds.com/" target="_blank" rel="external">FindSounds</a> 或者 <a href="http://www.freesound.org/" target="_blank" rel="external">Freesound</a>）。</li>
+<li>自己录制声音。</li>
+</ul>
+<p>或者使用 Damien 最喜爱的方法：</p>
+<ul>
+<li>使用 <a href="http://www.bfxr.net/" target="_blank" rel="external">BFXR</a>（基于 <a href="http://drpetter.se/project_sfxr.html" target="_blank" rel="external">SFXR</a> 的一个工具，同时也有网页版，相比之下网页版更有用些） 制作 8 位风格的音效。</li>
+</ul>
+<div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF"><strong>马蒂厄 (Matthieu) 说两句：</strong></span><strong>我已经为我的朋友的一个学校短期项目制作过一些音效和歌曲。那时我是一名鼓手，但绝不是一个作曲家。<br>无论怎样，在 <a href="http://www.freesound.org/" target="_blank" rel="external">Freesound</a> 的帮助下，一点小灵感加上大量的时间（在不懂任何工具的前提下 —— 我以最快的速度现学了 <a href="http://audacity.sourceforge.net/" target="_blank" rel="external">Audacity</a>），我为一整个游戏制作了音效（虽然比较简单）。</strong><br><br><strong>我不推荐用我的这种方法来为游戏制作音乐（还是找一个音乐家，然后定一个合同，这是更佳的方法），但是如果你有足够的时间并且会使用很棒的工具，当然也可以创作出很酷的音效来。这是可行的：成为一个有创建力的人吧。</strong></div>
+
+<p>对于音乐来说，那取决于你想要的是什么：在 <a href="http://www.jamendo.com/" target="_blank" rel="external">Jamendo</a> 上有成千上万的艺术作品。如果你用作商业用途的话，请一定注意证书许可。<a href="http://distractionware.com/blog/2013/08/bosca-ceoil/" target="_blank" rel="external">Bosca Ceoil</a> 是一款由 Terry Cavanagh 制作的简单音乐制作软件。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">达米安 (Damien) 说两句：</span>我就是这样遇到艺术家 <a href="http://spintronic.fr/ticket/listbyartist/1" target="_blank" rel="external">Spintronic</a> 的。我真是太喜欢他的音乐了。他非常慷慨地授权让我在我的游戏 The Great Paper Adventure 中使用它的音乐。</div></strong></p>
+<h1 id="教程的资源">教程的资源 </h1><p> 创建或自己找到一个爆炸和发射子弹的音效。如果你很懒的话，你可以用我们的：</p>
+<ul>
+<li><a href="http://pixelnest.io/tutorials/2d-game-unity/sounds/-sounds/shot_player.wav" target="_blank" rel="external">下载主角射击音效</a></li>
+<li><a href="http://pixelnest.io/tutorials/2d-game-unity/sounds/-sounds/shot_enemy.wav" target="_blank" rel="external">下载敌人射击音效</a></li>
+<li><a href="http://pixelnest.io/tutorials/2d-game-unity/sounds/-sounds/explosion.wav" target="_blank" rel="external">下载爆炸音效</a></li>
+</ul>
+<p>我们将在本教程中使用 <a href="http://spintronic.fr/ticket/listbyartist/1" target="_blank" rel="external">Spintronic</a> 所创作的，已被用在游戏 The Great Paper Adventure 中的音乐：</p>
+<ul>
+<li>下载 <a href="http://spintronic.fr/song/download/45?format=mp3" target="_blank" rel="external">Spintronic - Firecrackers</a></li>
+</ul>
+<h1 id="导入到_Unity_中">导入到 Unity 中 </h1><p> 将这四个元素拖拽到 “Sounds” 文件夹中。</p>
+<p>确认每一个音效在“检视(Inspector)”面板中的选项 “3D sound” 不被勾选，因为我们在制作 2D 游戏。然后别忘点击 “Apply” 按钮。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/sounds/-img/3dsound.png"></p>
+<p>然后……就没有然后了！</p>
+<h1 id="播放音乐">播放音乐 </h1><p> 为了使音乐被播放，简单的将它拖拽到“层级(Hierarchy)”面板中。我们推荐你：</p>
+<ol>
+<li>将这个游戏对象重命名为 “Music”。</li>
+<li>将它的坐标改为 (0, 0, 0)。</li>
+</ol>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/sounds/-img/music.png"></p>
+<p>注意 “Mute” 选项，它在你要做大量测试的时候会非常有用。</p>
+<h1 id="播放音效">播放音效 </h1><p> 你可以像处理音乐一样处理音效。但是音效只能在需要的时候才播放。</p>
+<p>为了达到这个目的，我们有一个简单的解决方案。就像 “SpecialEffectsHelper” 代码一样，我们也可以为音效创建一个辅助脚本，这样你可以在任何地方调用它了。</p>
+<p>这个新创建的脚本我们把它命名为 “SoundEffectsHelper”：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> System.Collections;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Creating instance of sounds from code with no effort</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SoundEffectsHelper</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Singleton</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">static</span> SoundEffectsHelper Instance;
+
+  <span class="keyword">public</span> AudioClip explosionSound;
+  <span class="keyword">public</span> AudioClip playerShotSound;
+  <span class="keyword">public</span> AudioClip enemyShotSound;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Register the singleton</span>
+    <span class="keyword">if</span> (Instance != <span class="keyword">null</span>)
+    {Debug.LogError(<span class="string">"Multiple instances of SoundEffectsHelper!"</span>);
+    }
+    Instance = <span class="keyword">this</span>;
+  }
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MakeExplosionSound</span>(<span class="params"></span>)
+  </span>{MakeSound(explosionSound);
+  }
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MakePlayerShotSound</span>(<span class="params"></span>)
+  </span>{MakeSound(playerShotSound);
+  }
+
+  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MakeEnemyShotSound</span>(<span class="params"></span>)
+  </span>{MakeSound(enemyShotSound);
+  }
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Play a given sound</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="originalClip"&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span>
+  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">MakeSound</span>(<span class="params">AudioClip originalClip</span>)
+  </span>{<span class="comment">// As it is not 3D audio clip, position doesn't matter.</span>
+    AudioSource.PlayClipAtPoint(originalClip, transform.position);
+  }
+}
+</code></pre><p>将它附加到 “Scripts” 游戏对象上，然后使用音效文件填充相应的位置：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/sounds/-img/sound_script.png"></p>
+<p>然后将如下代码添加到相应的位置：</p>
+<ol>
+<li>将 <span style="background-color:#d9d9d9">SoundEffectsHelper.Instance.MakeExplosionSound();</span> 添加到脚本 “HealthScript” 中，紧跟在粒子特效的代码后边。</li>
+<li>将 <span style="background-color:#d9d9d9">SoundEffectsHelper.Instance.MakePlayerShotSound();</span> 添加到脚本 “Playript” 中，紧跟在 <span style="background-color:#d9d9d9">weapon.Attack(false);</span> 后边。</li>
+<li>将 <span style="background-color:#d9d9d9">SoundEffectsHelper.Instance.MakeEnemyShotSound();</span> 添加到脚本 “EnemyScript” 中，在 <span style="background-color:#d9d9d9">weapon.Attack(true);</span> 后边。</li>
+</ol>
+<p>运行游戏听一听。Yeah! 我们现在有音效和音乐了！</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>这个方法对于本教程和小型的项目来说够用了，对更庞大的项目来说，就不行了，因为你不可能很轻松的管理成千上万的音效。</div></strong></p>
+<h1 id="下一步">下一步 </h1><p> 在本章中我们学会了如何在游戏中使用音效和音乐。</p>
+<p>我们目前在制作一款飞行射击游戏上，有了一个好的基础。你可以制作一个更长的关卡并且接近我们在一开始介绍中所展示的示例。</p>
+<p>我现在可以开始制作你自己的图片资源，并且添加一些敌人或者背景元素。甚至你可以在关卡的结尾添加一个 Boss ，这会更加的复杂，但是在制作过程中的挑战和设计上的决策也一定非常有趣。</p>
+<p>我们离完成一个完整的游戏还远着呢，但是我们得先停下来去完成游戏流程及关卡设计。</p>
+<p>在下一章中，我们将要添加一个菜单，这样我们就可以开始游戏和重启游戏了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">添加音效和音乐</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [9/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%209/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 9/</id>
+    <published>2015-09-25T01:16:36.000Z</published>
+    <updated>2015-09-25T07:25:40.698Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">菜单 —— 开始游戏及重启游戏</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/menus/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/menus/</a></span></strong></p>
+<p>我们已经完成了一个有着基本玩法的关卡，并添加了音效、图片和粒子。</p>
+<p>不论怎样，当主角死亡时，游戏还在继续进行并且不可能再次开始。而且，当你运行游戏后，游戏就直接开始了。我们现在已经清楚我们要在什么地方添加菜单了。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">达米安 (Damien) 说两句：</span>我先打个招呼：制作菜单和 GUI 可一点儿也不有趣。通常你必须使用一个非常基础的 GUI 框架（或者根本没有框架）。<br>这将花费大量的时间并且结果是……玩家会很快的将它们跳过。</div></strong></p>
+<div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF"><strong>马蒂厄 (Matthieu) 说两句：</strong></span><strong>不像许多的游戏开发者，我不同意上面的说法。创建一个好的游戏 GUI 不是一件轻松的工作，但是同样值得并且有趣。不管怎么样，制作菜单需要好的工具和一些好的设计策略（就像设计一款 App 的界面一样）。</strong><br><br><strong>但是话说回来了，再好的界面也会被隐藏并且还不能使玩家过分注意它。</strong></div>
+
+<p>很不幸的是，如果你没有大量的时间或使用第三方的插件，使用 Unity 制作出一个炫酷的菜单将是不太容易的。</p>
+<p>在本教程中我们不会去制作一个很复杂的 GUI。Unity 自带的工具对我们来说就足够了，但是你也会发现它们实在是……太有限了。</p>
+<p>让我们先从基础的开始吧。</p>
+<h1 id="资源">资源 </h1><h2 id="背景"> 背景</h2><p><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/background.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<h2 id="LOGO">LOGO</h2><p><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/logo.png"><br><em>（点击鼠标右键保存图片）</em></p>
+<p>在你的项目中导入这些资源。你可以将它们放在 “Textures” 文件夹下的 “Menu” 子文件夹中。不然之前的 “background” 图片会被覆盖掉。</p>
+<p>按钮的话，我们就使用 Unity 自带的吧（很丑）。</p>
+<h1 id="标题界面">标题界面 </h1><p> 几乎所有的游戏都有一个标题界面，这是玩家在运行游戏后第一个接触的界面。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">达米安 (Damien) 说两句：</span>一些游戏的标题界面非常帅并且让人印象深刻：比如 Megaman, Metal Slug 等等（我是标题界面的大粉丝）。</div></strong></p>
+<p>我们将要制作的不会那么帅，但是……很简单！</p>
+<h1 id="场景">场景 </h1><p> 首先，创建一个新的场景：</p>
+<ol>
+<li>“File” → “New scene”。</li>
+<li>将它保存在 “Scenes” 文件夹中，并命名为 “Menu”。</li>
+</ol>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>你可以使用 <span style="background-color:#FFFFFF">cmd + N</span> (OS X) 或者 <span style="background-color:#FFFFFF">ctrl + n</span> (Windows) 快捷键。</div></strong></p>
+<p>我们的标题界面将由如下元素构成：</p>
+<ul>
+<li>一个背景。</li>
+<li>一个 LOGO。</li>
+<li>一个显示按钮的脚本。</li>
+</ul>
+<p>创建背景：</p>
+<ol>
+<li>创建一个新的精灵 <span style="background-color:#d9d9d9">Sprite</span>。</li>
+<li>将它的坐标改为 <span style="background-color:#d9d9d9">(0, 0, 1)</span>。</li>
+<li>大小为 <span style="background-color:#d9d9d9">(2, 2, 1)</span>。</li>
+</ol>
+<p>创建 LOGO：</p>
+<ol>
+<li>创建一个新的精灵 <span style="background-color:#d9d9d9">Sprite</span>。</li>
+<li>将它的坐标改为 <span style="background-color:#d9d9d9">(0, 2, 0)</span>。</li>
+<li>大小为 <span style="background-color:#d9d9d9">(0.75, 0.75, 1)</span>。</li>
+</ol>
+<p>你应该得到如下结果：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/result1.png"></p>
+<p>当然了，你可以加上你的名字，游戏介绍，甚至笑话和动画。菜单是一片自由的大陆。时刻记着：玩家总是想尽可能快的开始游戏。</p>
+<h1 id="脚本">脚本 </h1><p> 现在我们将要添加一个开始游戏按钮，通过脚本方式。</p>
+<p>在 “Scripts” 文件夹中创建一个新脚本 “MenuScript”，然后将它附加到 “Scripts” 游戏对象上。</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment">/// &lt;summary&gt;</span>
+<span class="comment">/// Title screen script</span>
+<span class="comment">/// &lt;/summary&gt;</span>
+<span class="keyword">public</span> <span class="keyword">class</span> MenuScript : MonoBehaviour
+{<span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span><span class="params">()</span>
+  </span>{<span class="keyword">const</span> <span class="keyword">int</span> buttonWidth = <span class="number">84</span>;
+    <span class="keyword">const</span> <span class="keyword">int</span> buttonHeight = <span class="number">60</span>;
+
+    <span class="comment">// Determine the button's place on screen</span>
+    <span class="comment">// Center in X, 2/3 of the height in Y</span>
+    Rect buttonRect = <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>),
+          (<span class="number">2</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>),
+          buttonWidth,
+          buttonHeight
+        );
+
+    <span class="comment">// Draw a button to start the game</span>
+    <span class="keyword">if</span>(GUI.Button(buttonRect,<span class="string">"Start!"</span>))
+    {<span class="comment">// On Click, load the first level.</span>
+      <span class="comment">// "Stage1" is the name of the first scene we created.</span>
+      Application.LoadLevel(<span class="string">"Stage1"</span>);
+    }
+  }
+}
+</code></pre><p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">关于语法：</span>是的，这里的语法是 <a href="http://docs.unity3d.com/Documentation/ScriptReference/GUI.Button.html" target="_blank" rel="external"> 有点怪</a>。</div></strong></p>
+<p>我们绘制了一个按钮，当玩家点击它的时候，会加载场景 “Stage1”。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span> <span style="background-color:#FFFFFF">OnGUI</span> 方法在每一帧中被调用，并且应该把所有与显示 GUI 元素有关的代码都放到此方法中：生命条、菜单、交互界面等等。<span style="background-color:#FFFFFF">GUI</span> 对象允许你快速通过脚本来创建一个 GUI 组件，就像带着 <span style="background-color:#FFFFFF">GUI.Button</span> 方法的按钮。</div></strong></p>
+<p>好，现在我们运行游戏来看看我们牛 X 的菜单吧：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/result2.png"></p>
+<p>点击按钮然后……崩溃了！</p>
+<blockquote>
+<p>Level ‘Stage1’ (-1) couldn’t be loaded because it has not been added to the build settings. To add a level to the build settings use the menu File-&gt;Build Settings…</p>
+</blockquote>
+<p>我们要做的就是明白错误信息的含意。</p>
+<h1 id="添加要打包的场景">添加要打包的场景 </h1><p> 打开 “File” → “Build Settings”：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/build_settings.png"></p>
+<p>现在，拖拽所有你想打包的场景。这里非常简单：就是 “Menu” 和 “Stage1”。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/build_settings_add.png"></p>
+<p>返回菜单界面，然后点击 “Start!” 运行游戏。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/start.gif"></p>
+<div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"><strong>小技巧：</strong></span><strong>方法 <span style="background-color:#FFFFFF">Application.LoadLevel()</span> 的作用就是将当前的场景清空，并且重新实例化所有的游戏对象。但是有时候，你想保持一个游戏对象从第一个场景到第二个场景（比如在两个菜单切换间保持音乐的连续），那又该怎么办呢？</strong><br><br><strong>在 Unity 提供了一个方法 <span style="background-color:#FFFFFF">DontDestroyOnLoad(aGameObject)</span> 用来实现上面所说的例子。只要在一个游戏对象上调用它，就不用担心在创建新场景时将它清除了。实事上，它是根本不会被清除掉。所以如果你想在未来的某个场景中清除它，你就必须得手动清除了。</strong></div>
+
+<h1 id="主角死亡及重启游戏">主角死亡及重启游戏 </h1><p> 最后，我们要让主角在死亡以后可以重新开始游戏。就像你所看到的，这事时常发生（我们将在未来的教程中“简化”游戏）。</p>
+<p>现在我们的游戏流程如下：</p>
+<ol>
+<li>主角被子弹击中。</li>
+<li><span style="background-color:#d9d9d9">HealthScript.OnCollisionEnter</span> 被调用。</li>
+<li>主角失去 1 点生命值。</li>
+<li>当主角的生命值小于 1 点时，脚本”HealthScript”将摧毁主角。</li>
+</ol>
+<p>我们还要新增两个步骤：</p>
+<ol>
+<li><span style="background-color:#d9d9d9">PlayerScript.OnDestroy</span> 被调用。</li>
+<li>创建一个 “GameOverScript” 脚本，并将它添加到场景中。</li>
+</ol>
+<p>在 “Scripts” 文件夹中创建一个新脚本 “GameOverScript” 。</p>
+<p>下面是一小段代码，用来显示 “Restart” 和 “Back to Menu” 按钮：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment">/// &lt;summary&gt;</span>
+<span class="comment">/// Start or quit the game</span>
+<span class="comment">/// &lt;/summary&gt;</span>
+<span class="keyword">public</span> <span class="keyword">class</span> GameOverScript : MonoBehaviour
+{<span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span><span class="params">()</span>
+  </span>{<span class="keyword">const</span> <span class="keyword">int</span> buttonWidth = <span class="number">120</span>;
+    <span class="keyword">const</span> <span class="keyword">int</span> buttonHeight = <span class="number">60</span>;
+
+    <span class="keyword">if</span> (
+      GUI.Button(<span class="comment">// Center in X, 1/3 of the height in Y</span>
+        <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>),
+          (<span class="number">1</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>),
+          buttonWidth,
+          buttonHeight
+        ),
+        <span class="string">"Retry!"</span>
+      )
+    )
+    {<span class="comment">// Reload the level</span>
+      Application.LoadLevel(<span class="string">"Stage1"</span>);
+    }
+
+    <span class="keyword">if</span> (
+      GUI.Button(<span class="comment">// Center in X, 2/3 of the height in Y</span>
+        <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>),
+          (<span class="number">2</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>),
+          buttonWidth,
+          buttonHeight
+        ),
+        <span class="string">"Back to menu"</span>
+      )
+    )
+    {<span class="comment">// Reload the level</span>
+      Application.LoadLevel(<span class="string">"Menu"</span>);
+    }
+  }
+}
+</code></pre><p>这和我们第一个写的脚本是完全一样的，只不过这里是两个按钮。</p>
+<p>现在，在脚本 “PlayerScript” 中，我们必须在主角死亡时执行下面一段代码：</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">OnDestroy</span><span class="params">()</span>
+</span>{<span class="comment">// Game Over.</span>
+  <span class="comment">// Add the script to the parent because the current game</span>
+  <span class="comment">// object is likely going to be destroyed immediately.</span>
+  transform.parent.gameObject.AddComponent&lt;GameOverScript&gt;();}
+</code></pre><p>运行游戏并让主角去死（这应该不会花很长时间）：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/game_over.png"></p>
+<p>你可以在场景的某个地方找到这个脚本，如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/game_over_script.png"></p>
+<p>当然了，这个界面还可以再优化，比如说显示分数，添加动画等等。</p>
+<p>但是至少游戏可以玩了 :)</p>
+<h1 id="“这太丑了，我的眼睛都要瞎了”">“这太丑了，我的眼睛都要瞎了”</h1><p>糟糕！</p>
+<p>如果你想优化一下这个丑爆的 UI，你可以创建 “GUI Skin”。</p>
+<ul>
+<li>“Assets” → “Create” → “Gui Skin”，如下图：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/menus/-img/gui_skin.png"></li>
+</ul>
+<p>在“检视(Inspector)”面板中，你可以通过调整 UI 选项来得到一些奇妙的效果。请确保将 skin 保存在 “Resources” 文件夹中。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>在 Unity 中，”Resources” 文件夹非常特殊。在这个文件夹中的所有文件都会和游戏一起打包并且可以通过 <span style="background-color:#FFFFFF">Resources.Load()</span> 方法来加载。<br>这样可以允许在游戏运行时加载游戏对象，并且这些对象可以是来自你的用户（就像 mod 一样？）。</div></strong></p>
+<p>不论怎样，skin 不会被应用直到你在脚本中设置它们。</p>
+<p>在我们所有之前的 GUI 脚本中，我们必须通过 <span style="background-color:#d9d9d9">GUI.skin = Resources.Load(“GUISkin”);</span> 来加载（只加载一次，而不是每一帧）skin 。</p>
+<p>下面是一个在 “MenuScript” 中的例子（观察  <span style="background-color:#d9d9d9">Start()</span> 方法）：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment">/// &lt;summary&gt;</span>
+<span class="comment">/// Title screen script</span>
+<span class="comment">/// &lt;/summary&gt;</span>
+<span class="keyword">public</span> <span class="keyword">class</span> MenuScript : MonoBehaviour
+{<span class="keyword">private</span> GUISkin skin;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+  </span>{<span class="comment">// Load a skin for the buttons</span>
+    skin = Resources.Load(<span class="string">"GUISkin"</span>) as GUISkin;
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span><span class="params">()</span>
+  </span>{<span class="keyword">const</span> <span class="keyword">int</span> buttonWidth = <span class="number">128</span>;
+    <span class="keyword">const</span> <span class="keyword">int</span> buttonHeight = <span class="number">60</span>;
+
+    <span class="comment">// Set the skin to use</span>
+    GUI.skin = skin;
+
+    <span class="comment">// Draw a button to start the game</span>
+    <span class="keyword">if</span> (GUI.Button(<span class="comment">// Center in X, 2/3 of the height in Y</span>
+      <span class="keyword">new</span> Rect(Screen.width / <span class="number">2</span> - (buttonWidth / <span class="number">2</span>), (<span class="number">2</span> * Screen.height / <span class="number">3</span>) - (buttonHeight / <span class="number">2</span>), buttonWidth, buttonHeight),
+      <span class="string">"START"</span>
+      ))
+    {<span class="comment">// On Click, load the first level.</span>
+      Application.LoadLevel(<span class="string">"Stage1"</span>); <span class="comment">// "Stage1" is the scene name</span>
+    }
+  }
+}
+</code></pre><p>就如你所看到的，这是一件量大并且枯燥的工作，而且做出来的菜单看起来死笨死笨的。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>如果你不差钱，并且在你的游戏中有大量的菜单和文本，可以考虑买一个 <a href="http://www.tasharen.com/?page_id=140" target="_blank" rel="external">NGUI</a> 插件吧，非常值，真的。</div></strong></p>
+<h1 id="下一步">下一步 </h1><p> 我们学习了如何制作必须的菜单界面。</p>
+<p>看看我们到目前为止都完成了些什么：</p>
+<ul>
+<li>使用 3 个背景层完成了视差效果。</li>
+<li>大量的粒子！</li>
+<li>标题界面。</li>
+<li>画面和音效。</li>
+<li>有一个主角和许多敌人的飞行射击游戏。</li>
+</ul>
+<p>恭喜你！但是很不幸运的是，这个游戏目前只能在你自己的电脑上玩。如果要去销售我们的这款超值游戏的话，我们还需要发布它。</p>
+<p>这就是我们在下一章中将要探讨的内容：发布。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">菜单 —— 开始游戏及重启游戏</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href=]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [10/10]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%2010/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 10/</id>
+    <published>2015-09-25T01:16:35.000Z</published>
+    <updated>2015-09-25T07:25:49.887Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px">打包并发布</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/deployment/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/deployment/</a></span></strong></p>
+<p>游戏已经完成了。我们最后必须做的事情就是创建一个安装包并把它发布出去。这篇教程将很短，因为使用 Unity 打包并发布游戏非常的简单。</p>
+<h1 id="打包设置">打包设置 </h1><p> 打包工作在一个窗口中就可以完成，我们之前也打开过这个窗口。</p>
+<p>重新打开 “File” → “Build Settings” 窗口。</p>
+<p>在左边，你可以选择一个打包的平台。当左边选择好后，就会在右边出现一个进行具体设定的窗口。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/platforms.png"></p>
+<p>选择你想打包的平台，然后点击 “Build &amp; Run” 按钮。</p>
+<p>让我们试试打一个 Web Player 平台的包吧：</p>
+<ol>
+<li>在 “Platform” 中选择 “Web Player”。</li>
+<li>打包游戏。</li>
+<li>你将会观察到：打包将产生一个植入了游戏的 HTML 页面。</li>
+<li>运行游戏试试。</li>
+</ol>
+<p>这是第一个并且也是最简单的方式来打包你的游戏，你只需要在服务器上放置这两个文件，就可以让其他人玩到你的游戏了。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/web_result.png"></p>
+<h1 id="游戏运行平台设置">游戏运行平台设置 </h1><p> 你可能需要为特定的平台调整一些设置（比如分辨率，游戏名称或其他一些资源）。</p>
+<p>你可以在 “Player Settings” 面板中完成这些工作：</p>
+<ul>
+<li>“File” → “Build Settings” → “Player Settings”<br>或者：</li>
+<li>“Edit” → “Project Settings” → “Player”</li>
+</ul>
+<p>下面，我们将 web player 的分辨率设定为 1280 × 780：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/player_settings.png"></p>
+<h1 id="在_Windows,_Mac_和_Linux_平台上发布游戏">在 Windows, Mac 和 Linux 平台上发布游戏 </h1><p> 对于在这些平台上的发布游戏，并没有太多要说的。通过选择 “PC, Mac &amp; Linux Standalone” 选项，你将可以选择一个特定的平台来发布你的游戏。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/pc_target.png"></p>
+<p>这几乎就是全部了！在打包和发布游戏上，Unity 真是太帅了。</p>
+<h1 id="针对苹果用户的附加内容：在_IOS_上发布游戏">针对苹果用户的附加内容：在 IOS 上发布游戏 </h1><p> 移动开发稍微有些复杂。你必须安装了你想要打包平台的最新版本 SDK（官方开发工具）。</p>
+<p>这也就意味着你需要一个 Mac OS X（苹果操作通讯员）来打包你的 IOS 游戏。</p>
+<p>我们将看一看打包 IOS 游戏的流程。这个流程可能对安卓也适用。</p>
+<p>首先，在打包界面中选择 “IOS”。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/ios_build.png"></p>
+<p>打开 “Player settings” 面板并修改一些参数（比如最低版本的 SDK、图标等等）。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">小技巧：</span>如果你想在模拟器上测试，这里有个小技巧。在 IOS “Player Settins” 中，找到 “SDK version” 选项。然后选择 “Simulator SDK”：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/ios_simulator_mini.png"></div></strong></p>
+<p>打包项目，Unity 会提示你选择一个目录：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/ios_build_2.png"></p>
+<p>事实上，Unity 已经生成了 Xcode 项目：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/ios_project_xcode.png"></p>
+<p>这就是为什么你需要安装所有开发工具的原因了，除非你不想在 IOS 设备上或模拟器上运行游戏。</p>
+<p>使用 Xcode 打开 .xcodeproj 文件。幸运的是，现在我们已经没有太多要做的了，除了运行项目：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/ios_xcode.png"></p>
+<p>试着运行游戏。它应该会在模拟器中运行。例如说，在 iPad 上：<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/ios_result.png"></p>
+<p>运行完美！</p>
+<p>精灵都显示正常，游戏也加载完毕……但是游戏还是不能玩，因为没有添加触摸控制（使用当前的设置，你只能点触屏幕发射子弹）。</p>
+<p>分辨率和方向的问题也没有处理。</p>
+<p>最后，如果你有一个真实的设备，你会发现游戏表现很差。</p>
+<p>这就是为什么说在移动平台上发布游戏不容易了：你需要为智能手机和平板电脑优化和调整你的游戏。</p>
+<h1 id="每种平台的资源质量">每种平台的资源质量 </h1><p> 对于某些资源来说，你可能需要针对平台来设定一个较低（或较高）的资源质量。</p>
+<p>例如看看图片。你可以为移动设备降低图片质量，但是如果在台式机上的话，就不需要修改。<br><img src="http://pixelnest.io/tutorials/2d-game-unity/deployment/-img/texture_specific_quality.png"></p>
+<p>你必须时刻记着，在你开发的最终阶段，一定要进行调试和优化。</p>
+<h1 id="下一步……呃，等等">下一步……呃，等等 </h1><p> 就这样吧。你做到了。开发已经完成了。你可能感觉自己还没有完全做好准备来自己开发一个 2D 游戏，但事实上你已经准备好了。你现在需要的是时间和敬业精神。</p>
+<p>看看下一篇，也是最后一篇教程吧 :)</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px">打包并发布</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pi]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[【译】Unity 制作 2D 飞行射击游戏 [结语]]]></title>
+    <link href="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity%E5%88%B6%E4%BD%9C2D%E9%A3%9E%E8%A1%8C%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%20-%2011/"/>
+    <id>http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 11/</id>
+    <published>2015-09-25T01:16:34.000Z</published>
+    <updated>2015-09-25T07:59:51.605Z</updated>
+    <content type="html"><![CDATA[<p><span style="color:#2ca6cb; font-size:32px"> 结语 </span></p>
+<p><strong><span style="color:black; font-size:17px"> 原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/conclusion/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/conclusion/</a></span></strong></p>
+<p> 就到这里吧。</p>
+<h1 id="现在我该做什么？"> 现在我该做什么？</h1><p> 在不久的将来，我们将发布一些关于其他主题的深入探讨（例如更高层次的游戏玩法，或者新的动画制作工具）。</p>
+<p> 但是目前，做什么是你自己说了算的，你开始的真正的项目要做什么，也取决于你自己。</p>
+<p> 最后一步？<br><img src="http://pixelnest.io/tutorials/2d-game-unity/conclusion/-img/last.png"></p>
+<p> 剩下的时间都是你的了……</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF"> 最后的小提示？</span> 使用一个版本控制工具吧（比如 Git, Mercurial 或者 SVN），即便就你一个人在进行开发工作。你不会后悔的。</div></strong></p>
+<p> 如果你喜欢这篇教程的话，你可能想要：</p>
+<ul>
+<li> 加我们的 <a href="https://twitter.com/pixelnest" target="_blank" rel="external">Twitter</a> 或 <a href="https://www.facebook.com/pixelneststudio" target="_blank" rel="external">Facebook</a>。</li>
+<li> 加作者好友：<a href="https://twitter.com/valryon" target="_blank" rel="external">Damien</a> 和 <a href="https://twitter.com/solarsailer" target="_blank" rel="external">Matthieu</a>。</li>
+<li> 使用 <a href="http://feedpress.me/pixelnest" target="_blank" rel="external">RSS feed</a> 订阅我们。</li>
+<li> 反馈给我们你的感想？:)</li>
+</ul>
+<p> 非常感谢阅读本篇教程！我们希望你很享受本教程，并且你从这里可以学到实在的知识，来制作你自己炫酷的游戏！</p>
+<div style="background-color:#d9d9d9; padding:17px;"><strong> 译者后记：<br> 呼……经过一周的工作，总算完成了这篇教程的翻译工作。这里再次说声抱歉，译文中一定有一些内容翻译的不是很到位，甚至有的语句也不是很通顺（包括语法上的和逻辑上的），如果你发现了这些不正确的内容，请行举手之劳，在下方留言，我会尽快更正，以便让更多的新手学到知识。</strong><br><br><strong> 在此后的一周内，我将会继续翻译如下内容：<br><br>1. 在 Unity 中制作动画 <br>2. 为游戏添加触摸控制 </strong><br><br><strong>27 号就是中秋节了，26、27 号我肯定不在家，有什么问题直接留言即可，再次谢谢大家！下次再会。</strong></div>]]></content>
+    <summary type="html">
+    <![CDATA[<p><span style="color:#2ca6cb; font-size:32px"> 结语 </span></p>
+<p><strong><span style="color:black; font-size:17px"> 原文链接：<a href="http://pi]]>
+    </summary>
+    
+      <category term="Unity2D新手教程" scheme="http://www.newatlantisgames.net/categories/Unity2D%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   

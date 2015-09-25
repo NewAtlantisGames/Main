@@ -1,0 +1,914 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>【译】Unity 制作 2D 飞行射击游戏 [6/10] | NewAtlantisGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Lei Lavas">
+    
+
+    
+    <meta name="description" content="背景的视差滚动
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/
+到目前为止，我们已经创建了一个有着主角和敌人的静态场景，这确实有些枯燥。现在我们就来美化一下我们的背景和场景。
+有一个存在于 2D 游戏中，并且已经有 15 年历史的特效，那就是“视差滚动(parallax scrolling)”。
+简短的说，这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【译】Unity 制作 2D 飞行射击游戏 [6/10]">
+<meta property="og:url" content="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 6/index.html">
+<meta property="og:site_name" content="NewAtlantisGames">
+<meta property="og:description" content="背景的视差滚动
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/
+到目前为止，我们已经创建了一个有着主角和敌人的静态场景，这确实有些枯燥。现在我们就来美化一下我们的背景和场景。
+有一个存在于 2D 游戏中，并且已经有 15 年历史的特效，那就是“视差滚动(parallax scrolling)”。
+简短的说，这">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/camera_use.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/planes.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/scrolling1.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling_definition.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling.png">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/camera_moving_along.gif">
+<meta property="og:image" content="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/enemy_spawn.png">
+<meta property="og:updated_time" content="2015-09-25T07:25:00.677Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【译】Unity 制作 2D 飞行射击游戏 [6/10]">
+<meta name="twitter:description" content="背景的视差滚动
+原文链接：http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/
+到目前为止，我们已经创建了一个有着主角和敌人的静态场景，这确实有些枯燥。现在我们就来美化一下我们的背景和场景。
+有一个存在于 2D 游戏中，并且已经有 15 年历史的特效，那就是“视差滚动(parallax scrolling)”。
+简短的说，这">
+
+    
+    <link rel="alternative" href="/atom.xml" title="NewAtlantisGames" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/icon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/grouplogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/grouplogo.png">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?12e16f3e220c8c67d78c205dc4eca514";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="NewAtlantisGames" title="NewAtlantisGames"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="NewAtlantisGames">NewAtlantisGames</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于作者</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:www.newatlantisgames.net">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 6/" title="【译】Unity 制作 2D 飞行射击游戏 [6/10]" itemprop="url">【译】Unity 制作 2D 飞行射击游戏 [6/10]</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Lei Lavas" target="_blank" itemprop="author">Lei Lavas</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-25T01:16:39.000Z" itemprop="datePublished"> 发表于 2015-09-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#理论部分：在我们的游戏中定义滚动"><span class="toc-number">1.</span> <span class="toc-text">理论部分：在我们的游戏中定义滚动 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#我们想要什么移动起来？"><span class="toc-number">1.1.</span> <span class="toc-text">我们想要什么移动起来？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷新敌人"><span class="toc-number">1.2.</span> <span class="toc-text">刷新敌人 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图层"><span class="toc-number">1.3.</span> <span class="toc-text">图层 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实践部分：一头扎进代码里"><span class="toc-number">2.</span> <span class="toc-text">实践部分：一头扎进代码里</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的滚动"><span class="toc-number">2.1.</span> <span class="toc-text">简单的滚动 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景循环滚动"><span class="toc-number">2.2.</span> <span class="toc-text">背景循环滚动 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“RendererExtensions”_脚本"><span class="toc-number">2.3.</span> <span class="toc-text">“RendererExtensions” 脚本 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整的_“ScrollingScript”_脚本"><span class="toc-number">2.4.</span> <span class="toc-text">完整的 “ScrollingScript” 脚本 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附加内容：优化现存脚本"><span class="toc-number">3.</span> <span class="toc-text">附加内容：优化现存脚本 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#刷新敌人脚本_v2"><span class="toc-number">3.1.</span> <span class="toc-text">刷新敌人脚本 v2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将主角限制在摄像机边缘内"><span class="toc-number">3.2.</span> <span class="toc-text">将主角限制在摄像机边缘内 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">4.</span> <span class="toc-text">下一步 </span></a></li></ol>
+		
+		</div>
+		
+		<p><span style="color:#2ca6cb; font-size:32px">背景的视差滚动</span></p>
+<p><strong><span style="color:black; font-size:17px">原文链接：<a href="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/" target="_blank" rel="external">http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/</a></span></strong></p>
+<p>到目前为止，我们已经创建了一个有着主角和敌人的静态场景，这确实有些枯燥。现在我们就来美化一下我们的背景和场景。</p>
+<p>有一个存在于 2D 游戏中，并且已经有 15 年历史的特效，那就是“<a href="http://en.wikipedia.org/wiki/Parallax_scrolling" target="_blank" rel="external">视差滚动(parallax scrolling)</a>”。</p>
+<p>简短的说，这个特效就是让背景以不同的速度移动（也就是，越远的图层，移动速度越慢）。如果处理得当，这将让人有一种视差的错觉。这是一种很好，很强大，并且很容易实现的效果。</p>
+<p>除此以外，很多的飞行射击游戏只在一个方向轴上滚动 —— 更或者是在更多的方向轴上（除了最原始的那个游戏，<a href="http://en.wikipedia.org/wiki/Space_Invaders" target="_blank" rel="external">Space Invaders</a>）。</p>
+<p>让我们在 Unity 中实现这个特效吧。</p>
+<h1 id="理论部分：在我们的游戏中定义滚动">理论部分：在我们的游戏中定义滚动 </h1><p> 在我们的游戏中如何添加这样一种滚动效果，并且我们想要达到一种什么样的效果，这都需要好好的想想。</p>
+<p>在编写代码前思考是非常好的习惯。</p>
+<h2 id="我们想要什么移动起来？">我们想要什么移动起来？</h2><p>我们做出了如下的决定：</p>
+<ol>
+<li>第一种选择：主角和摄像机移动，其他的东西固定不动。</li>
+<li>第二种选择：主角和摄像机固定不动，其他的东西动起来。</li>
+</ol>
+<p>如果你使用的是摄像机的 <span style="background-color:#d9d9d9">透视模式</span> 的话，不用想，肯定是第一种选择更好。因为视差的定义就是：背景元素拥有更深的深度，它们在后边并且看起来移动得很慢。</p>
+<p>但在 Unity 中制作标准的 2D 游戏，我们使用的是摄像机的 <span style="background-color:#d9d9d9">正交模式</span> 。在这种渲染模式下，场景并没有深度可言。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">关于摄像机：</span>想想摄像机对象中的“投射模式 (Projection)”属性。它在我们的游戏中被设置为  <span style="background-color:#FFFFFF"> 正交模式 </span> 。<br><span style="background-color:#FFFFFF"> 透视模式 </span> 摄像机就是一个标准的有透视效果的 3D 摄像机。而 <span style="background-color:#FFFFFF"> 正交模式 </span> 摄像机在渲染游戏对象时都在同一个深度，没有透视效果，这个对于显示 UI 或着 2D 游戏来说，非常有用</div></strong></p>
+<p>为了在我们的游戏中添加视差滚动效果，解决方案融合了以上两种选择。我们将有两种滚动：</p>
+<ul>
+<li>主角将跟随摄像机一起向前移动。</li>
+<li>背景和其他元素以不同的速度移动（除了摄像机）。</li>
+</ul>
+<div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF"><strong>注意：</strong></span><strong>你也许会问：“为什么不将摄像机设为主角的子对象？”事实上，在 Unity 中，如果你将一个对象（包括摄像机）设为另一个对象的子对象，这个对象将保持它与父对象之间的位置关系。所以如果摄像机是主角的子对象并且是居中的话，摄像机就会一直以主角为中心并跟着主角移动。这样可能也算是一种解决方案吧，但是这可不是我们游戏中想要的效果。</strong><br><br><strong>在飞行射击游戏中，摄像机会限制主角的移动范围。如果摄像机可以跟随主角在垂直和水平方向上任意移动，那么主角的移动范围将没有限制。这里我们只想让主角在一个固定的范围内移动。</strong><br><br><strong>我们推荐在 2D 游戏中始终让摄像机保持独立。甚至在平台跳跃类游戏中，摄像机也不会死死得粘着主角：只有主角移动一定的范围后，摄像机才会跟上去。《超级玛丽》就是一个很好的例子。<a href="http://www.youtube.com/watch?v=TCIMPYM0AQg" target="_blank" rel="external">你可以看看它是怎样做的</a>。</strong></div>
+
+<h2 id="刷新敌人">刷新敌人 </h2><p> 为我们的游戏添加滚动是非常重要的，特别是对敌人来说。目前，当游戏一开始，敌人就开始移动并且射击。不论怎样，我们希望它们可以等待并且在出现在屏幕内之前是无敌的。</p>
+<p>我们应该如何刷新敌人？很明显这取决于游戏自身。你可以定义一个事件，当敌人已经预刷新完毕后，你就触发这个事件来刷新敌人。</p>
+<p>下面是我们将要做的：我们直接在场景中摆放好我们的章鱼（通过拖拽 Prefab 到场景面板中）。默认情况下，章鱼们是静止的并且无敌，直到摄像机显示它们。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/camera_use.png"></p>
+<p>这里通过使用 Unity 编辑器来摆放敌人，这是一个不错的主意。你没看错：在 Unity 中你什么都不用做，你已经有了一个关卡编辑器了。</p>
+<p><a href="http://gamedev.stackexchange.com/questions/2712/enemy-spawning-method-in-a-top-down-shooter" target="_blank" rel="external">再次声明，这只是个选择，并不科学</a> ;)</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>经过我们认真的思考后，决定把 Unity 编辑器当做关卡编辑器，因为这是非常高效的。除非你有时间又有钱，而且还有专门的关卡设计师和专业的工具。</div></strong></p>
+<h2 id="图层">图层 </h2><p> 首先，我们要定义我们的每个图层各要显示什么，它们是否要循环显示。当游戏运行时，一个可循环的背景将会一遍又一遍地循环显示。例如显示天空时使用循环就非常有用。</p>
+<p>现在我们为背景的元素添加一个新的显示图层。</p>
+<p>我们将有如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图层</th>
+<th style="text-align:center">是否循环</th>
+<th style="text-align:center">坐标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">天空背景</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">(0, 0, 10)</td>
+</tr>
+<tr>
+<td style="text-align:center">背景（第一排飞行的平台）</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">(0, 0, 9)</td>
+</tr>
+<tr>
+<td style="text-align:center">背景（第二排飞行的平台）</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">(0, 0, 5)</td>
+</tr>
+<tr>
+<td style="text-align:center">主角和敌人所在的前景</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">(0, 0, 0)</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/planes.png"></p>
+<p>我们也可以想像一下在主角之前还有一些图层。只要将 Z 轴数值保持在 [0, 10] 之间，除非你想去调整摄像机。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">千万要注意了：</span>如果你在前景之前添加了图层的话，一定要注意可见性。很多游戏不会这么做因为这将会减少游戏的清晰度（译者注：比如挡住主角或敌人）。</div></strong></p>
+<h1 id="实践部分：一头扎进代码里">实践部分：一头扎进代码里</h1><p>OK，我们现在已经知道如何在游戏中实现视差滚动了。</p>
+<p><strong><div style="background-color:#d9d9d9; padding:17px;"><span style="color:#FFFFFF">你知道吗？</span>“滚动射击游戏(Scrolling shooters)”是飞行射击游戏的别称。</div></strong></p>
+<p>我们已经想好了，现在是实践的时候了！</p>
+<p>Unity 在它自带的标准包 (standard packages) 中已经包含了视差滚动的相关代码（看看资源商店 (Asset Store) 中的 2D 平台跳跃游戏的例子吧）。</p>
+<p><strong><div style="background-color:#f5d87d; padding:17px;"><span style="color:#FFFFFF">关于标准包：</span>标准包中的内容是十分实用的，但是注意别滥用它们。因为使用标准包会阻碍你思考，并且使你的游戏毫无特色。</div></strong></p>
+<h2 id="简单的滚动">简单的滚动 </h2><p> 我们先从简单的内容开始：滚动背景（没有循环）。</p>
+<p>还记得我们之前用过的 “MoveScript” 脚本吗？基本原理都是一样的：速度和方向随着时间而变化。</p>
+<p>创建一个新的脚本 “ScrollingScript” ：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Parallax scrolling script that should be assigned to a layer</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScrollingScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Scrolling speed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">2</span>, <span class="number">2</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Moving direction</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 direction = <span class="keyword">new</span> Vector2(-<span class="number">1</span>, <span class="number">0</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Movement should be applied to camera</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isLinkedToCamera = <span class="keyword">false</span>;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Movement</span>
+    Vector3 movement = <span class="keyword">new</span> Vector3(
+      speed.x * direction.x,
+      speed.y * direction.y,
+      <span class="number">0</span>);
+
+    movement *= Time.deltaTime;
+    transform.Translate(movement);
+
+    <span class="comment">// Move the camera</span>
+    <span class="keyword">if</span> (isLinkedToCamera)
+    {Camera.main.transform.Translate(movement);
+    }
+  }
+}
+</code></pre><p>把脚本附加到如下的对象上，并将按照表中相应的值来设置脚本：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图层</th>
+<th style="text-align:center">速度</th>
+<th style="text-align:center">方向</th>
+<th style="text-align:center">是否与摄像机绑定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0 - Background</td>
+<td style="text-align:center">(1, 1)</td>
+<td style="text-align:center">(-1, 0, 0)</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">1 - Background elements</td>
+<td style="text-align:center">(1.5, 1.5)</td>
+<td style="text-align:center">(-1, 0, 0)</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">2 - Middleground</td>
+<td style="text-align:center">(2.5, 2.5)</td>
+<td style="text-align:center">(-1, 0, 0)</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">3 - Foreground</td>
+<td style="text-align:center">(1, 1)</td>
+<td style="text-align:center">(1, 0, 0)</td>
+<td style="text-align:center">是</td>
+</tr>
+</tbody>
+</table>
+<p>为了确保效果，向场景中再添加如下元素：</p>
+<ul>
+<li>再添加一个 <a href="http://pixelnest.io/tutorials/2d-game-unity/background-and-camera/-img/background.png" target="_blank" rel="external">backgournd</a>。</li>
+<li>在图层 <span style="background-color:#d9d9d9">1 - Background elements</span> 中添加一些小平台。</li>
+<li>将所有平台移动到图层 <span style="background-color:#d9d9d9">2 - Middleground</span> 中。</li>
+<li>将所有敌人移动到图层 <span style="background-color:#d9d9d9">3 - Foreground</span> 的右侧，距摄像机远一些。</li>
+</ul>
+<p>最后效果：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/scrolling1.gif"></p>
+<p>真不错！但是我们看到当敌人还在摄像机外时就开始移动和射击了！</p>
+<p>并且，当敌人越过主角后，就再也不会出现了（在游戏运行时切换到“场景(Scene)”面板并缩小画面，你将会在左边看到：章鱼还在移动）。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">注意：</span>你可以尝试调整一下各个变量的值 :)</div></strong></p>
+<p>我们将在迟些时候修复这些问题。现在首先要做的是，我们要使背景循环起来。</p>
+<h2 id="背景循环滚动">背景循环滚动 </h2><p> 为了得到循环的背景，我们唯一需要关注的是循环图层最左边的子对象。</p>
+<p>当此对象超过摄像机的左边缘时，我们将它移动至图层的右边，不确定这样做是否可行。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling_definition.png"></p>
+<p>对于填充图片的图层来说，你需要注意它的最小尺寸需要覆盖摄像机全部的显示范围，这样我们就不能看到背景更后面的东西了。本教程中使用了 3 个天空背景图片，但是这是随意弄的，并没有考虑过优化。</p>
+<p>你需要在你的游戏中找到一个在资源数量和灵活性之间的平衡点。</p>
+<p>在本教程中，我们使用的办法是获取图层中的所有子对象并检测它们是否在摄像机中被渲染（译者注：即被显示）。</p>
+<p><strong><div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF">使用渲染器组件时需要注意的：</span>这个方法对不可见的对象没用（比如只是为了附加脚本而创建的对象）。</div></strong></p>
+<p>我们将使用一个很方便的方法来判断对象是否在摄像机中被显示。我们在 the community wiki 中找到的这个方法。它既不是一个类也不是一个脚本，而是一个 C# 扩展。</p>
+<p><strong><div style="background-color:#8bd259; padding:17px;"><span style="color:#FFFFFF">关于扩展：</span>C# 语言允许你使用扩展方法来扩充一个类，并且不需要此类的基础代码。<br>创建一个带初参数的静态方法通常都以此开头：<span style="background-color:#FFFFFF">this Type currentInstance</span> 。<span style="background-color:#FFFFFF">Type</span> 类将可以在任何你可使用此类的地方使用此新方法。<br>在扩展方法中，你可以在当前的实例中通过使用 <span style="background-color:#FFFFFF">currentInstance</span> 参数代替 <span style="background-color:#FFFFFF">this</span> 来调用此扩展方法。</div></strong></p>
+<h2 id="“RendererExtensions”_脚本">“RendererExtensions” 脚本 </h2><p> 创建一个名为 “RendererExtensions.cs” 的脚本并且填充以下代码：</p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">RendererExtensions</span>
+{<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsVisibleFrom</span>(<span class="params"><span class="keyword">this</span> Renderer renderer, Camera camera</span>)
+  </span>{Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+    <span class="keyword">return</span> GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+  }
+}
+</code></pre><p>这很简单，不是吗？</p>
+<div style="background-color:#f67b64; padding:17px;"><span style="color:#FFFFFF"><strong>命名空间：</strong></span><strong>当你在“项目 (Project)”面板中创建脚本时，你可能已经注意到 Unity 并没有添加命名空间 <span style="background-color:#FFFFFF">MonoBehaviour</span> 。但是 Unity 还是处理了命名空间……除非当你在方法参数上使用默认值，这点很糟糕。</strong><br><br><strong> 在本教程中，我们根本没有用到命名空间。不管怎样，在你正式的项目中，你或许会用到它们。如果没有的话，给你的类及行为加上前缀，以免与第三方类库发生冲突（比如 NGUI）。</strong></div>
+
+<p>我们将要在最左边的背景上调用上面的脚本方法。</p>
+<h2 id="完整的_“ScrollingScript”_脚本">完整的 “ScrollingScript” 脚本 </h2><p> 观察下面完整的脚本 “ScrollingScript” （脚本下方有注释）；</p>
+<pre><code><span class="keyword">using</span> System.Collections.Generic;
+<span class="keyword">using</span> System.Linq;
+<span class="keyword">using</span> UnityEngine;
+
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Parallax scrolling script that should be assigned to a layer</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScrollingScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Scrolling speed</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 speed = <span class="keyword">new</span> Vector2(<span class="number">10</span>, <span class="number">10</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Moving direction</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> Vector2 direction = <span class="keyword">new</span> Vector2(-<span class="number">1</span>, <span class="number">0</span>);
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> Movement should be applied to camera</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isLinkedToCamera = <span class="keyword">false</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> 1 - Background is infinite</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">public</span> <span class="keyword">bool</span> isLooping = <span class="keyword">false</span>;
+
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+  <span class="comment"><span class="xmlDocTag">///</span> 2 - List of children with a renderer.</span>
+  <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+  <span class="keyword">private</span> List&lt;Transform&gt; backgroundPart;
+
+  <span class="comment">// 3 - Get all the children</span>
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{<span class="comment">// For infinite background only</span>
+    <span class="keyword">if</span> (isLooping)
+    {<span class="comment">// Get all the children of the layer with a renderer</span>
+      backgroundPart = <span class="keyword">new</span> List&lt;Transform&gt;();
+
+      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; transform.childCount; i++)
+      {Transform child = transform.GetChild(i);
+
+        <span class="comment">// Add only the visible children</span>
+        <span class="keyword">if</span> (child.renderer != <span class="keyword">null</span>)
+        {backgroundPart.Add(child);
+        }
+      }
+
+      <span class="comment">// Sort by position.</span>
+      <span class="comment">// <span class="doctag">Note:</span> Get the children from left to right.</span>
+      <span class="comment">// We would need to add a few conditions to handle</span>
+      <span class="comment">// all the possible scrolling directions.</span>
+      backgroundPart = backgroundPart.OrderBy(t =&gt; t.position.x).ToList();}
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Movement</span>
+    Vector3 movement = <span class="keyword">new</span> Vector3(
+      speed.x * direction.x,
+      speed.y * direction.y,
+      <span class="number">0</span>);
+
+    movement *= Time.deltaTime;
+    transform.Translate(movement);
+
+    <span class="comment">// Move the camera</span>
+    <span class="keyword">if</span> (isLinkedToCamera)
+    {Camera.main.transform.Translate(movement);
+    }
+
+    <span class="comment">// 4 - Loop</span>
+    <span class="keyword">if</span> (isLooping)
+    {<span class="comment">// Get the first object.</span>
+      <span class="comment">// The list is ordered from left (x position) to right.</span>
+      Transform firstChild = backgroundPart.FirstOrDefault();
+
+      <span class="keyword">if</span> (firstChild != <span class="keyword">null</span>)
+      {<span class="comment">// Check if the child is already (partly) before the camera.</span>
+        <span class="comment">// We test the position first because the IsVisibleFrom</span>
+        <span class="comment">// method is a bit heavier to execute.</span>
+        <span class="keyword">if</span> (firstChild.position.x &lt; Camera.main.transform.position.x)
+        {<span class="comment">// If the child is already on the left of the camera,</span>
+          <span class="comment">// we test if it's completely outside and needs to be</span>
+          <span class="comment">// recycled.</span>
+          <span class="keyword">if</span> (firstChild.renderer.IsVisibleFrom(Camera.main) == <span class="keyword">false</span>)
+          {<span class="comment">// Get the last child position.</span>
+            Transform lastChild = backgroundPart.LastOrDefault();
+            Vector3 lastPosition = lastChild.transform.position;
+            Vector3 lastSize = (lastChild.renderer.bounds.max - lastChild.renderer.bounds.min);
+
+            <span class="comment">// Set the position of the recyled one to be AFTER</span>
+            <span class="comment">// the last child.</span>
+            <span class="comment">// <span class="doctag">Note:</span> Only work for horizontal scrolling currently.</span>
+            firstChild.position = <span class="keyword">new</span> Vector3(lastPosition.x + lastSize.x, firstChild.position.y, firstChild.position.z);
+
+            <span class="comment">// Set the recycled child to the last position</span>
+            <span class="comment">// of the backgroundPart list.</span>
+            backgroundPart.Remove(firstChild);
+            backgroundPart.Add(firstChild);
+          }
+        }
+      }
+    }
+  }
+}
+</code></pre><p><em>（代码注释中的数字对应下方的代码详解）</em></p>
+<p><span style="color:#d9d9d9; font-size:23px">代码详解</span></p>
+<ol>
+<li>我们需要一个公共变量以便在“检视(Inspector)”面板中开启“循环”模式。</li>
+<li>我们也需要用一个私有变量来存储图层的子对象。</li>
+<li>在 <span style="background-color:#d9d9d9">Start()</span> 方法中，我们将带有渲染器的多个子对象赋给了列表 <span style="background-color:#d9d9d9">backgroundPart</span> 。多亏了 <a href="http://msdn.microsoft.com/fr-fr/library/bb397926.aspx" target="_blank" rel="external">LINQ</a>，我们通过它们的 <span style="background-color:#d9d9d9">X</span> 坐标来排序并且把最左边的对象放在数组列表的首位。</li>
+<li>在 <span style="background-color:#d9d9d9">Update()</span> 方法中，如果 <span style="background-color:#d9d9d9">isLooping</span> 被赋值为 <span style="background-color:#d9d9d9">true</span>，我们将取到列表 <span style="background-color:#d9d9d9">backgroundPart</span> 中的第一个子对象，然后我们检测它是否完全的离开摄像机的显示区域，如果是的话，我们将它在场景中的位置移动到最后一个（即最右边）。最后，我们将它放在列表 <span style="background-color:#d9d9d9">backgroundPart</span> 的最后边。</li>
+</ol>
+<p>事实上，列表 <span style="background-color:#d9d9d9">backgroundPart</span> 中元素位置的变化和场景中的变化是一致的。</p>
+<p>记得在“检视（Inspector）”面板中勾选上 <span style="background-color:#d9d9d9">0 - Background</span> 附加脚本 “ScrollingScript” 中的 “Is Looping” 选项。否则，循环不会执行。</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling.png"><br><em>（<a href="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/infinite_scrolling.gif" target="_blank" rel="external">点击查看动画演示</a>）</em></p>
+<p>Yeah！我们终于有了一个运行的“视差”解决方案了。</p>
+<div style="background-color:#73c1ec; padding:17px;"><span style="color:#FFFFFF"><strong>注意：</strong></span><strong>为什么我们不用 <span style="background-color:#FFFFFF">OnBecameVisible()</span> 和 <span style="background-color:#FFFFFF">OnBecameInvisible()</span> 方法呢？因为它们是有问题的。</strong><br><br><strong>这两个方法的本意是在对象被摄像机渲染后（或者反之）执行一段代码。它们就像 <span style="background-color:#FFFFFF">Start()</span> 或 <span style="background-color:#FFFFFF">Stop()</span> 方法一样（如果你需要 Stop() 的话，简单地将其添加到 <span style="background-color:#FFFFFF">MonoBehaviour</span> 中，然后 Unity 就可以使用它了）。</strong><br><br><strong>这两个方法的问题是当对象被 Unity 编辑器的“场景(Scene)”窗口渲染后，它们也会被调用。这将意味着我们在 Unity 编辑器和打包好的游戏中所看到的行为是不一样的（无论在什么平台上），这是危险而且荒谬的，所以我们强烈建议不使用这两个方法。</strong></div>
+
+<h1 id="附加内容：优化现存脚本">附加内容：优化现存脚本 </h1><p> 让我们来更新一下前面的脚本吧。</p>
+<h2 id="刷新敌人脚本_v2">刷新敌人脚本 v2</h2><p>我们早先说过敌人应该被禁用，直到摄像机显示它们。</p>
+<p>同时它们也应该在离开屏幕的时候被移除。</p>
+<p>我们需要更新一下脚本 “EnemyScript”，然后脚本可以：</p>
+<ol>
+<li>禁用移动、碰撞盒及自动开火（当敌人完成初始化后）。</li>
+<li>检测敌人的渲染器是否进入摄像机的视野内。</li>
+<li>自行启动。</li>
+<li>当对象离开摄像机视野后自行销毁。</li>
+</ol>
+<p>（脚本注释中的数字将在脚本下方有详细解释）<br>    using UnityEngine;</p>
+<pre><code><span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span>
+<span class="comment"><span class="xmlDocTag">///</span> Enemy generic behavior</span>
+<span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnemyScript</span> : <span class="title">MonoBehaviour</span>
+{<span class="keyword">private</span> <span class="keyword">bool</span> hasSpawn;
+  <span class="keyword">private</span> MoveScript moveScript;
+  <span class="keyword">private</span> WeaponScript[] weapons;
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>(<span class="params"></span>)
+  </span>{<span class="comment">// Retrieve the weapon only once</span>
+    weapons = GetComponentsInChildren&lt;WeaponScript&gt;();
+
+    <span class="comment">// Retrieve scripts to disable when not spawn</span>
+    moveScript = GetComponent&lt;MoveScript&gt;();}
+
+  <span class="comment">// 1 - Disable everything</span>
+  <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+  </span>{hasSpawn = <span class="keyword">false</span>;
+
+    <span class="comment">// Disable everything</span>
+    <span class="comment">// -- collider</span>
+    collider2D.enabled = <span class="keyword">false</span>;
+    <span class="comment">// -- Moving</span>
+    moveScript.enabled = <span class="keyword">false</span>;
+    <span class="comment">// -- Shooting</span>
+    <span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+    {weapon.enabled = <span class="keyword">false</span>;
+    }
+  }
+
+  <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+  </span>{<span class="comment">// 2 - Check if the enemy has spawned.</span>
+    <span class="keyword">if</span> (hasSpawn == <span class="keyword">false</span>)
+    {<span class="keyword">if</span> (renderer.IsVisibleFrom(Camera.main))
+      {Spawn();
+      }
+    }
+    <span class="keyword">else</span>
+    {<span class="comment">// Auto-fire</span>
+      <span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+      {<span class="keyword">if</span> (weapon != <span class="keyword">null</span> &amp;&amp; weapon.enabled &amp;&amp; weapon.CanAttack)
+        {weapon.Attack(<span class="keyword">true</span>);
+        }
+      }
+
+      <span class="comment">// 4 - Out of the camera ? Destroy the game object.</span>
+      <span class="keyword">if</span> (renderer.IsVisibleFrom(Camera.main) == <span class="keyword">false</span>)
+      {Destroy(gameObject);
+      }
+    }
+  }
+
+  <span class="comment">// 3 - Activate itself.</span>
+  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Spawn</span>(<span class="params"></span>)
+  </span>{hasSpawn = <span class="keyword">true</span>;
+
+    <span class="comment">// Enable everything</span>
+    <span class="comment">// -- Collider</span>
+    collider2D.enabled = <span class="keyword">true</span>;
+    <span class="comment">// -- Moving</span>
+    moveScript.enabled = <span class="keyword">true</span>;
+    <span class="comment">// -- Shooting</span>
+    <span class="keyword">foreach</span> (WeaponScript weapon <span class="keyword">in</span> weapons)
+    {weapon.enabled = <span class="keyword">true</span>;
+    }
+  }
+}
+</code></pre><p>运行游戏。是的，有一个 Bug。</p>
+<p>禁用脚本 “MoveScript”，因为它产生了一个负面影响：主角永远接触不到敌人，因为所有敌人都跟随图层 <span style="background-color:#d9d9d9">3 - Foreground</span> 一起滚动：</p>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/camera_moving_along.gif"></p>
+<p>请记住：我们已经为这个图层添加了脚本 “ScrollingScript”，以使摄像机跟随主角移动。</p>
+<p>但是有一个简单的解决办法：将脚本 “ScrollingScript” 从图层 <span style="background-color:#d9d9d9">3 - Foreground</span> 移动到主角上！</p>
+<p>为什么呢？因为在此图层中唯一移动的物体就是主角了，并且这个脚本并不是只针对某一种游戏对象。</p>
+<p>按下 “Play” 按钮并且观察：一切运行正常。</p>
+<ol>
+<li>敌人一直处在禁用状态直到它们被刷新（也就是说，直到摄像机移动到它们的位置）。</li>
+<li>当敌人移动出摄像机外后，它们会消失。</li>
+</ol>
+<p><img src="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/enemy_spawn.png"><br><em>（<a href="http://pixelnest.io/tutorials/2d-game-unity/parallax-scrolling/-img/enemy_spawn.gif" target="_blank" rel="external">点击察看发生了什么</a>）</em></p>
+<h2 id="将主角限制在摄像机边缘内">将主角限制在摄像机边缘内 </h2><p> 你可能已经发现了目前主角还没有被限制在摄像机的显示范围之内。运行游戏，一直按下左方向键，你就会看到主角消失在屏幕内。</p>
+<p>我们必须修复这个问题。</p>
+<p>打开脚本 “PlayerScript”，在 “Update()” 方法的最后添加如下代码：</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span>
+  </span>{<span class="comment">// ...</span>
+
+    <span class="comment">// 6 - Make sure we are not outside the camera bounds</span>
+    var dist = (transform.position - Camera.main.transform.position).z;
+
+    var leftBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">0</span>, dist)
+    ).x;
+
+    var rightBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">0</span>, dist)
+    ).x;
+
+    var topBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">0</span>, dist)
+    ).y;
+
+    var bottomBorder = Camera.main.ViewportToWorldPoint(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">1</span>, dist)
+    ).y;
+
+    transform.position = <span class="keyword">new</span> Vector3(Mathf.Clamp(transform.position.x, leftBorder, rightBorder),
+      Mathf.Clamp(transform.position.y, topBorder, bottomBorder),
+      transform.position.z
+    );
+
+    <span class="comment">// End of the update method</span>
+  }
+</code></pre><p>新增的代码没什么需要解释的，只是比较啰嗦而已。</p>
+<p>我们取得摄像机的边缘并且确保主角的位置（以主角精灵的中心为准）始终在显示范围内。</p>
+<p>尝试调整代码并运行游戏以获得更好的理解。</p>
+<h1 id="下一步">下一步 </h1><p> 我们有了可以滚动的飞行射击游戏了！</p>
+<p>我们学习了如何给游添加一个滚动机制，以获得视差效果。不管怎样，目前的代码只支持从右向左滚动。但是运用你新学到的知识，你可以将游戏进一步的优化以使其可以向任意的方向滚动（附加内容：<a href="https://gist.github.com/Valryon/7547513" target="_blank" rel="external">我们已经做了这个，因为有人说自己卡在这儿了，点击这里察看代码及演示动画</a>）。</p>
+<p>当然，我们的游戏仍需要做出一些调整以使其更具有可玩性。比如说：</p>
+<ul>
+<li>缩小精灵的大小。</li>
+<li>调整主角和敌人的速度。</li>
+<li>添加更多的敌人。</li>
+<li>让游戏变得有趣。</li>
+</ul>
+<p>我们将会在未来的章节中详细说明上面几个关于游戏调整的要点（很不幸，还没有完成。不过正好你可以趁此时间自己实践一下）。</p>
+<p>在下一章中，我们将把注意力放在如何使我们的游戏更……炫酷。我们将学习如何玩转粒子系统！</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Unity2D新手教程/">Unity2D新手教程</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 6/" data-title="【译】Unity 制作 2D 飞行射击游戏 [6/10] | NewAtlantisGames" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 5/" title="【译】Unity 制作 2D 飞行射击游戏 [5/10]">
+  <strong>上一篇：</strong><br/>
+  <span>
+  【译】Unity 制作 2D 飞行射击游戏 [5/10]</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 7/"  title="【译】Unity 制作 2D 飞行射击游戏 [7/10]">
+ <strong>下一篇：</strong><br/> 
+ <span>【译】Unity 制作 2D 飞行射击游戏 [7/10]
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 6/" data-title="【译】Unity 制作 2D 飞行射击游戏 [6/10]" data-url="http://www.newatlantisgames.net/2015/09/25/undefined/undefined/undefined/Unity制作2D飞行射击游戏 - 6/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#理论部分：在我们的游戏中定义滚动"><span class="toc-number">1.</span> <span class="toc-text">理论部分：在我们的游戏中定义滚动 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#我们想要什么移动起来？"><span class="toc-number">1.1.</span> <span class="toc-text">我们想要什么移动起来？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刷新敌人"><span class="toc-number">1.2.</span> <span class="toc-text">刷新敌人 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图层"><span class="toc-number">1.3.</span> <span class="toc-text">图层 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实践部分：一头扎进代码里"><span class="toc-number">2.</span> <span class="toc-text">实践部分：一头扎进代码里</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单的滚动"><span class="toc-number">2.1.</span> <span class="toc-text">简单的滚动 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#背景循环滚动"><span class="toc-number">2.2.</span> <span class="toc-text">背景循环滚动 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“RendererExtensions”_脚本"><span class="toc-number">2.3.</span> <span class="toc-text">“RendererExtensions” 脚本 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整的_“ScrollingScript”_脚本"><span class="toc-number">2.4.</span> <span class="toc-text">完整的 “ScrollingScript” 脚本 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附加内容：优化现存脚本"><span class="toc-number">3.</span> <span class="toc-text">附加内容：优化现存脚本 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#刷新敌人脚本_v2"><span class="toc-number">3.1.</span> <span class="toc-text">刷新敌人脚本 v2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将主角限制在摄像机边缘内"><span class="toc-number">3.2.</span> <span class="toc-text">将主角限制在摄像机边缘内 </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下一步"><span class="toc-number">4.</span> <span class="toc-text">下一步 </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">文章分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Unity2D新手教程/" title="Unity2D新手教程">Unity2D新手教程<sup>12</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">团队作品</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://android.myapp.com/myapp/detail.htm?apkName=com.newatlantis.intodark" target="_blank" title="IntoDark">IntoDark</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 现在不为自己一直的梦想拼博 <br/>
+			以后回想起来，一定会后悔不己</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:4newatlantis@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Lei Lavas">Lei Lavas</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"NewAtlantisGames"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F12e16f3e220c8c67d78c205dc4eca514' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
